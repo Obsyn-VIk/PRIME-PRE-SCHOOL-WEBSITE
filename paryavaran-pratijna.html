@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पर्यावरण प्रतिज्ञा | प्रायमा डिजिटल बालवाडी · मंगळवेढा</title>
+<meta name="description" content="प्रायमा पूर्व प्राथमिक विद्यालय — पर्यावरण प्रतिज्ञा. भारत माझा देश, निसर्गाचे रक्षण करणे हे माझे कर्तव्य.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;900&family=Lilita+One&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --y:#F5C400;--yb:#D4A000;--yl:#FFF3A0;--yp:#FFFBE6;
+  --ink:#1A0F00;--ink2:#3D2000;--mid:#7A5530;
+  --cream:#FDF8EC;--off:#FAF3D8;--wh:#FFFFFF;
+  --green:#1B7A2F;--green2:#2ECC71;--green3:#E8F5E9;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Baloo 2','Noto Sans Devanagari',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;cursor:none}
+
+#cur,#cur2{position:fixed;pointer-events:none;z-index:99999;border-radius:50%;transform:translate(-50%,-50%)}
+#cur{width:14px;height:14px;background:var(--green2);mix-blend-mode:multiply;transition:width .15s,height .15s}
+#cur2{width:40px;height:40px;border:2px solid var(--green2);opacity:.5;transition:width .2s,height .2s}
+body.cbig #cur{width:26px;height:26px}
+body.cbig #cur2{width:60px;height:60px;opacity:.3}
+body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");opacity:.5}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:72px;display:flex;align-items:center;transition:background .4s,box-shadow .4s}
+#nav.solid{background:rgba(253,248,236,.95);backdrop-filter:blur(18px) saturate(180%);border-bottom:2px solid rgba(27,122,47,.2);box-shadow:0 4px 24px rgba(27,122,47,.1)}
+.nav-in{max-width:1300px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nlogo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nlogo-gem{width:44px;height:44px;background:var(--y);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.nlogo:hover .nlogo-gem{transform:rotate(-10deg) scale(1.1)}
+.nlogo-t{line-height:1.1}
+.nlogo-main{font-family:'Lilita One',sans-serif;font-size:1.2rem;color:var(--ink)}
+.nlogo-sub{font-size:.58rem;color:var(--mid);font-weight:600;font-family:'Baloo 2',sans-serif}
+.nlinks{display:flex;align-items:center;gap:.15rem;list-style:none}
+.nlinks a{font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:.85rem;color:var(--ink);text-decoration:none;padding:.5rem .85rem;border-radius:10px;transition:background .2s}
+.nlinks a:hover{background:#E8F5E9}
+.nlinks .npill{background:var(--ink);color:var(--y)!important;border-radius:12px;box-shadow:3px 3px 0 var(--yb);margin-left:.4rem;font-weight:800!important;transition:transform .2s,box-shadow .2s!important}
+.nlinks .npill:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--yb)}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:3px}
+.ham span{width:24px;height:2.5px;background:var(--ink);border-radius:3px;display:block;transition:all .3s}
+
+/* HERO — green theme */
+.phero{min-height:60vh;padding-top:72px;position:relative;overflow:hidden;display:flex;align-items:center;background:linear-gradient(150deg,#E8F5E9 0%,#F1FFF3 50%,#FFFBE6 100%)}
+.phero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 30%,rgba(27,122,47,.15) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(46,204,113,.12) 0%,transparent 45%);pointer-events:none}
+.hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(27,122,47,.2) 1.2px,transparent 1.2px);background-size:34px 34px}
+/* floating leaf blobs */
+.bleaf{position:absolute;border-radius:50%;pointer-events:none;filter:blur(60px)}
+.bl1{width:500px;height:500px;top:-150px;right:-80px;background:radial-gradient(circle,rgba(46,204,113,.3) 0%,transparent 70%);animation:drift 10s ease-in-out infinite}
+.bl2{width:350px;height:350px;bottom:-80px;left:-50px;background:radial-gradient(circle,rgba(27,122,47,.2) 0%,transparent 70%);animation:drift 13s ease-in-out infinite reverse 2s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(20px,-18px) scale(1.05)}66%{transform:translate(-15px,22px) scale(.95)}}
+.phero-in{max-width:1300px;width:100%;margin:0 auto;padding:3rem 2rem;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.phero-chip{display:inline-flex;align-items:center;gap:.5rem;background:var(--green);color:var(--wh);padding:.4rem 1.1rem;border-radius:50px;font-size:.78rem;font-weight:800;font-family:'Baloo 2',sans-serif;margin-bottom:1.4rem;box-shadow:4px 4px 0 var(--ink);animation:chipIn .6s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes chipIn{from{opacity:0;transform:scale(.4) rotate(-12deg)}to{opacity:1;transform:none}}
+.phero-h1{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(2.4rem,4vw,3.8rem);line-height:1.06;color:var(--ink);margin-bottom:.9rem;animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .1s both}
+@keyframes slideUp{from{opacity:0;transform:translateY(36px) skewY(2deg)}to{opacity:1;transform:none}}
+.hl-green{position:relative;color:var(--green)}
+.hl-green::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:4px;background:var(--green2);border-radius:3px}
+.phero-p{font-family:'Tiro Devanagari Marathi',serif;font-style:italic;font-size:1.05rem;color:var(--mid);line-height:1.85;max-width:520px;animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .2s both;margin-bottom:2rem}
+
+/* hero right — pledge card preview */
+.pledge-preview{background:var(--wh);border-radius:28px;border:3px solid var(--green);box-shadow:12px 12px 0 var(--green);overflow:hidden;animation:cardIn .9s cubic-bezier(.22,.68,0,1.2) .25s both}
+@keyframes cardIn{from{opacity:0;transform:translateX(40px) scale(.95)}to{opacity:1;transform:none}}
+.pp-stripe{height:7px;background:repeating-linear-gradient(90deg,var(--green2) 0,var(--green2) 18px,var(--green) 18px,var(--green) 20px)}
+.pp-body{padding:1.75rem}
+.pp-label{font-family:'Baloo 2',sans-serif;font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:1rem}
+.pp-items{display:flex;flex-direction:column;gap:.6rem}
+.pp-item{display:flex;align-items:center;gap:.75rem;background:#F1FFF3;border-radius:12px;padding:.75rem 1rem;border:1.5px solid rgba(46,204,113,.3);font-family:'Noto Sans Devanagari',sans-serif;font-size:.85rem;color:var(--ink);font-weight:700;transition:all .25s}
+.pp-item:hover{border-color:var(--green);background:#E8F5E9;transform:translateX(4px)}
+.pp-item .pp-em{font-size:1.2rem;flex-shrink:0}
+
+/* MARQUEE */
+.mwrap{background:var(--green);overflow:hidden;padding:.75rem 0;border-top:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);position:relative;z-index:5}
+.mtrack{display:flex;width:max-content;animation:ticker 30s linear infinite}
+.mtrack:hover{animation-play-state:paused}
+.mi{display:flex;align-items:center;gap:.55rem;padding:0 2.2rem;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.85rem;color:var(--wh);white-space:nowrap}
+.md{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4);flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SHARED */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.rvl{opacity:0;transform:translateX(-28px);transition:opacity .65s ease,transform .65s ease}
+.rvr{opacity:0;transform:translateX(28px);transition:opacity .65s ease,transform .65s ease}
+.rv.in,.rvl.in,.rvr.in{opacity:1;transform:none}
+.eyebrow{display:inline-flex;align-items:center;gap:.45rem;background:var(--green);color:var(--wh);padding:.38rem 1rem;border-radius:8px;font-size:.75rem;font-weight:900;font-family:'Baloo 2',sans-serif;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);margin-bottom:1.2rem}
+.sec-h{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(1.9rem,3.5vw,2.9rem);color:var(--ink);line-height:1.1;margin-bottom:.9rem}
+.sec-p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1rem;color:var(--mid);line-height:1.8;max-width:620px}
+
+/* PLEDGE SECTION */
+.pledge-sec{padding:6rem 2rem;background:var(--wh)}
+.pledge-in{max-width:1200px;margin:0 auto}
+.pledge-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.5rem}
+.pledge-card{
+  background:var(--green3);
+  border-radius:24px;border:2.5px solid var(--green);
+  box-shadow:6px 6px 0 var(--ink);
+  padding:2rem;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  position:relative;overflow:hidden;
+}
+.pledge-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:5px;background:var(--green);border-radius:5px 0 0 5px}
+.pledge-card:hover{transform:translate(-4px,-4px);box-shadow:10px 10px 0 var(--ink);background:#D8F0DC}
+.pc-emoji{font-size:2.5rem;margin-bottom:.85rem;display:block;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.pledge-card:hover .pc-emoji{transform:scale(1.15) rotate(-8deg)}
+.pc-title{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1rem;color:var(--green);margin-bottom:.5rem}
+.pc-text{font-family:'Noto Sans Devanagari',sans-serif;font-size:.9rem;color:var(--ink);line-height:1.8;font-weight:600}
+.pc-pledge{font-family:'Tiro Devanagari Marathi',serif;font-style:italic;font-size:.85rem;color:var(--green);margin-top:.6rem;line-height:1.75;border-top:1.5px dashed rgba(27,122,47,.3);padding-top:.6rem}
+
+/* BIG PLEDGE CARD */
+.pledge-card.big{grid-column:1/3;background:linear-gradient(135deg,#E8F5E9,#F1FFF3);display:flex;gap:2rem;align-items:center}
+.pledge-card.big .pc-text{font-size:1rem;line-height:1.85}
+.pledge-card.big .pc-emoji{font-size:4rem;flex-shrink:0}
+
+/* DARK PLEDGE CARD */
+.pledge-card.dark{background:var(--green);border-color:var(--ink)}
+.pledge-card.dark::before{background:var(--y)}
+.pledge-card.dark .pc-title{color:var(--wh)}
+.pledge-card.dark .pc-text{color:rgba(255,255,255,.9)}
+.pledge-card.dark .pc-pledge{color:var(--yl);border-top-color:rgba(255,255,255,.2)}
+
+/* INDIA SECTION */
+.india-sec{padding:6rem 2rem;background:linear-gradient(165deg,#E8F5E9 0%,var(--cream) 65%);position:relative;overflow:hidden}
+.india-sec::after{content:'🇮🇳';position:absolute;right:-2rem;top:50%;transform:translateY(-50%) rotate(10deg);font-size:18rem;opacity:.05;pointer-events:none}
+.india-in{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.india-intro{max-width:800px;margin:0 auto 3rem;text-align:center}
+.india-intro p{font-family:'Tiro Devanagari Marathi',serif;font-style:italic;font-size:1.05rem;color:var(--mid);line-height:1.9;margin-bottom:1rem}
+.india-items{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.india-item{
+  background:var(--wh);border-radius:20px;
+  padding:1.6rem;border:2.5px solid var(--ink);
+  box-shadow:5px 5px 0 var(--ink);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+}
+.india-item:hover{transform:translateY(-6px);background:#E8F5E9;box-shadow:7px 9px 0 var(--ink)}
+.ii-icon{font-size:2.2rem;margin-bottom:.7rem;display:block;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.india-item:hover .ii-icon{transform:scale(1.2) rotate(-6deg)}
+.ii-text{font-family:'Noto Sans Devanagari',sans-serif;font-size:.9rem;color:var(--ink);line-height:1.75;font-weight:600}
+.ii-text strong{color:var(--green)}
+
+/* FULL PLEDGE DARK BAND */
+.full-pledge-band{background:var(--green);padding:6rem 2rem;position:relative;overflow:hidden}
+.full-pledge-band::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 28px,rgba(255,255,255,.03) 28px,rgba(255,255,255,.03) 29px)}
+.fp-in{max-width:900px;margin:0 auto;position:relative;z-index:1;text-align:center}
+.fp-in .eyebrow{background:var(--y);color:var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.fp-h{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(2rem,3.5vw,2.8rem);color:var(--wh);line-height:1.15;margin-bottom:1rem}
+.fp-content{display:flex;flex-direction:column;gap:1.1rem;margin-top:2.5rem;text-align:left}
+.fp-line{
+  display:flex;align-items:flex-start;gap:1rem;
+  background:rgba(255,255,255,.1);
+  border-radius:16px;padding:1.2rem 1.5rem;
+  border:1.5px solid rgba(255,255,255,.2);
+  transition:all .3s;
+}
+.fp-line:hover{background:rgba(255,255,255,.18);transform:translateX(5px)}
+.fp-line-em{font-size:1.5rem;flex-shrink:0}
+.fp-line-text{font-family:'Noto Sans Devanagari',sans-serif;font-size:.95rem;color:rgba(255,255,255,.9);line-height:1.75;font-weight:600}
+.fp-line-text strong{color:var(--yl)}
+
+/* CTA */
+.cta-strip{background:var(--y);padding:4.5rem 2rem;border-top:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);position:relative;overflow:hidden}
+.cta-strip::before{content:'🌿';position:absolute;font-size:18rem;opacity:.06;right:-3rem;top:-4rem;pointer-events:none;animation:spinSlow 35s linear infinite}
+@keyframes spinSlow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.cta-in{max-width:1300px;margin:0 auto;position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.cta-left h2{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(1.8rem,3vw,2.4rem);color:var(--ink);line-height:1.15;margin-bottom:.5rem}
+.cta-left p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1rem;color:var(--ink2);line-height:1.7}
+.cta-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-blk{display:inline-flex;align-items:center;gap:.55rem;background:var(--ink);color:var(--y);padding:.95rem 2rem;border-radius:16px;font-weight:900;font-size:1rem;text-decoration:none;font-family:'Noto Sans Devanagari',sans-serif;border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--yb);transition:all .18s cubic-bezier(.34,1.56,.64,1)}
+.btn-blk:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--yb)}
+.btn-green{display:inline-flex;align-items:center;gap:.55rem;background:var(--green);color:var(--wh);padding:.95rem 2rem;border-radius:16px;font-weight:900;font-size:1rem;text-decoration:none;font-family:'Noto Sans Devanagari',sans-serif;border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transition:all .18s cubic-bezier(.34,1.56,.64,1)}
+.btn-green:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink)}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:4rem 2rem 0}
+.ft-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.ft-logo{font-family:'Lilita One',sans-serif;font-size:2rem;color:var(--y);margin-bottom:.4rem}
+.ft-sub{font-family:'Noto Sans Devanagari',sans-serif;font-size:.86rem;margin-bottom:.2rem}
+.ft-tiny{font-size:.7rem;color:rgba(255,255,255,.3);font-family:'Baloo 2',sans-serif}
+.ft-h{font-family:'Baloo 2',sans-serif;font-weight:900;font-size:.73rem;color:var(--y);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem}
+.ft-links{display:flex;flex-direction:column;gap:.45rem}
+.ft-links a{color:rgba(255,255,255,.62);text-decoration:none;font-size:.88rem;font-family:'Noto Sans Devanagari',sans-serif;transition:color .2s}
+.ft-links a:hover{color:var(--y)}
+.ft-ct p{font-size:.86rem;font-family:'Noto Sans Devanagari',sans-serif;margin-bottom:.45rem}
+.ft-ct a{color:#FFF3A0;text-decoration:none}
+.ft-ct a:hover{color:var(--y)}
+.ft-btm{max-width:1300px;margin:0 auto;padding:1.4rem 0;text-align:center;font-size:.73rem;color:rgba(255,255,255,.22);font-family:'Baloo 2',sans-serif}
+
+@media(max-width:1060px){
+  .phero-in{grid-template-columns:1fr}.pledge-preview{display:none}
+  .pledge-grid{grid-template-columns:1fr}
+  .pledge-card.big{grid-column:1;flex-direction:column}
+  .india-items{grid-template-columns:1fr 1fr}
+  .ft-grid{grid-template-columns:1fr;gap:2rem}
+}
+@media(max-width:720px){
+  .nlinks{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(253,248,236,.97);backdrop-filter:blur(18px);flex-direction:column;padding:1.4rem;border-bottom:2px solid var(--y);gap:.25rem}
+  .nlinks.open{display:flex}.ham{display:flex}
+  .india-items{grid-template-columns:1fr}
+  .cta-in{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur2"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nlogo">
+      <div class="nlogo-gem">🌟</div>
+      <div class="nlogo-t"><div class="nlogo-main">प्रायमा</div><div class="nlogo-sub">पूर्व प्राथमिक विद्यालय · मंगळवेढा</div></div>
+    </a>
+    <ul class="nlinks" id="nlinks">
+      <li><a href="index.html">🏠 मुख्यपृष्ठ</a></li>
+      <li><a href="about.html">📖 आमच्याबद्दल</a></li>
+      <li><a href="admissions.html">✏️ प्रवेश</a></li>
+      <li><a href="gallery.html">📸 गॅलरी</a></li>
+      <li><a href="contact.html">📞 संपर्क</a></li>
+      <li><a href="admissions.html" class="npill">प्रवेश घ्या →</a></li>
+    </ul>
+    <button class="ham" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="phero">
+  <div class="bleaf bl1"></div><div class="bleaf bl2"></div>
+  <div class="hero-dots"></div>
+  <div class="phero-in">
+    <div>
+      <div class="phero-chip">🌿 पर्यावरण प्रतिज्ञा · प्रायमा विद्यार्थी</div>
+      <h1 class="phero-h1">
+        मी <span class="hl-green">पर्यावरण</span><br>
+        राखीन!
+      </h1>
+      <p class="phero-p">
+        भारत माझा देश आहे. ही भारतभूमी वैविध्यपूर्ण वनसंपदेने समृद्ध आहे.
+        या समृद्ध आणि सुंदर निसर्गाचे रक्षण करणे हे माझे कर्तव्य आहे.
+      </p>
+    </div>
+    <div class="pledge-preview">
+      <div class="pp-stripe"></div>
+      <div class="pp-body">
+        <div class="pp-label">🌿 आमची प्रतिज्ञा — एक नजरेत</div>
+        <div class="pp-items">
+          <div class="pp-item"><span class="pp-em">🌳</span>मी एकही झाड तोडणार नाही</div>
+          <div class="pp-item"><span class="pp-em">💧</span>पाण्याचा जपून वापर करीन</div>
+          <div class="pp-item"><span class="pp-em">⚡</span>वीज बचतीसाठी मी कटिबद्ध आहे</div>
+          <div class="pp-item"><span class="pp-em">🗑️</span>कचरा कुंडीतच टाकेन</div>
+          <div class="pp-item"><span class="pp-em">🌍</span>जल-वायू-ध्वनी प्रदूषण होऊ देणार नाही</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mwrap"><div class="mtrack">
+  <span class="mi">🌳 मी एकही झाड तोडणार नाही</span><span class="md"></span>
+  <span class="mi">💧 पाणी हीच आपली राष्ट्रीय संपत्ती आहे</span><span class="md"></span>
+  <span class="mi">⚡ वीज बचतीसाठी मी कटिबद्ध आहे</span><span class="md"></span>
+  <span class="mi">🗑️ घरातला कचरा कचरा कुंडीत टाकेन</span><span class="md"></span>
+  <span class="mi">🌍 मी पर्यावरणाचे रक्षण करीन</span><span class="md"></span>
+  <span class="mi">🌿 उलट माझ्या वाढदिवसाला नवीन झाड लावीन</span><span class="md"></span>
+  <span class="mi">🌳 मी एकही झाड तोडणार नाही</span><span class="md"></span>
+  <span class="mi">💧 पाणी हीच आपली राष्ट्रीय संपत्ती आहे</span><span class="md"></span>
+  <span class="mi">⚡ वीज बचतीसाठी मी कटिबद्ध आहे</span><span class="md"></span>
+  <span class="mi">🗑️ घरातला कचरा कचरा कुंडीत टाकेन</span><span class="md"></span>
+  <span class="mi">🌍 मी पर्यावरणाचे रक्षण करीन</span><span class="md"></span>
+  <span class="mi">🌿 उलट माझ्या वाढदिवसाला नवीन झाड लावीन</span><span class="md"></span>
+</div></div>
+
+<!-- PLEDGE CARDS -->
+<section class="pledge-sec">
+  <div class="pledge-in">
+    <div style="text-align:center">
+      <div class="eyebrow rv" style="margin:0 auto 1.2rem">🌿 पर्यावरण प्रतिज्ञा</div>
+      <h2 class="sec-h rv">आमच्या विद्यार्थ्यांची प्रतिज्ञा</h2>
+      <p class="sec-p rv" style="margin:0 auto">प्रायमाचा प्रत्येक विद्यार्थी या प्रतिज्ञा मनापासून पाळतो — निसर्गाशी आपले नाते जपतो.</p>
+    </div>
+
+    <div class="pledge-grid">
+      <!-- BIG INTRO CARD -->
+      <div class="pledge-card big rv">
+        <span class="pc-emoji">🇮🇳</span>
+        <div>
+          <div class="pc-title">भारत माझा देश</div>
+          <div class="pc-text">ही भारतभूमी वैविध्यपूर्ण वनसंपदेने समृद्ध आहे. या भारतभूमीत वसलेले हिमालय, जंगले, पर्वत, नद्या, तळी, सरोवरे, धरणे ही आधुनिक भारताची तीर्थस्थाने आहेत.</div>
+          <div class="pc-pledge">या भारतभूमीतील समृद्ध आणि सुंदर निसर्गाचे रक्षण करणे हे माझे कर्तव्य आहे. त्यासाठी मी प्रयत्न करीन.</div>
+        </div>
+      </div>
+
+      <!-- TREE CARD -->
+      <div class="pledge-card rv">
+        <span class="pc-emoji">🌳</span>
+        <div class="pc-title">झाडांचे रक्षण</div>
+        <div class="pc-text">मी एकही झाड तोडणार नाही.</div>
+        <div class="pc-pledge">उलट माझ्या वाढदिवसाला <strong>नवीन झाड लावीन.</strong></div>
+      </div>
+
+      <!-- WATER CARD -->
+      <div class="pledge-card dark rv">
+        <span class="pc-emoji">💧</span>
+        <div class="pc-title">पाण्याची बचत</div>
+        <div class="pc-text" style="color:rgba(255,255,255,.9)">मी माझ्या घरात, छपरावर पडणारा प्रत्येक थेंब माझ्या अंगणात जिरवीन. पाणी ही आपली राष्ट्रीय संपत्ती आहे.</div>
+        <div class="pc-pledge" style="color:var(--yl)">मी पाण्याचा <strong>जपून आणि काटकसरीने</strong> वापर करीन.</div>
+      </div>
+
+      <!-- ELECTRICITY CARD -->
+      <div class="pledge-card rv">
+        <span class="pc-emoji">⚡</span>
+        <div class="pc-title">वीज बचत</div>
+        <div class="pc-text">वीज बचतीसाठी मी कटिबद्ध आहे. आवश्यक नसताना मी पंखे, लाईट लावणार नाही.</div>
+        <div class="pc-pledge">घरातील प्रत्येक सदस्याला वीजबचतीची जाणीव करून देईन.</div>
+      </div>
+
+      <!-- GARBAGE CARD -->
+      <div class="pledge-card dark rv">
+        <span class="pc-emoji">🗑️</span>
+        <div class="pc-title">कचरा व्यवस्थापन</div>
+        <div class="pc-text" style="color:rgba(255,255,255,.9)">मी घरातला कचरा कचरा कुंडीत टाकेन. कापडी पिशवी वापरेन. मी माझ्या घरातील टी.व्ही.चा आवाज कमी ठेवीन.</div>
+        <div class="pc-pledge" style="color:var(--yl)">स्वच्छ घर, <strong>स्वच्छ गाव,</strong> स्वच्छ भारत!</div>
+      </div>
+
+      <!-- POLLUTION CARD -->
+      <div class="pledge-card rv">
+        <span class="pc-emoji">🌍</span>
+        <div class="pc-title">प्रदूषणमुक्त भारत</div>
+        <div class="pc-text">मी माझ्या वागणुकीने जल-वायू-ध्वनी प्रदूषण होऊ देणार नाही. मी पर्यावरणाचे रक्षण करीन.</div>
+        <div class="pc-pledge"><strong>मी पर्यावरणाचे</strong> सक्रिय रक्षक बनेन.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDIA NATURE SECTION -->
+<section class="india-sec">
+  <div class="india-in">
+    <div style="text-align:center">
+      <div class="eyebrow rv" style="margin:0 auto 1.2rem">🇮🇳 भारताची समृद्धी</div>
+      <h2 class="sec-h rv">आपला सुंदर भारत</h2>
+    </div>
+    <div class="india-intro rv">
+      <p>या भारतभूमीत वसलेले हिमालय, जंगले, पर्वत, नद्या, तळी, सरोवरे, धरणे ही आधुनिक भारताची तीर्थस्थाने आहेत.</p>
+    </div>
+    <div class="india-items">
+      <div class="india-item rv">
+        <span class="ii-icon">🏔️</span>
+        <div class="ii-text"><strong>हिमालय पर्वत</strong><br>हिमालयाचे बर्फाच्छादित शिखर आपले राष्ट्रीय वैभव. याचे संरक्षण प्रत्येक भारतीयाचे कर्तव्य.</div>
+      </div>
+      <div class="india-item rv">
+        <span class="ii-icon">🌊</span>
+        <div class="ii-text"><strong>नद्या आणि तलाव</strong><br>गंगा, यमुना, कृष्णा, गोदावरी — या पवित्र नद्यांचे जल शुद्ध ठेवणे म्हणजे <strong>राष्ट्रसेवा.</strong></div>
+      </div>
+      <div class="india-item rv">
+        <span class="ii-icon">🌳</span>
+        <div class="ii-text"><strong>वने आणि जंगले</strong><br>विविध वनसंपदा हे भारताचे वैभव. वृक्षारोपण करणे, झाडे तोडणे टाळणे हे आपले दायित्व.</div>
+      </div>
+      <div class="india-item rv">
+        <span class="ii-icon">💧</span>
+        <div class="ii-text"><strong>जल संरक्षण</strong><br>प्रत्येक थेंब अमूल्य. <strong>पाणी वाचवा, जीवन वाचवा</strong> — हाच मंत्र घेऊन जगा.</div>
+      </div>
+      <div class="india-item rv">
+        <span class="ii-icon">⚡</span>
+        <div class="ii-text"><strong>ऊर्जा बचत</strong><br>सौरऊर्जा, वाऱ्याची ऊर्जा — नवीकरणीय ऊर्जा वापरण्यास प्रोत्साहन द्या. <strong>वीज वाचवा.</strong></div>
+      </div>
+      <div class="india-item rv">
+        <span class="ii-icon">🌱</span>
+        <div class="ii-text"><strong>हरित भारत</strong><br>प्रत्येक वाढदिवसाला एक झाड लावा. <strong>हरित भारत, समृद्ध भारत</strong> — हे स्वप्न साकार करा.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL PLEDGE DARK BAND -->
+<section class="full-pledge-band">
+  <div class="fp-in">
+    <div class="eyebrow rv" style="margin:0 auto 1rem">📜 संपूर्ण पर्यावरण प्रतिज्ञा</div>
+    <h2 class="fp-h rv">आपल्या मुलांना पाठवा ही प्रतिज्ञा</h2>
+    <div class="fp-content">
+      <div class="fp-line rv">
+        <span class="fp-line-em">🇮🇳</span>
+        <div class="fp-line-text">भारत माझा देश आहे. ही भारतभूमी वैविध्यपूर्ण वनसंपदेने समृद्ध आहे. या भारतभूमीत वसलेले हिमालय, जंगले, पर्वत, नद्या, तळी, सरोवरे, धरणे ही आधुनिक भारताची तीर्थस्थाने आहेत.</div>
+      </div>
+      <div class="fp-line rv">
+        <span class="fp-line-em">🌳</span>
+        <div class="fp-line-text">या भारतभूमीतील समृद्ध आणि सुंदर निसर्गाचे रक्षण करणे हे माझे कर्तव्य आहे. त्यासाठी मी प्रयत्न करीन. <strong>मी एकही झाड तोडणार नाही,</strong> या उलट मी माझ्या वाढदिवसाला नवीन झाड लावीन.</div>
+      </div>
+      <div class="fp-line rv">
+        <span class="fp-line-em">💧</span>
+        <div class="fp-line-text">मी माझ्या घरात, छपरावर पडणारा प्रत्येक थेंब माझ्या अंगणात जिरवीन. <strong>पाणी ही आपली राष्ट्रीय संपत्ती आहे</strong> मी पाण्याचा जपून आणि काटकसरीने वापर करीन.</div>
+      </div>
+      <div class="fp-line rv">
+        <span class="fp-line-em">⚡</span>
+        <div class="fp-line-text">वीज बचतीसाठी मी कटिबद्ध आहे. <strong>आवश्यक नसताना मी पंखे, लाईट लावणार नाही.</strong></div>
+      </div>
+      <div class="fp-line rv">
+        <span class="fp-line-em">🗑️</span>
+        <div class="fp-line-text">मी घरातला कचरा कचरा कुंडीत टाकेन. कापडी पिशवी वापरेन. मी माझ्या घरातील <strong>टी.व्ही.चा आवाज कमी ठेवीन.</strong></div>
+      </div>
+      <div class="fp-line rv">
+        <span class="fp-line-em">🌍</span>
+        <div class="fp-line-text">मी माझ्या वागणुकीने <strong>जल-वायू-ध्वनी प्रदूषण होऊ देणार नाही. मी पर्यावरणाचे रक्षण करीन.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="cta-in">
+    <div class="cta-left">
+      <h2>तुमच्या मुलालाही<br>निसर्गाचा रक्षक बनवा!</h2>
+      <p>प्रायमात प्रवेश घ्या — जिथे पर्यावरण शिक्षण, योग दिन व प्रतिज्ञा यातून मुले घडतात.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="admissions.html" class="btn-blk">✏️ प्रवेश घ्या</a>
+      <a href="palak-sandesh.html" class="btn-blk" style="background:var(--wh);color:var(--ink);box-shadow:5px 5px 0 var(--ink)">💌 पालक संदेश →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-grid">
+    <div><div class="ft-logo">🌟 प्रायमा</div><div class="ft-sub">पूर्व प्राथमिक विद्यालय (डिजिटल बालवाडी)</div><div class="ft-tiny">विश्वज्योती वाणिज्य प्रशिक्षण संस्था, मंगळवेढा संचलित · Est. 1990 · शैक्षणिक वर्ष २०२६-२७</div></div>
+    <div><div class="ft-h">पृष्ठे</div><div class="ft-links"><a href="index.html">🏠 मुख्यपृष्ठ</a><a href="about.html">📖 आमच्याबद्दल</a><a href="admissions.html">✏️ प्रवेश</a><a href="gallery.html">📸 गॅलरी</a><a href="contact.html">📞 संपर्क</a><a href="palak-sandesh.html">💌 पालक संदेश</a></div></div>
+    <div class="ft-ct"><div class="ft-h">संपर्क</div><p>📍 खंडोबा गल्ली, मंगळवेढा, जि. सोलापूर</p><p>📞 <a href="tel:9890855040">98908 55040</a> | <a href="tel:9421045752">94210 45752</a></p><p>☎️ <a href="tel:02188299801">02188-299801</a></p><p>📧 <a href="mailto:primacomputer@gmail.com">primacomputer@gmail.com</a></p></div>
+  </div>
+  <div class="ft-btm">© २०२५-२६ प्रायमा पूर्व प्राथमिक विद्यालय, मंगळवेढा · www.primaedu.in · Designed with ❤️</div>
+</footer>
+
+<script>
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function lag(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(lag)})();
+document.querySelectorAll('a,button,.pledge-card,.india-item,.fp-line,.pp-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cbig'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cbig'));
+});
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('solid',scrollY>30));
+const ham=document.getElementById('ham'),nl=document.getElementById('nlinks');
+ham.addEventListener('click',()=>nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+const robs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){
+    const sibs=[...e.target.parentElement.querySelectorAll('.rv,.rvl,.rvr')];
+    const i=sibs.indexOf(e.target);
+    e.target.style.transitionDelay=(i*.07)+'s';
+    e.target.classList.add('in');
+    robs.unobserve(e.target);
+  }
+}),{threshold:.06});
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>robs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="mr">
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="admissions.html">Admissions</a>
+<a href="gallery.html">Gallery</a>
+<a href="contact.html">Contact</a>
+</nav>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>गॅलरी | प्रायमा डिजिटल बालवाडी · मंगळवेढा</title>
+<meta name="description" content="प्रायमा पूर्व प्राथमिक विद्यालयाचे उपक्रम, कार्यक्रम, विद्यार्थी आणि शाळेचे फोटो.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;900&family=Lilita+One&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --y:#F5C400;--yb:#D4A000;--yl:#FFF3A0;--yp:#FFFBE6;
+  --ink:#1A0F00;--ink2:#3D2000;--mid:#7A5530;
+  --cream:#FDF8EC;--off:#FAF3D8;--wh:#FFFFFF;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Baloo 2','Noto Sans Devanagari',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;cursor:none}
+
+#cur,#cur2{position:fixed;pointer-events:none;z-index:99999;border-radius:50%;transform:translate(-50%,-50%)}
+#cur{width:14px;height:14px;background:var(--y);mix-blend-mode:multiply;transition:width .15s,height .15s}
+#cur2{width:40px;height:40px;border:2px solid var(--y);opacity:.5;transition:width .2s,height .2s}
+body.cbig #cur{width:26px;height:26px}
+body.cbig #cur2{width:60px;height:60px;opacity:.3}
+body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");opacity:.5}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:72px;display:flex;align-items:center;transition:background .4s,box-shadow .4s}
+#nav.solid{background:rgba(253,248,236,.95);backdrop-filter:blur(18px) saturate(180%);border-bottom:2px solid rgba(245,196,0,.25);box-shadow:0 4px 24px rgba(245,196,0,.12)}
+.nav-in{max-width:1300px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nlogo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nlogo-gem{width:44px;height:44px;background:var(--y);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.nlogo:hover .nlogo-gem{transform:rotate(-10deg) scale(1.1)}
+.nlogo-t{line-height:1.1}
+.nlogo-main{font-family:'Lilita One',sans-serif;font-size:1.2rem;color:var(--ink)}
+.nlogo-sub{font-size:.58rem;color:var(--mid);font-weight:600;font-family:'Baloo 2',sans-serif}
+.nlinks{display:flex;align-items:center;gap:.15rem;list-style:none}
+.nlinks a{font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:.85rem;color:var(--ink);text-decoration:none;padding:.5rem .85rem;border-radius:10px;transition:background .2s}
+.nlinks a:hover,.nlinks a.act{background:var(--yl)}
+.nlinks .npill{background:var(--ink);color:var(--y)!important;border-radius:12px;box-shadow:3px 3px 0 var(--yb);margin-left:.4rem;font-weight:800!important;transition:transform .2s,box-shadow .2s!important}
+.nlinks .npill:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--yb);background:var(--ink)!important}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:3px}
+.ham span{width:24px;height:2.5px;background:var(--ink);border-radius:3px;display:block;transition:all .3s}
+
+/* PAGE HERO */
+.phero{min-height:58vh;padding-top:72px;position:relative;overflow:hidden;display:flex;align-items:center}
+.blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(70px)}
+.b1{width:650px;height:650px;top:-200px;right:-140px;background:radial-gradient(circle,#FFE566 0%,#F5C400 45%,transparent 70%);animation:drift 9s ease-in-out infinite}
+.b2{width:420px;height:420px;bottom:-100px;left:-60px;background:radial-gradient(circle,#FFB800 0%,#FF8C00 55%,transparent 75%);animation:drift 11s ease-in-out infinite reverse 1.5s}
+.b3{width:280px;height:280px;top:30%;left:35%;background:radial-gradient(circle,rgba(255,220,0,.4) 0%,transparent 70%);animation:drift 13s ease-in-out infinite 3s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(28px,-22px) scale(1.05)}66%{transform:translate(-18px,28px) scale(.95)}}
+.hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(180,130,0,.22) 1.2px,transparent 1.2px);background-size:34px 34px}
+.phero-in{max-width:1300px;width:100%;margin:0 auto;padding:3rem 2rem;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.phero-chip{display:inline-flex;align-items:center;gap:.5rem;background:var(--ink);color:var(--y);padding:.4rem 1.1rem;border-radius:50px;font-size:.78rem;font-weight:800;font-family:'Baloo 2',sans-serif;margin-bottom:1.4rem;box-shadow:4px 4px 0 var(--yb);animation:chipIn .6s cubic-bezier(.34,1.56,.64,1) both}
+.cpulse{width:7px;height:7px;border-radius:50%;background:var(--y);animation:pulse 2s ease-in-out infinite}
+@keyframes chipIn{from{opacity:0;transform:scale(.4) rotate(-12deg)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+.phero-h1{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(2.4rem,4vw,3.8rem);line-height:1.06;color:var(--ink);margin-bottom:.9rem;animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .1s both}
+@keyframes slideUp{from{opacity:0;transform:translateY(36px) skewY(2deg)}to{opacity:1;transform:none}}
+.hl-box{position:relative;display:inline}
+.hl-box::before{content:'';position:absolute;bottom:0;left:-3px;right:-3px;height:48%;background:var(--y);z-index:-1;border-radius:3px;transform:rotate(-.8deg)}
+.hl-wave{position:relative;color:var(--yb)}
+.hl-wave::after{content:'';position:absolute;bottom:-5px;left:0;right:0;height:5px;background:url("data:image/svg+xml,%3Csvg width='200' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4Q25 0 50 4Q75 8 100 4Q125 0 150 4Q175 8 200 4' stroke='%23F5C400' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;background-size:200px 6px;animation:waveMove 2.5s linear infinite}
+@keyframes waveMove{from{background-position-x:0}to{background-position-x:200px}}
+.phero-p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1.05rem;color:var(--mid);line-height:1.8;max-width:520px;animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .2s both;margin-bottom:2rem}
+
+/* hero right — photo mosaic preview */
+.mosaic{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:140px 140px;gap:.7rem;animation:cardIn .9s cubic-bezier(.22,.68,0,1.2) .25s both}
+@keyframes cardIn{from{opacity:0;transform:translateX(40px) scale(.95)}to{opacity:1;transform:none}}
+.mosaic-tile{border-radius:16px;border:2.5px solid var(--ink);overflow:hidden;position:relative;transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+.mosaic-tile:hover{transform:scale(1.06);box-shadow:5px 5px 0 var(--ink);z-index:2}
+.mosaic-tile.big{grid-column:1/3;grid-row:1/3}
+.mosaic-tile.big .tile-inner{height:100%}
+.tile-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.8rem;flex-direction:column;gap:.3rem}
+.mosaic-tile.big .tile-inner{font-size:4rem}
+.tile-label{font-family:'Noto Sans Devanagari',sans-serif;font-size:.65rem;font-weight:800;color:var(--ink);background:var(--y);padding:.15rem .5rem;border-radius:5px;border:1.5px solid var(--ink)}
+.mt1{background:#FFF5B0}.mt2{background:#FFE8A0}.mt3{background:#E8F5E9}.mt4{background:#E3F2FD}.mt5{background:#FFD580}
+.mosaic-count{text-align:center;font-family:'Lilita One',sans-serif;font-size:.85rem;color:var(--mid);margin-top:.5rem}
+
+/* MARQUEE */
+.mwrap{background:var(--ink);overflow:hidden;padding:.75rem 0;border-top:2.5px solid var(--y);border-bottom:2.5px solid var(--y);position:relative;z-index:5}
+.mtrack{display:flex;width:max-content;animation:ticker 28s linear infinite}
+.mtrack:hover{animation-play-state:paused}
+.mi{display:flex;align-items:center;gap:.55rem;padding:0 2.2rem;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.85rem;color:var(--y);white-space:nowrap}
+.md{width:5px;height:5px;border-radius:50%;background:var(--y);opacity:.35;flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SHARED */
+.eyebrow{display:inline-flex;align-items:center;gap:.45rem;background:var(--y);color:var(--ink);padding:.38rem 1rem;border-radius:8px;font-size:.75rem;font-weight:900;font-family:'Baloo 2',sans-serif;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);margin-bottom:1.2rem}
+.sec-h{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(1.9rem,3.5vw,2.9rem);color:var(--ink);line-height:1.1;margin-bottom:.9rem}
+.sec-p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1rem;color:var(--mid);line-height:1.8;max-width:620px}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.rvl{opacity:0;transform:translateX(-28px);transition:opacity .65s ease,transform .65s ease}
+.rvr{opacity:0;transform:translateX(28px);transition:opacity .65s ease,transform .65s ease}
+.rv.in,.rvl.in,.rvr.in{opacity:1;transform:none}
+.btn-blk{display:inline-flex;align-items:center;gap:.55rem;background:var(--ink);color:var(--y);padding:.95rem 2rem;border-radius:16px;font-weight:900;font-size:1rem;text-decoration:none;font-family:'Noto Sans Devanagari',sans-serif;border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--yb);transition:all .18s cubic-bezier(.34,1.56,.64,1)}
+.btn-blk:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--yb)}
+.btn-out{display:inline-flex;align-items:center;gap:.55rem;background:var(--wh);color:var(--ink);padding:.95rem 1.9rem;border-radius:16px;font-weight:800;font-size:1rem;text-decoration:none;font-family:'Noto Sans Devanagari',sans-serif;border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:all .18s cubic-bezier(.34,1.56,.64,1)}
+.btn-out:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);background:var(--yl)}
+
+/* FILTER TABS */
+.gallery-sec{padding:5rem 2rem 2rem;background:var(--wh)}
+.gallery-in{max-width:1300px;margin:0 auto}
+.filter-bar{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.5rem;margin-bottom:3rem}
+.ftab{display:flex;align-items:center;gap:.45rem;background:var(--cream);border:2.5px solid var(--ink);border-radius:12px;padding:.5rem 1.1rem;font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:.85rem;color:var(--ink);cursor:pointer;transition:all .2s cubic-bezier(.34,1.56,.64,1);box-shadow:3px 3px 0 var(--ink)}
+.ftab:hover{background:var(--yl);transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+.ftab.active{background:var(--ink);color:var(--y);transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--yb)}
+.ftab-count{background:var(--y);color:var(--ink);font-size:.65rem;padding:.1rem .45rem;border-radius:5px;font-family:'Baloo 2',sans-serif;font-weight:900;border:1px solid var(--ink)}
+.ftab.active .ftab-count{background:var(--y)}
+
+/* PHOTO GRID */
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.1rem;
+  transition:opacity .3s;
+}
+.photo-grid.filtering{opacity:.4}
+.pcard{
+  border-radius:20px;border:2.5px solid var(--ink);
+  overflow:hidden;position:relative;
+  background:var(--cream);
+  box-shadow:4px 4px 0 var(--ink);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  cursor:pointer;
+  animation:popIn .4s cubic-bezier(.34,1.56,.64,1) both;
+}
+.pcard:hover{transform:translateY(-8px) scale(1.02);box-shadow:8px 10px 0 var(--ink)}
+.pcard.hidden{display:none}
+@keyframes popIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+.pcard-thumb{
+  width:100%;aspect-ratio:4/3;
+  display:flex;align-items:center;justify-content:center;
+  font-size:3.5rem;
+  position:relative;overflow:hidden;
+}
+/* colour-coded by category */
+.pcard[data-cat="sneha"] .pcard-thumb{background:linear-gradient(135deg,#FFE8A0,#FFD060)}
+.pcard[data-cat="paritoshik"] .pcard-thumb{background:linear-gradient(135deg,#FFF5B0,#FFE44D)}
+.pcard[data-cat="aaji"] .pcard-thumb{background:linear-gradient(135deg,#E8F5E9,#C8E6C9)}
+.pcard[data-cat="health"] .pcard-thumb{background:linear-gradient(135deg,#FCE4EC,#F8BBD0)}
+.pcard[data-cat="yoga"] .pcard-thumb{background:linear-gradient(135deg,#E3F2FD,#BBDEFB)}
+.pcard[data-cat="festival"] .pcard-thumb{background:linear-gradient(135deg,#FFF3E0,#FFE0B2)}
+.pcard[data-cat="sports"] .pcard-thumb{background:linear-gradient(135deg,#E0F7FA,#B2EBF2)}
+.pcard[data-cat="digital"] .pcard-thumb{background:linear-gradient(135deg,#EDE7F6,#D1C4E9)}
+.pcard[data-cat="visit"] .pcard-thumb{background:linear-gradient(135deg,#F3E5F5,#E1BEE7)}
+
+/* hover overlay */
+.pcard-overlay{
+  position:absolute;inset:0;background:rgba(26,15,0,.85);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .3s;padding:1rem;text-align:center;
+}
+.pcard:hover .pcard-overlay{opacity:1}
+.pcard-overlay-t{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:.88rem;color:var(--y);margin-bottom:.35rem;line-height:1.4}
+.pcard-overlay-sub{font-size:.72rem;color:rgba(255,255,255,.6);font-family:'Baloo 2',sans-serif}
+
+.pcard-body{padding:.9rem 1rem .85rem}
+.pcard-title{font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:.88rem;color:var(--ink);line-height:1.35;margin-bottom:.3rem}
+.pcard-meta{display:flex;align-items:center;justify-content:space-between}
+.pcard-cat{font-size:.66rem;font-family:'Baloo 2',sans-serif;font-weight:900;background:var(--y);color:var(--ink);padding:.12rem .5rem;border-radius:5px;border:1.5px solid var(--ink)}
+.pcard-yr{font-size:.66rem;color:var(--mid);font-family:'Baloo 2',sans-serif;font-weight:700}
+
+/* EVENTS BENTO */
+.events-sec{padding:6rem 2rem;background:linear-gradient(165deg,var(--yp) 0%,var(--cream) 65%);position:relative;overflow:hidden}
+.events-sec::after{content:'📸';position:absolute;right:-3rem;top:50%;transform:translateY(-50%) rotate(15deg);font-size:18rem;opacity:.05;pointer-events:none}
+.events-in{max-width:1300px;margin:0 auto;position:relative;z-index:1}
+.ev-bento{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
+.evcard{
+  background:var(--wh);border-radius:22px;border:2.5px solid var(--ink);
+  box-shadow:5px 5px 0 var(--ink);padding:1.75rem;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);cursor:default;position:relative;overflow:hidden;
+}
+.evcard:hover{transform:translate(-4px,-4px);box-shadow:9px 9px 0 var(--ink);background:var(--yl)}
+.evcard::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:var(--y)}
+.evcard.dark{background:var(--ink);border-color:var(--yb)}
+.evcard.dark:hover{background:rgba(245,196,0,.1)}
+.evcard.dark::before{background:var(--y)}
+.ev-em{font-size:2.5rem;margin-bottom:.85rem;display:block;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.evcard:hover .ev-em{transform:scale(1.2) rotate(-8deg)}
+.ev-t{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1rem;color:var(--ink);margin-bottom:.4rem;line-height:1.3}
+.evcard.dark .ev-t{color:var(--y)}
+.ev-d{font-family:'Noto Sans Devanagari',sans-serif;font-size:.83rem;color:var(--mid);line-height:1.7}
+.evcard.dark .ev-d{color:rgba(255,255,255,.6)}
+.ev-tag{display:inline-block;background:var(--ink);color:var(--y);padding:.18rem .65rem;border-radius:6px;font-size:.67rem;font-weight:900;font-family:'Baloo 2',sans-serif;margin-top:.75rem}
+.evcard.dark .ev-tag{background:var(--y);color:var(--ink)}
+
+/* EXTERNAL LINKS SECTION */
+.links-sec{padding:6rem 2rem;background:var(--ink);position:relative;overflow:hidden}
+.links-sec::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 28px,rgba(245,196,0,.025) 28px,rgba(245,196,0,.025) 29px)}
+.links-in{max-width:1300px;margin:0 auto;position:relative;z-index:1}
+.links-in .sec-h{color:var(--wh)}
+.links-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
+.lcard{
+  border-radius:22px;padding:2rem;border:2px solid rgba(245,196,0,.2);
+  background:rgba(255,255,255,.05);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);cursor:pointer;text-decoration:none;display:block;
+}
+.lcard:hover{background:rgba(245,196,0,.1);border-color:var(--y);transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.lcard-icon{font-size:3rem;margin-bottom:1rem;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.lcard:hover .lcard-icon{transform:scale(1.15) rotate(-5deg)}
+.lcard-platform{font-family:'Baloo 2',sans-serif;font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,196,0,.6);margin-bottom:.4rem}
+.lcard-t{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1rem;color:var(--wh);margin-bottom:.4rem}
+.lcard-d{font-family:'Noto Sans Devanagari',sans-serif;font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:1.1rem}
+.lcard-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--y);color:var(--ink);padding:.5rem 1.1rem;border-radius:10px;font-size:.78rem;font-weight:900;font-family:'Baloo 2',sans-serif;border:2px solid var(--yb);transition:all .2s}
+.lcard:hover .lcard-btn{background:var(--wh)}
+.placeholder-note{background:rgba(255,255,255,.05);border:1.5px dashed rgba(245,196,0,.3);border-radius:14px;padding:1rem 1.5rem;margin-top:2rem;text-align:center;font-family:'Noto Sans Devanagari',sans-serif;font-size:.85rem;color:rgba(255,255,255,.4)}
+.placeholder-note strong{color:var(--y)}
+
+/* YOUTUBE SECTION */
+.yt-sec{padding:6rem 2rem;background:var(--wh)}
+.yt-in{max-width:1300px;margin:0 auto}
+.yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
+.yt-card{background:var(--cream);border-radius:20px;border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);overflow:hidden;transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+.yt-card:hover{transform:translateY(-6px);box-shadow:8px 10px 0 var(--ink)}
+.yt-thumb{aspect-ratio:16/9;background:var(--ink);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.yt-thumb-bg{position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(245,196,0,.05) 0,rgba(245,196,0,.05) 2px,transparent 2px,transparent 20px)}
+.yt-play{width:60px;height:60px;background:var(--y);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);position:relative;z-index:1;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.yt-card:hover .yt-play{transform:scale(1.15)}
+.yt-body{padding:1.1rem}
+.yt-title{font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:.9rem;color:var(--ink);margin-bottom:.3rem;line-height:1.4}
+.yt-note{font-size:.72rem;color:var(--mid);font-family:'Baloo 2',sans-serif}
+.yt-add-note{background:var(--cream);border:2px dashed rgba(245,196,0,.5);border-radius:16px;padding:1.75rem;text-align:center;font-family:'Noto Sans Devanagari',sans-serif;font-size:.9rem;color:var(--mid);margin-top:1.5rem}
+.yt-add-note strong{color:var(--ink);display:block;font-size:1rem;margin-bottom:.4rem}
+
+/* CTA STRIP */
+.cta-strip{background:var(--y);padding:4.5rem 2rem;border-top:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);position:relative;overflow:hidden}
+.cta-strip::before{content:'📸';position:absolute;font-size:18rem;opacity:.06;right:-3rem;top:-4rem;pointer-events:none;animation:spinSlow 35s linear infinite}
+@keyframes spinSlow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.cta-strip-in{max-width:1300px;margin:0 auto;position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.cta-strip-left h2{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(1.8rem,3vw,2.4rem);color:var(--ink);line-height:1.15;margin-bottom:.5rem}
+.cta-strip-left p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1rem;color:var(--ink2);line-height:1.7}
+.cta-strip-btns{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:4rem 2rem 0}
+.ft-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.ft-logo{font-family:'Lilita One',sans-serif;font-size:2rem;color:var(--y);margin-bottom:.4rem}
+.ft-sub{font-family:'Noto Sans Devanagari',sans-serif;font-size:.86rem;margin-bottom:.2rem}
+.ft-tiny{font-size:.7rem;color:rgba(255,255,255,.3);font-family:'Baloo 2',sans-serif}
+.ft-h{font-family:'Baloo 2',sans-serif;font-weight:900;font-size:.73rem;color:var(--y);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem}
+.ft-links{display:flex;flex-direction:column;gap:.45rem}
+.ft-links a{color:rgba(255,255,255,.62);text-decoration:none;font-size:.88rem;font-family:'Noto Sans Devanagari',sans-serif;transition:color .2s}
+.ft-links a:hover{color:var(--y)}
+.ft-ct p{font-size:.86rem;font-family:'Noto Sans Devanagari',sans-serif;margin-bottom:.45rem}
+.ft-ct a{color:#FFF3A0;text-decoration:none}
+.ft-ct a:hover{color:var(--y)}
+.ft-btm{max-width:1300px;margin:0 auto;padding:1.4rem 0;text-align:center;font-size:.73rem;color:rgba(255,255,255,.22);font-family:'Baloo 2',sans-serif}
+
+@media(max-width:1060px){
+  .phero-in{grid-template-columns:1fr}.mosaic{display:none}
+  .photo-grid{grid-template-columns:repeat(3,1fr)}
+  .ev-bento{grid-template-columns:1fr 1fr}
+  .links-grid{grid-template-columns:1fr 1fr}
+  .yt-grid{grid-template-columns:1fr 1fr}
+  .ft-grid{grid-template-columns:1fr;gap:2rem}
+}
+@media(max-width:720px){
+  .nlinks{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(253,248,236,.97);backdrop-filter:blur(18px);flex-direction:column;padding:1.4rem;border-bottom:2px solid var(--y);gap:.25rem}
+  .nlinks.open{display:flex}.ham{display:flex}
+  .photo-grid{grid-template-columns:repeat(2,1fr)}
+  .ev-bento{grid-template-columns:1fr}
+  .links-grid{grid-template-columns:1fr}
+  .yt-grid{grid-template-columns:1fr}
+  .cta-strip-in{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur2"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nlogo">
+      <div class="nlogo-gem">🌟</div>
+      <div class="nlogo-t"><div class="nlogo-main">प्रायमा</div><div class="nlogo-sub">पूर्व प्राथमिक विद्यालय · मंगळवेढा</div></div>
+    </a>
+    <ul class="nlinks" id="nlinks">
+      <li><a href="index.html">🏠 मुख्यपृष्ठ</a></li>
+      <li><a href="about.html">📖 आमच्याबद्दल</a></li>
+      <li><a href="admissions.html">✏️ प्रवेश</a></li>
+      <li><a href="gallery.html" class="act">📸 गॅलरी</a></li>
+      <li><a href="contact.html">📞 संपर्क</a></li>
+      <li><a href="admissions.html" class="npill">प्रवेश घ्या →</a></li>
+    </ul>
+    <button class="ham" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="phero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="hero-dots"></div>
+  <div class="phero-in">
+    <div>
+      <div class="phero-chip"><span class="cpulse"></span>📸 फोटो गॅलरी · शैक्षणिक वर्ष २०२६-२७</div>
+      <h1 class="phero-h1">
+        प्रायमाचे<br>
+        <span class="hl-box">आनंदमय</span><br>
+        <span class="hl-wave">क्षण</span>
+      </h1>
+      <p class="phero-p">स्नेह संमेलन, पारितोषिक वितरण, योग दिन, शिवजयंती, आजी-आजोबा दिन — प्रायमाच्या वर्षभरातील सुंदर आठवणी.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .3s both">
+        <a href="#photo-grid" class="btn-blk">📸 फोटो पाहा</a>
+        <a href="#links-section" class="btn-out">🔗 Drive / YouTube</a>
+      </div>
+    </div>
+    <!-- mosaic -->
+    <div class="mosaic">
+      <div class="mosaic-tile big mt1"><div class="tile-inner">🎭<span class="tile-label">स्नेह संमेलन</span></div></div>
+      <div class="mosaic-tile mt2"><div class="tile-inner" style="font-size:1.8rem">🏆<span class="tile-label" style="font-size:.55rem">पारितोषिक</span></div></div>
+      <div class="mosaic-tile mt3"><div class="tile-inner" style="font-size:1.8rem">🧘<span class="tile-label" style="font-size:.55rem">योग दिन</span></div></div>
+      <div class="mosaic-tile mt4"><div class="tile-inner" style="font-size:1.8rem">🎉<span class="tile-label" style="font-size:.55rem">उत्सव</span></div></div>
+      <div class="mosaic-tile mt5"><div class="tile-inner" style="font-size:1.8rem">👴👵<span class="tile-label" style="font-size:.55rem">आजी-आजोबा</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mwrap"><div class="mtrack">
+  <span class="mi">🎭 स्नेह संमेलन — वार्षिक कार्यक्रम</span><span class="md"></span>
+  <span class="mi">🏆 पारितोषिक वितरण समारंभ</span><span class="md"></span>
+  <span class="mi">🧘 जागतिक योग दिन</span><span class="md"></span>
+  <span class="mi">🎉 शिवजयंती उत्सव</span><span class="md"></span>
+  <span class="mi">👴👵 आजी-आजोबा-नातू दिन</span><span class="md"></span>
+  <span class="mi">👩‍🏫 माता पालक शिक्षक दिन</span><span class="md"></span>
+  <span class="mi">💻 संगणक प्रशिक्षण</span><span class="md"></span>
+  <span class="mi">📸 प्रभात फेरी · पालक सभा</span><span class="md"></span>
+  <span class="mi">🎭 स्नेह संमेलन — वार्षिक कार्यक्रम</span><span class="md"></span>
+  <span class="mi">🏆 पारितोषिक वितरण समारंभ</span><span class="md"></span>
+  <span class="mi">🧘 जागतिक योग दिन</span><span class="md"></span>
+  <span class="mi">🎉 शिवजयंती उत्सव</span><span class="md"></span>
+  <span class="mi">👴👵 आजी-आजोबा-नातू दिन</span><span class="md"></span>
+  <span class="mi">👩‍🏫 माता पालक शिक्षक दिन</span><span class="md"></span>
+  <span class="mi">💻 संगणक प्रशिक्षण</span><span class="md"></span>
+  <span class="mi">📸 प्रभात फेरी · पालक सभा</span><span class="md"></span>
+</div></div>
+
+<!-- GALLERY GRID -->
+<section class="gallery-sec" id="photo-grid">
+  <div class="gallery-in">
+    <div style="text-align:center">
+      <div class="eyebrow rv" style="margin:0 auto 1.2rem">📸 फोटो संग्रह</div>
+      <h2 class="sec-h rv">वर्षभरातील आठवणी</h2>
+      <p class="sec-p rv" style="margin:0 auto">प्रत्येक उपक्रम, प्रत्येक हसू — प्रायमाच्या मुलांचे सोनेरी क्षण.</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-bar rv">
+      <div class="ftab active" onclick="filterGallery('all',this)">🌟 सर्व <span class="ftab-count">24</span></div>
+      <div class="ftab" onclick="filterGallery('sneha',this)">🎭 स्नेह संमेलन <span class="ftab-count">6</span></div>
+      <div class="ftab" onclick="filterGallery('paritoshik',this)">🏆 पारितोषिक <span class="ftab-count">3</span></div>
+      <div class="ftab" onclick="filterGallery('aaji',this)">👴👵 आजी-आजोबा <span class="ftab-count">2</span></div>
+      <div class="ftab" onclick="filterGallery('yoga',this)">🧘 योग दिन <span class="ftab-count">2</span></div>
+      <div class="ftab" onclick="filterGallery('festival',this)">🎉 उत्सव <span class="ftab-count">4</span></div>
+      <div class="ftab" onclick="filterGallery('digital',this)">💻 डिजिटल <span class="ftab-count">3</span></div>
+      <div class="ftab" onclick="filterGallery('visit',this)">🌟 मान्यवर भेट <span class="ftab-count">3</span></div>
+      <div class="ftab" onclick="filterGallery('health',this)">🩺 आरोग्य <span class="ftab-count">1</span></div>
+    </div>
+
+    <!-- Photo Cards -->
+    <div class="photo-grid" id="photoGrid">
+      <!-- SNEHA SAMMELAN -->
+      <div class="pcard rv" data-cat="sneha"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">स्नेह संमेलन — स्वागत गीत</div><div class="pcard-overlay-sub">बाल कलाकारांचे सुंदर सादरीकरण</div></div>💃</div><div class="pcard-body"><div class="pcard-title">स्वागत गीत सादर करताना बाल कलाकार</div><div class="pcard-meta"><span class="pcard-cat">स्नेह संमेलन</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="sneha"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">नृत्य सादरीकरण</div><div class="pcard-overlay-sub">विविध नृत्यप्रकार</div></div>🕺</div><div class="pcard-body"><div class="pcard-title">स्नेह संमेलन निमित्त नृत्य सादर करताना बाल कलाकार</div><div class="pcard-meta"><span class="pcard-cat">स्नेह संमेलन</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="sneha"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">नाटिका सादरीकरण</div><div class="pcard-overlay-sub">मुलांची अभिनय कला</div></div>🎭</div><div class="pcard-body"><div class="pcard-title">स्नेह संमेलन निमित्त नाटिका सादर करताना बाल कलाकार</div><div class="pcard-meta"><span class="pcard-cat">स्नेह संमेलन</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="sneha"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">संगणक प्रशिक्षण नाटिका</div><div class="pcard-overlay-sub">बालचमूचे सादरीकरण</div></div>💻</div><div class="pcard-body"><div class="pcard-title">संगणक प्रशिक्षण घेताना बालचमू — स्नेह संमेलन</div><div class="pcard-meta"><span class="pcard-cat">स्नेह संमेलन</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="sneha"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">उपस्थित पालक</div><div class="pcard-overlay-sub">पालकांचा उत्स्फूर्त सहभाग</div></div>👨‍👩‍👦</div><div class="pcard-body"><div class="pcard-title">स्नेह संमेलन निमित्त उपस्थित पालक</div><div class="pcard-meta"><span class="pcard-cat">स्नेह संमेलन</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="sneha"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">होळी पूजन</div><div class="pcard-overlay-sub">पारंपरिक सण उत्सव</div></div>🔥</div><div class="pcard-body"><div class="pcard-title">होळी पूजन — बाल विद्यार्थी</div><div class="pcard-meta"><span class="pcard-cat">स्नेह संमेलन</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <!-- PARITOSHIK -->
+      <div class="pcard rv" data-cat="paritoshik"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">पारितोषिक वितरण</div><div class="pcard-overlay-sub">मान्यवरांच्या हस्ते</div></div>🏆</div><div class="pcard-body"><div class="pcard-title">वार्षिक पारितोषिक वितरण समारंभ</div><div class="pcard-meta"><span class="pcard-cat">पारितोषिक</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="paritoshik"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">अभिनेत्री चेतना भट भेट</div><div class="pcard-overlay-sub">सत्कार प्रसंग</div></div>🌟</div><div class="pcard-body"><div class="pcard-title">पारितोषिक वितरण सत्कार — अभिनेत्री चेतना भट, नगराध्यक्षा सौ.सुनंदा आवताडे</div><div class="pcard-meta"><span class="pcard-cat">पारितोषिक</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="paritoshik"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">परीक्षा</div><div class="pcard-overlay-sub">विद्यार्थी सज्ज</div></div>📝</div><div class="pcard-body"><div class="pcard-title">परीक्षा देताना विद्यार्थी</div><div class="pcard-meta"><span class="pcard-cat">पारितोषिक</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <!-- AAJI AAJOBA -->
+      <div class="pcard rv" data-cat="aaji"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">आजी-आजोबा-नातू दिन</div><div class="pcard-overlay-sub">एक अनोखी परंपरा</div></div>👴👵</div><div class="pcard-body"><div class="pcard-title">आजी-आजोबा-नातू दिन — स्नेह संमेलन</div><div class="pcard-meta"><span class="pcard-cat">आजी-आजोबा</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="aaji"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">माता पालक शिक्षक दिन</div><div class="pcard-overlay-sub">तालुक्यात प्रथम</div></div>👩‍🏫</div><div class="pcard-body"><div class="pcard-title">माता पालक शिक्षक दिन — शिक्षिका वृंद</div><div class="pcard-meta"><span class="pcard-cat">आजी-आजोबा</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <!-- YOGA -->
+      <div class="pcard rv" data-cat="yoga"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">जागतिक योग दिन</div><div class="pcard-overlay-sub">विद्यार्थी सहभाग</div></div>🧘</div><div class="pcard-body"><div class="pcard-title">जागतिक योग दिन — विद्यार्थी</div><div class="pcard-meta"><span class="pcard-cat">योग दिन</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="yoga"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">पालक सभा</div><div class="pcard-overlay-sub">सर्व पालक उपस्थित</div></div>🤝</div><div class="pcard-body"><div class="pcard-title">पालक सभा — सर्व पालकांचा सहभाग</div><div class="pcard-meta"><span class="pcard-cat">योग दिन</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <!-- FESTIVAL -->
+      <div class="pcard rv" data-cat="festival"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">शिवजयंती उत्सव</div><div class="pcard-overlay-sub">ऐतिहासिक वेशभूषा</div></div>🏇</div><div class="pcard-body"><div class="pcard-title">शिवजयंती उत्सव — बाल विद्यार्थी</div><div class="pcard-meta"><span class="pcard-cat">उत्सव</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="festival"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">आषाढी एकादशी</div><div class="pcard-overlay-sub">संतांच्या वेशभूषेत</div></div>🪘</div><div class="pcard-body"><div class="pcard-title">आषाढी एकादशी निमित्त संतांच्या वेशभूषेत</div><div class="pcard-meta"><span class="pcard-cat">उत्सव</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="festival"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">प्रजासत्ताक दिन</div><div class="pcard-overlay-sub">शिक्षिका व विद्यार्थी</div></div>🇮🇳</div><div class="pcard-body"><div class="pcard-title">प्रजासत्ताक दिन प्रसंगी शिक्षिका व विद्यार्थी</div><div class="pcard-meta"><span class="pcard-cat">उत्सव</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="festival"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">मातृभाषा दिन प्रभात फेरी</div><div class="pcard-overlay-sub">कुसुमाग्रज जन्मदिन</div></div>📚</div><div class="pcard-body"><div class="pcard-title">मातृभाषा दिन — प्रभात फेरी (कुसुमाग्रज जन्मदिन)</div><div class="pcard-meta"><span class="pcard-cat">उत्सव</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <!-- DIGITAL -->
+      <div class="pcard rv" data-cat="digital"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">संगणक प्रशिक्षण</div><div class="pcard-overlay-sub">E-Learning</div></div>🖥️</div><div class="pcard-body"><div class="pcard-title">संगणक सराव करताना विद्यार्थी</div><div class="pcard-meta"><span class="pcard-cat">डिजिटल</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="digital"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">प्रायमा शिक्षिका वृंद</div><div class="pcard-overlay-sub">अनुभवी टीम</div></div>👩‍🏫</div><div class="pcard-body"><div class="pcard-title">प्रायमा शिक्षिका व कर्मचारी वृंद — २०२४-२५</div><div class="pcard-meta"><span class="pcard-cat">डिजिटल</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="digital"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">शैक्षणिक दिनदर्शिका</div><div class="pcard-overlay-sub">वार्षिक प्रकाशन</div></div>📅</div><div class="pcard-body"><div class="pcard-title">प्रायमा शैक्षणिक दिनदर्शिका प्रकाशन — मा.श्री.शरद गोसावी</div><div class="pcard-meta"><span class="pcard-cat">डिजिटल</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <!-- VISIT -->
+      <div class="pcard rv" data-cat="visit"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">अभिनेत्री चेतना भट भेट</div><div class="pcard-overlay-sub">प्रायमास प्रत्यक्ष भेट</div></div>🌟</div><div class="pcard-body"><div class="pcard-title">सिने अभिनेत्री चेतना भट यांची प्रायमास भेट</div><div class="pcard-meta"><span class="pcard-cat">मान्यवर भेट</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="visit"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">मंगळवेढा इनरव्हील स्पर्धा</div><div class="pcard-overlay-sub">विविध स्पर्धा</div></div>🥇</div><div class="pcard-body"><div class="pcard-title">मंगळवेढा इनरव्हील क्लब तर्फे प्रायमामध्ये विविध स्पर्धा</div><div class="pcard-meta"><span class="pcard-cat">मान्यवर भेट</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <div class="pcard rv" data-cat="visit"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">मान्यवर अभिप्राय</div><div class="pcard-overlay-sub">श्रेष्ठींची प्रशंसा</div></div>📜</div><div class="pcard-body"><div class="pcard-title">मान्यवरांचे अभिप्राय — वार्षिक स्नेहसंमेलन</div><div class="pcard-meta"><span class="pcard-cat">मान्यवर भेट</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+
+      <!-- HEALTH -->
+      <div class="pcard rv" data-cat="health"><div class="pcard-thumb"><div class="pcard-overlay"><div class="pcard-overlay-t">मोफत आरोग्य तपासणी</div><div class="pcard-overlay-sub">तज्ज्ञांकडून</div></div>🩺</div><div class="pcard-body"><div class="pcard-title">मोफत वार्षिक आरोग्य तपासणी — बालरोग, दंतरोग तज्ज्ञ</div><div class="pcard-meta"><span class="pcard-cat">आरोग्य</span><span class="pcard-yr">२०२४-२५</span></div></div></div>
+    </div>
+
+    <!-- count -->
+    <p style="text-align:center;margin-top:1.75rem;font-family:'Noto Sans Devanagari',sans-serif;font-size:.88rem;color:var(--mid)" id="photoCount">एकूण २४ फोटो दाखवत आहे</p>
+  </div>
+</section>
+
+<!-- EVENTS BENTO -->
+<section class="events-sec">
+  <div class="events-in">
+    <div style="text-align:center">
+      <div class="eyebrow rv" style="margin:0 auto 1.2rem">🎪 वार्षिक उपक्रम</div>
+      <h2 class="sec-h rv">प्रायमाचे खास कार्यक्रम</h2>
+      <p class="sec-p rv" style="margin:0 auto">प्रत्येक कार्यक्रमाने मुलांच्या मनात एक सुंदर आठवण तयार होते.</p>
+    </div>
+    <div class="ev-bento">
+      <div class="evcard rv"><span class="ev-em">🎭</span><div class="ev-t">स्नेह संमेलन</div><div class="ev-d">वर्षातून एकदा आयोजित भव्य कार्यक्रम. नृत्य, नाटिका, गाणी, वेशभूषा — मुलांची प्रतिभा विकसित होते. पालकांचा उत्स्फूर्त सहभाग.</div><span class="ev-tag">वार्षिक</span></div>
+      <div class="evcard rv"><span class="ev-em">🏆</span><div class="ev-t">पारितोषिक वितरण समारंभ</div><div class="ev-d">मान्यवरांच्या हस्ते वार्षिक पारितोषिक वितरण. प्रत्येक विद्यार्थ्याला प्रोत्साहन. अनेक सिने कलाकार, अधिकारी यांची उपस्थिती.</div><span class="ev-tag">वार्षिक</span></div>
+      <div class="evcard rv"><span class="ev-em">🧘</span><div class="ev-t">जागतिक योग दिन</div><div class="ev-d">२१ जूनला मुलांसाठी योगाभ्यास. शरीर व मन यांचा समतोल साधणारे उपक्रम. लहान मुलांसाठी सोपे योगासने.</div><span class="ev-tag">२१ जून</span></div>
+      <div class="evcard dark rv"><span class="ev-em">🏇</span><div class="ev-t">शिवजयंती उत्सव</div><div class="ev-d">छत्रपती शिवाजी महाराजांच्या जयंतीनिमित्त ऐतिहासिक वेशभूषा, गाणी व नाटिका. मुलांमध्ये राष्ट्रप्रेम जागृत होते.</div><span class="ev-tag">शिवजयंती</span></div>
+      <div class="evcard dark rv"><span class="ev-em">👴👵</span><div class="ev-t">आजी-आजोबा-नातू दिन</div><div class="ev-d">नातवांसोबत आजी-आजोबांचा स्नेहमेळावा — मुलांमध्ये कौटुंबिक मूल्ये रुजवणारा अनोखा उपक्रम. तालुक्यात प्रायमाचीच सुरुवात.</div><span class="ev-tag">अनोखा उपक्रम</span></div>
+      <div class="evcard dark rv"><span class="ev-em">👩‍🏫</span><div class="ev-t">माता पालक शिक्षक दिन</div><div class="ev-d">आईने एक दिवस शिक्षिकेची भूमिका. मुलांना आईसोबत शिकण्याचा आनंद. तालुक्यात प्रायमाने प्रथम सुरू केलेला उपक्रम.</div><span class="ev-tag">तालुक्यात प्रथम</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXTERNAL LINKS -->
+<section class="links-sec" id="links-section">
+  <div class="links-in">
+    <div class="eyebrow rv">🔗 ऑनलाइन गॅलरी</div>
+    <h2 class="sec-h rv" style="color:var(--wh)">अधिक फोटो व व्हिडिओ पाहा</h2>
+    <p class="sec-p rv" style="color:rgba(255,255,255,.6)">प्रायमाच्या सर्व उपक्रमांचे फोटो आणि व्हिडिओ आमच्या ऑनलाइन प्लॅटफॉर्मवर उपलब्ध आहेत.</p>
+    <div class="links-grid">
+      <a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank" class="lcard rv"><!-- 🔴 Replace YOUR_GOOGLE_DRIVE_LINK with actual Google Drive folder share link -->
+        <div class="lcard-icon">📁</div>
+        <div class="lcard-platform">Google Drive</div>
+        <div class="lcard-t">फोटो संग्रह — Google Drive</div>
+        <div class="lcard-d">सर्व वर्षांचे फोटो एकाच ठिकाणी. Download करण्याची सुविधा. उपक्रमनिहाय फोल्डर.</div>
+        <span class="lcard-btn">📁 Drive उघडा →</span>
+      </a>
+      <a href="YOUR_TERABOX_LINK" target="_blank" class="lcard rv"><!-- 🔴 Replace YOUR_TERABOX_LINK with actual Terabox share link -->
+        <div class="lcard-icon">☁️</div>
+        <div class="lcard-platform">Terabox</div>
+        <div class="lcard-t">फोटो संग्रह — Terabox</div>
+        <div class="lcard-d">मोठ्या प्रमाणात फोटो स्टोरेज. HD फोटो Download. पालकांसाठी सहज उपलब्ध.</div>
+        <span class="lcard-btn">☁️ Terabox उघडा →</span>
+      </a>
+      <a href="YOUR_YOUTUBE_CHANNEL" target="_blank" class="lcard rv"><!-- 🔴 Replace YOUR_YOUTUBE_CHANNEL with actual YouTube channel URL -->
+        <div class="lcard-icon">▶️</div>
+        <div class="lcard-platform">YouTube</div>
+        <div class="lcard-t">व्हिडिओ — YouTube Channel</div>
+        <div class="lcard-d">स्नेह संमेलन, योग दिन, शिवजयंती व इतर कार्यक्रमांचे व्हिडिओ. Subscribe करा!</div>
+        <span class="lcard-btn">▶️ Channel पाहा →</span>
+      </a>
+    </div>
+    <div class="placeholder-note rv">
+      🔴 <strong>Admin नोट:</strong> वरील ३ लिंक्स अद्याप जोडलेल्या नाहीत. <strong>YOUR_GOOGLE_DRIVE_LINK</strong>, <strong>YOUR_TERABOX_LINK</strong> आणि <strong>YOUR_YOUTUBE_CHANNEL</strong> या जागी प्रत्यक्ष लिंक्स टाकाव्यात.
+    </div>
+  </div>
+</section>
+
+<!-- YOUTUBE PLACEHOLDERS -->
+<section class="yt-sec">
+  <div class="yt-in">
+    <div style="text-align:center">
+      <div class="eyebrow rv" style="margin:0 auto 1.2rem">▶️ YouTube व्हिडिओ</div>
+      <h2 class="sec-h rv">प्रायमाचे व्हिडिओ</h2>
+      <p class="sec-p rv" style="margin:0 auto">आमच्या YouTube चॅनेलवर Subscribe करा — नवीन व्हिडिओ नोटिफिकेशन मिळवा.</p>
+    </div>
+    <div class="yt-grid">
+      <div class="yt-card rv">
+        <div class="yt-thumb"><div class="yt-thumb-bg"></div><div class="yt-play">▶️</div></div>
+        <div class="yt-body"><div class="yt-title">स्नेह संमेलन — वार्षिक कार्यक्रम २०२४-२५</div><div class="yt-note">YouTube वर व्हिडिओ लवकरच उपलब्ध</div></div>
+      </div>
+      <div class="yt-card rv">
+        <div class="yt-thumb"><div class="yt-thumb-bg"></div><div class="yt-play">▶️</div></div>
+        <div class="yt-body"><div class="yt-title">शिवजयंती उत्सव — बाल विद्यार्थी</div><div class="yt-note">YouTube वर व्हिडिओ लवकरच उपलब्ध</div></div>
+      </div>
+      <div class="yt-card rv">
+        <div class="yt-thumb"><div class="yt-thumb-bg"></div><div class="yt-play">▶️</div></div>
+        <div class="yt-body"><div class="yt-title">जागतिक योग दिन — विद्यार्थी सहभाग</div><div class="yt-note">YouTube वर व्हिडिओ लवकरच उपलब्ध</div></div>
+      </div>
+    </div>
+    <div class="yt-add-note rv">
+      <strong>🔴 YouTube Channel लिंक जोडण्यासाठी</strong>
+      gallery.html मध्ये "YOUR_YOUTUBE_CHANNEL" या जागी प्रत्यक्ष YouTube Channel URL टाका. व्हिडिओ embed करायचे असल्यास YouTube चा iframe embed code वापरा.
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="cta-strip-in">
+    <div class="cta-strip-left">
+      <h2>तुमच्या मुलालाही<br>या आठवणींचा भाग बनवा!</h2>
+      <p>प्रायमामध्ये प्रवेश घ्या — आणि दरवर्षी अशा सुंदर क्षणांचा हिस्सा व्हा.</p>
+    </div>
+    <div class="cta-strip-btns">
+      <a href="admissions.html" class="btn-blk">✏️ प्रवेश घ्या</a>
+      <a href="https://wa.me/919890855040?text=नमस्कार! गॅलरी पाहिली. प्रायमा शाळेत प्रवेशाबद्दल चौकशी करायची आहे." target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;padding:.95rem 1.9rem;border-radius:16px;font-weight:900;font-size:1rem;text-decoration:none;border:2.5px solid #1AA34A;box-shadow:4px 4px 0 #1AA34A;font-family:'Noto Sans Devanagari',sans-serif;transition:all .18s cubic-bezier(.34,1.56,.64,1)" onmouseover="this.style.transform='translate(-2px,-2px)';this.style.boxShadow='6px 6px 0 #1AA34A'" onmouseout="this.style.transform='';this.style.boxShadow='4px 4px 0 #1AA34A'">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp करा
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-grid">
+    <div><div class="ft-logo">🌟 प्रायमा</div><div class="ft-sub">पूर्व प्राथमिक विद्यालय (डिजिटल बालवाडी)</div><div class="ft-tiny">विश्वज्योती वाणिज्य प्रशिक्षण संस्था, मंगळवेढा संचलित · Est. 1990</div></div>
+    <div><div class="ft-h">पृष्ठे</div><div class="ft-links"><a href="index.html">🏠 मुख्यपृष्ठ</a><a href="about.html">📖 आमच्याबद्दल</a><a href="admissions.html">✏️ प्रवेश</a><a href="gallery.html">📸 गॅलरी</a><a href="contact.html">📞 संपर्क</a></div></div>
+    <div class="ft-ct"><div class="ft-h">संपर्क</div><p>📍 खंडोबा गल्ली, मंगळवेढा, जि. सोलापूर</p><p>📞 <a href="tel:9890855040">98908 55040</a> | <a href="tel:9421045752">94210 45752</a></p><p>☎️ <a href="tel:02188299801">02188-299801</a></p><p>📧 <a href="/cdn-cgi/l/email-protection#e19193888c80828e8c9194958493a1868c80888dcf828e8c"><span class="__cf_email__" data-cfemail="d1a1a3b8bcb0b2bebca1a4a5b4a391b6bcb0b8bdffb2bebc">[email&#160;protected]</span></a></p><p>🌐 <a href="http://www.primaschoolmangalwedha.blogspot.com" target="_blank">Blogspot</a></p></div>
+  </div>
+  <div class="ft-btm">© २०२५-२६ प्रायमा पूर्व प्राथमिक विद्यालय, मंगळवेढा · www.primaedu.in · Designed with ❤️</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* CURSOR */
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function lag(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(lag)})();
+document.querySelectorAll('a,button,.pcard,.evcard,.lcard,.yt-card,.ftab,.mosaic-tile').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cbig'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cbig'));
+});
+
+/* NAV */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('solid',scrollY>30));
+const ham=document.getElementById('ham'),nl=document.getElementById('nlinks');
+ham.addEventListener('click',()=>nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+
+/* FILTER */
+function filterGallery(cat,tab){
+  // update active tab
+  document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');
+
+  const grid=document.getElementById('photoGrid');
+  const cards=grid.querySelectorAll('.pcard');
+  grid.classList.add('filtering');
+
+  setTimeout(()=>{
+    let count=0;
+    cards.forEach(c=>{
+      const match = cat==='all' || c.dataset.cat===cat;
+      c.classList.toggle('hidden',!match);
+      if(match){
+        c.style.animationDelay=(count*0.05)+'s';
+        count++;
+      }
+    });
+    document.getElementById('photoCount').textContent=`एकूण ${count} फोटो दाखवत आहे`;
+    grid.classList.remove('filtering');
+  },200);
+}
+
+/* REVEAL */
+const robs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){
+    const sibs=[...e.target.parentElement.querySelectorAll('.rv,.rvl,.rvr')];
+    const i=sibs.index

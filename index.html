@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="mr">
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="admissions.html">Admissions</a>
+<a href="gallery.html">Gallery</a>
+<a href="contact.html">Contact</a>
+</nav>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>प्रायमा डिजिटल बालवाडी | मंगळवेढा</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;900&family=Lilita+One&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   PRIYAMA — SPECTACULAR v2
+   Warm Maximalist · Playful · Alive
+═══════════════════════════════════════════ */
+:root {
+  --y:    #F5C400;
+  --yb:   #D4A000;
+  --yl:   #FFF3A0;
+  --yp:   #FFFBE6;
+  --ink:  #1A0F00;
+  --ink2: #3D2000;
+  --mid:  #7A5530;
+  --cream:#FDF8EC;
+  --off:  #FAF3D8;
+  --wh:   #FFFFFF;
+  --gr:   #00C853;
+  --or:   #FF8C00;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  font-family:'Baloo 2','Noto Sans Devanagari',sans-serif;
+  background:var(--cream);color:var(--ink);overflow-x:hidden;cursor:none;
+}
+
+/* ── CURSOR ── */
+#cur,#cur2{position:fixed;pointer-events:none;z-index:99999;border-radius:50%;transform:translate(-50%,-50%)}
+#cur{width:14px;height:14px;background:var(--y);mix-blend-mode:multiply;transition:width .15s,height .15s}
+#cur2{width:40px;height:40px;border:2px solid var(--y);opacity:.5;transition:width .2s,height .2s,opacity .2s}
+body.cursor-big #cur{width:26px;height:26px}
+body.cursor-big #cur2{width:60px;height:60px;opacity:.3}
+
+/* ── NOISE ── */
+body::after{
+  content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  opacity:.5;
+}
+
+/* ════════════════════════
+   NAV
+════════════════════════ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:0 2rem;height:72px;
+  display:flex;align-items:center;
+  transition:background .4s,box-shadow .4s,border-color .4s;
+}
+#nav.solid{
+  background:rgba(253,248,236,.95);
+  backdrop-filter:blur(18px) saturate(180%);
+  border-bottom:2px solid rgba(245,196,0,.25);
+  box-shadow:0 4px 24px rgba(245,196,0,.12);
+}
+.nav-in{
+  max-width:1300px;width:100%;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nlogo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nlogo-gem{
+  width:44px;height:44px;background:var(--y);border-radius:14px;
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+  border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.nlogo:hover .nlogo-gem{transform:rotate(-10deg) scale(1.1)}
+.nlogo-t{line-height:1.1}
+.nlogo-main{font-family:'Lilita One',sans-serif;font-size:1.2rem;color:var(--ink)}
+.nlogo-sub{font-size:.58rem;color:var(--mid);font-weight:600;font-family:'Baloo 2',sans-serif}
+.nlinks{display:flex;align-items:center;gap:.15rem;list-style:none}
+.nlinks a{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-weight:700;font-size:.85rem;color:var(--ink);
+  text-decoration:none;padding:.5rem .85rem;border-radius:10px;
+  transition:background .2s;
+}
+.nlinks a:hover{background:var(--yl)}
+.nlinks .npill{
+  background:var(--ink);color:var(--y) !important;border-radius:12px;
+  box-shadow:3px 3px 0 var(--yb);margin-left:.4rem;font-weight:800 !important;
+  transition:transform .2s,box-shadow .2s !important;
+}
+.nlinks .npill:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--yb);background:var(--ink) !important}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:3px}
+.ham span{width:24px;height:2.5px;background:var(--ink);border-radius:3px;display:block;transition:all .3s}
+
+/* ════════════════════════
+   HERO
+════════════════════════ */
+.hero{
+  min-height:100vh;padding-top:72px;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+
+/* — BIG COLOUR BLOBS — */
+.blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(70px)}
+.b1{width:680px;height:680px;top:-220px;right:-160px;
+    background:radial-gradient(circle,#FFE566 0%,#F5C400 45%,transparent 70%);
+    animation:drift 9s ease-in-out infinite}
+.b2{width:480px;height:480px;bottom:-120px;left:-80px;
+    background:radial-gradient(circle,#FFB800 0%,#FF8C00 55%,transparent 75%);
+    animation:drift 11s ease-in-out infinite reverse 1s}
+.b3{width:320px;height:320px;top:38%;left:42%;
+    background:radial-gradient(circle,rgba(255,230,0,.45) 0%,transparent 70%);
+    animation:drift 13s ease-in-out infinite 2.5s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(28px,-22px) scale(1.05)}66%{transform:translate(-18px,28px) scale(.95)}}
+
+/* — DOT GRID BG — */
+.hero-dots{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle,rgba(180,130,0,.25) 1.2px,transparent 1.2px);
+  background-size:34px 34px;
+}
+
+/* — HERO INNER GRID — */
+.hero-grid{
+  max-width:1300px;width:100%;margin:0 auto;
+  padding:3rem 2rem 2rem;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:3rem;align-items:center;
+  position:relative;z-index:2;flex:1;
+}
+
+/* ── HERO LEFT ── */
+.h-chip{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--ink);color:var(--y);
+  padding:.4rem 1.1rem;border-radius:50px;
+  font-size:.78rem;font-weight:800;font-family:'Baloo 2',sans-serif;
+  margin-bottom:1.6rem;
+  box-shadow:4px 4px 0 var(--yb);
+  animation:chipIn .6s cubic-bezier(.34,1.56,.64,1) both;
+}
+.chip-pulse{width:7px;height:7px;border-radius:50%;background:var(--y);animation:pulse 2s ease-in-out infinite}
+@keyframes chipIn{from{opacity:0;transform:scale(.4) rotate(-12deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+
+.hero-h1{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-weight:900;
+  font-size:clamp(2.4rem,4.2vw,3.8rem);
+  line-height:1.06;color:var(--ink);
+  margin-bottom:.9rem;
+  animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .1s both;
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(36px) skewY(2deg)}to{opacity:1;transform:none}}
+
+.hl-box{
+  position:relative;display:inline;
+}
+.hl-box::before{
+  content:'';position:absolute;bottom:0px;left:-3px;right:-3px;
+  height:48%;background:var(--y);z-index:-1;border-radius:3px;
+  transform:rotate(-.8deg);
+}
+.hl-wave{
+  position:relative;color:var(--yb);
+}
+.hl-wave::after{
+  content:'';position:absolute;bottom:-5px;left:0;right:0;height:5px;
+  background:url("data:image/svg+xml,%3Csvg width='200' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4Q25 0 50 4Q75 8 100 4Q125 0 150 4Q175 8 200 4' stroke='%23F5C400' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;
+  background-size:200px 6px;
+  animation:waveMove 2.5s linear infinite;
+}
+@keyframes waveMove{from{background-position-x:0}to{background-position-x:200px}}
+
+.hero-p{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:1.05rem;color:var(--mid);line-height:1.8;
+  max-width:470px;margin-bottom:2.2rem;
+  animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .2s both;
+}
+
+/* stats strip */
+.h-stats{
+  display:flex;gap:0;margin-bottom:2.4rem;
+  border:2px solid var(--ink);border-radius:18px;
+  overflow:hidden;background:var(--wh);
+  box-shadow:5px 5px 0 var(--ink);
+  animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .3s both;
+}
+.hs{
+  flex:1;padding:1rem .5rem;text-align:center;position:relative;
+  transition:background .25s;
+}
+.hs:not(:last-child){border-right:2px solid rgba(0,0,0,.1)}
+.hs:hover{background:var(--yl)}
+.hs-n{font-family:'Lilita One',sans-serif;font-size:2.1rem;color:var(--yb);line-height:1}
+.hs-l{font-family:'Noto Sans Devanagari',sans-serif;font-size:.68rem;color:var(--mid);font-weight:700;margin-top:3px}
+
+/* cta buttons */
+.h-btns{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .4s both;
+}
+.btn-blk{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:var(--ink);color:var(--y);
+  padding:.95rem 2rem;border-radius:16px;
+  font-weight:900;font-size:1rem;text-decoration:none;
+  font-family:'Noto Sans Devanagari',sans-serif;
+  border:2.5px solid var(--ink);
+  box-shadow:5px 5px 0 var(--yb);
+  transition:all .18s cubic-bezier(.34,1.56,.64,1);
+}
+.btn-blk:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--yb)}
+.btn-blk:active{transform:translate(1px,1px);box-shadow:3px 3px 0 var(--yb)}
+.btn-out{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:var(--wh);color:var(--ink);
+  padding:.95rem 1.9rem;border-radius:16px;
+  font-weight:800;font-size:1rem;text-decoration:none;
+  font-family:'Noto Sans Devanagari',sans-serif;
+  border:2.5px solid var(--ink);
+  box-shadow:4px 4px 0 var(--ink);
+  transition:all .18s cubic-bezier(.34,1.56,.64,1);
+}
+.btn-out:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);background:var(--yl)}
+
+/* ── HERO RIGHT — BIG CARD ── */
+.hero-right{
+  position:relative;
+  animation:cardIn .9s cubic-bezier(.22,.68,0,1.2) .25s both;
+}
+@keyframes cardIn{from{opacity:0;transform:translateX(50px) scale(.95)}to{opacity:1;transform:none}}
+
+/* floating stickers */
+.stk{
+  position:absolute;display:flex;align-items:center;gap:.4rem;
+  font-family:'Baloo 2',sans-serif;font-weight:900;font-size:.78rem;
+  border:2.5px solid var(--ink);border-radius:14px;padding:.5rem 1rem;
+  z-index:10;white-space:nowrap;
+}
+.stk1{top:-18px;right:20px;background:var(--y);color:var(--ink);box-shadow:4px 4px 0 var(--ink);animation:stk1 3s ease-in-out infinite}
+.stk2{bottom:24px;left:-50px;background:var(--ink);color:var(--y);box-shadow:4px 4px 0 var(--yb);animation:stk1 3.5s ease-in-out infinite 1.2s}
+.stk3{top:42%;right:-55px;background:var(--wh);color:var(--ink);box-shadow:4px 4px 0 var(--ink);animation:stk1 4s ease-in-out infinite .6s}
+@keyframes stk1{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-10px) rotate(1.5deg)}}
+
+/* main card */
+.hcard{
+  background:var(--wh);border-radius:28px;
+  border:3px solid var(--ink);
+  box-shadow:12px 12px 0 var(--ink);
+  overflow:hidden;position:relative;
+}
+.hcard-stripe{
+  height:8px;
+  background:repeating-linear-gradient(90deg,var(--y) 0,var(--y) 18px,var(--ink) 18px,var(--ink) 20px);
+}
+.hcard-body{padding:2rem 2rem 1.5rem}
+.hcard-top{display:flex;align-items:center;gap:.9rem;margin-bottom:1.75rem}
+.hcard-gem{
+  width:60px;height:60px;background:var(--y);
+  border-radius:18px;border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);
+  display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0;
+  animation:bob 2.5s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-7px) rotate(-5deg)}}
+.hcard-name{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1.5rem;color:var(--ink);line-height:1}
+.hcard-en{font-size:.72rem;color:var(--mid);font-family:'Baloo 2',sans-serif;margin-top:3px}
+
+/* badge grid */
+.hbadges{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+.hbadge{
+  display:flex;align-items:center;gap:.6rem;
+  background:var(--cream);border-radius:14px;
+  padding:.75rem .9rem;
+  border:2px solid rgba(245,196,0,.35);
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);cursor:default;
+}
+.hbadge:hover{border-color:var(--ink);background:var(--yl);transform:translateY(-4px) scale(1.02);box-shadow:4px 4px 0 var(--ink)}
+.hbadge-icon{font-size:1.4rem;flex-shrink:0}
+.hbadge-t{font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:.75rem;color:var(--ink);line-height:1.3}
+.hbadge-s{font-size:.62rem;color:var(--mid);font-family:'Baloo 2',sans-serif}
+.hcard-iso{
+  display:flex;align-items:center;gap:.7rem;
+  background:var(--ink);border-radius:14px;padding:.85rem 1rem;margin-top:.65rem;
+}
+.hcard-iso-icon{font-size:1.3rem}
+.hcard-iso-t{font-family:'Baloo 2',sans-serif;font-weight:900;font-size:.78rem;color:var(--y);line-height:1.35}
+.hcard-iso-s{font-size:.62rem;color:rgba(255,220,0,.55);display:block}
+
+/* ════════════════════════
+   MARQUEE
+════════════════════════ */
+.marquee-wrap{
+  background:var(--ink);overflow:hidden;padding:.8rem 0;
+  border-top:2.5px solid var(--y);border-bottom:2.5px solid var(--y);
+  position:relative;z-index:5;
+}
+.marquee-track{display:flex;width:max-content;animation:ticker 28s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+.mi{
+  display:flex;align-items:center;gap:.55rem;
+  padding:0 2.2rem;
+  font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.85rem;
+  color:var(--y);white-space:nowrap;
+}
+.md{width:5px;height:5px;border-radius:50%;background:var(--y);opacity:.35;flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ════════════════════════
+   WHY SECTION
+════════════════════════ */
+#why{
+  padding:6rem 2rem;background:var(--wh);
+  position:relative;overflow:hidden;
+}
+#why::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 92% 8%,rgba(245,196,0,.1) 0%,transparent 38%),
+    radial-gradient(circle at 5% 92%,rgba(245,196,0,.08) 0%,transparent 35%);
+}
+.why-in{max-width:1300px;margin:0 auto;position:relative;z-index:1}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.45rem;
+  background:var(--y);color:var(--ink);
+  padding:.38rem 1rem;border-radius:8px;
+  font-size:.75rem;font-weight:900;font-family:'Baloo 2',sans-serif;
+  letter-spacing:.08em;text-transform:uppercase;
+  border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);
+  margin-bottom:1.2rem;
+}
+.sec-h{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-weight:900;font-size:clamp(1.9rem,3.5vw,3rem);
+  color:var(--ink);line-height:1.1;margin-bottom:.9rem;
+}
+.sec-p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1rem;color:var(--mid);line-height:1.8;max-width:580px}
+.why-hdr{margin-bottom:3.5rem}
+
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.wcard{
+  background:var(--cream);border-radius:24px;padding:2rem;
+  border:2.5px solid transparent;position:relative;overflow:hidden;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);cursor:default;
+}
+.wcard::before{
+  content:'';position:absolute;inset:0;border-radius:22px;
+  background:var(--y);transform:scaleY(0);transform-origin:bottom;
+  transition:transform .35s cubic-bezier(.22,.68,0,1.2);z-index:0;
+}
+.wcard:hover{border-color:var(--ink);transform:translateY(-8px);box-shadow:8px 8px 0 var(--ink)}
+.wcard:hover::before{transform:scaleY(1)}
+.wcard:hover .wicon{background:var(--ink)}
+.wcard:hover .wtag{background:var(--ink);color:var(--y)}
+.wc-in{position:relative;z-index:1}
+.wicon{
+  width:56px;height:56px;background:var(--y);border-radius:16px;
+  display:flex;align-items:center;justify-content:center;font-size:1.6rem;
+  border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);
+  margin-bottom:1.2rem;transition:background .3s;
+}
+.wt{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1rem;color:var(--ink);margin-bottom:.5rem;line-height:1.3}
+.wd{font-family:'Noto Sans Devanagari',sans-serif;font-size:.86rem;color:var(--mid);line-height:1.75;margin-bottom:1rem}
+.wtag{
+  display:inline-block;background:var(--y);color:var(--ink);
+  padding:.22rem .75rem;border-radius:6px;
+  font-size:.68rem;font-weight:900;font-family:'Baloo 2',sans-serif;
+  border:1.5px solid var(--ink);transition:all .3s;
+}
+
+/* ════════════════════════
+   DARK STATS
+════════════════════════ */
+.stats-dark{
+  padding:5.5rem 2rem;background:var(--ink);position:relative;overflow:hidden;
+}
+.stats-dark::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent,transparent 28px,rgba(245,196,0,.025) 28px,rgba(245,196,0,.025) 29px);
+}
+.stats-in{
+  max-width:1300px;margin:0 auto;position:relative;z-index:1;
+  display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center;
+}
+.sl h2{
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-weight:900;font-size:clamp(1.9rem,3vw,2.8rem);
+  color:var(--wh);line-height:1.15;margin-bottom:1.1rem;
+}
+.sl h2 em{font-style:normal;color:var(--y)}
+.sl p{font-family:'Noto Sans Devanagari',sans-serif;font-size:.95rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:2rem}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.sbox{
+  background:rgba(255,255,255,.05);border:1.5px solid rgba(245,196,0,.18);
+  border-radius:20px;padding:1.75rem;text-align:center;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.sbox:hover{background:rgba(245,196,0,.1);border-color:var(--y);transform:scale(1.04)}
+.sbox::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--y);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.sbox:hover::after{transform:scaleX(1)}
+.sn{font-family:'Lilita One',sans-serif;font-size:3rem;color:var(--y);line-height:1}
+.sl2{font-family:'Noto Sans Devanagari',sans-serif;font-size:.8rem;color:rgba(255,255,255,.55);margin-top:.4rem;font-weight:600}
+
+/* ════════════════════════
+   CLASSES
+════════════════════════ */
+#classes{
+  padding:6rem 2rem;
+  background:linear-gradient(165deg,var(--yp) 0%,var(--cream) 65%);
+  position:relative;overflow:hidden;
+}
+#classes::after{
+  content:'प्रायमा';
+  position:absolute;right:-2rem;top:50%;transform:translateY(-50%) rotate(90deg);
+  font-family:'Lilita One',sans-serif;font-size:10rem;
+  color:rgba(245,196,0,.1);pointer-events:none;white-space:nowrap;
+}
+.cls-in{max-width:1300px;margin:0 auto;position:relative;z-index:1}
+.cls-hdr{margin-bottom:3rem}
+.cls-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.ccard{
+  border-radius:28px;padding:2rem 1.5rem;text-align:center;
+  border:2.5px solid var(--ink);text-decoration:none;color:inherit;
+  display:block;position:relative;overflow:hidden;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+}
+.ccard:nth-child(1){background:#FFF5B0}
+.ccard:nth-child(2){background:#FFE8A0}
+.ccard:nth-child(3){background:#FFEEC0}
+.ccard:nth-child(4){background:#FFD56E}
+.ccard:hover{transform:translateY(-10px) scale(1.03);box-shadow:8px 10px 0 var(--ink)}
+.ccard::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:5px;
+  background:var(--ink);
+}
+.cemoji{font-size:3rem;margin-bottom:.7rem;display:block;animation:moji 2s ease-in-out infinite}
+.ccard:nth-child(2) .cemoji{animation-delay:.3s}
+.ccard:nth-child(3) .cemoji{animation-delay:.6s}
+.ccard:nth-child(4) .cemoji{animation-delay:.9s}
+@keyframes moji{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.15) rotate(-6deg)}}
+.cmr{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1.05rem;color:var(--ink);margin-bottom:.2rem}
+.cen{font-family:'Baloo 2',sans-serif;font-size:.78rem;color:var(--mid);margin-bottom:.65rem}
+.cage{
+  display:inline-block;background:var(--ink);color:var(--y);
+  padding:.18rem .75rem;border-radius:8px;font-size:.7rem;font-weight:800;
+  font-family:'Baloo 2',sans-serif;margin-bottom:1rem;
+}
+.cfee{font-family:'Lilita One',sans-serif;font-size:1.7rem;color:var(--ink)}
+.cfee-n{font-size:.68rem;color:var(--mid);font-family:'Baloo 2',sans-serif;margin-top:.1rem}
+
+/* ════════════════════════
+   BENTO FEATURES
+════════════════════════ */
+#feats{padding:6rem 2rem;background:var(--wh)}
+.feats-in{max-width:1300px;margin:0 auto}
+.bento{display:grid;grid-template-columns:1.65fr 1fr 1fr;grid-template-rows:auto auto;gap:1.2rem;margin-top:3rem}
+.bc{border-radius:24px;padding:2rem;border:2.5px solid var(--ink);position:relative;overflow:hidden;transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+.bc:hover{transform:translateY(-5px);box-shadow:6px 8px 0 var(--ink)}
+.ba{background:var(--ink);grid-row:1/3;padding:2.5rem}
+.bb{background:var(--y)}
+.bc2{background:#E8F5E9}
+.bd{background:#E3F2FD}
+.be{background:var(--off)}
+.blbl{font-family:'Baloo 2',sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin-bottom:.7rem}
+.ba .blbl{color:rgba(245,196,0,.7)}
+.ba .bi{font-size:3rem;margin-bottom:.9rem}
+.ba .bh{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1.45rem;color:var(--y);margin-bottom:.7rem;line-height:1.2}
+.ba .bp{font-family:'Noto Sans Devanagari',sans-serif;font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:1.4rem}
+.ba .btg{display:inline-block;background:var(--y);color:var(--ink);padding:.32rem .95rem;border-radius:8px;font-size:.75rem;font-weight:900;font-family:'Baloo 2',sans-serif}
+.bsi{font-size:1.8rem;margin-bottom:.55rem}
+.bsh{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:.92rem;color:var(--ink);margin-bottom:.3rem}
+.bsp{font-family:'Noto Sans Devanagari',sans-serif;font-size:.8rem;color:var(--mid);line-height:1.65}
+.bnum{font-family:'Lilita One',sans-serif;font-size:5rem;color:rgba(0,0,0,.06);position:absolute;bottom:-.5rem;right:1rem;line-height:1;pointer-events:none}
+
+/* ════════════════════════
+   TESTIMONIALS
+════════════════════════ */
+#testi{padding:6rem 2rem;background:var(--ink);position:relative;overflow:hidden}
+#testi::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 38px,rgba(245,196,0,.02) 38px,rgba(245,196,0,.02) 39px)}
+.testi-in{max-width:1300px;margin:0 auto;position:relative;z-index:1;text-align:center}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem;text-align:left}
+.tcard{
+  background:rgba(255,255,255,.05);border-radius:24px;padding:2rem;
+  border:1.5px solid rgba(245,196,0,.18);position:relative;overflow:hidden;
+  transition:all .3s;
+}
+.tcard:hover{background:rgba(245,196,0,.09);border-color:var(--y);transform:translateY(-5px)}
+.tcard::before{content:'"';position:absolute;top:-.5rem;left:1.2rem;font-size:6rem;color:var(--y);opacity:.18;line-height:1;font-family:'Lilita One',sans-serif}
+.tstars{color:var(--y);font-size:.9rem;margin-bottom:.7rem;letter-spacing:2px}
+.ttxt{font-family:'Tiro Devanagari Marathi',serif;font-size:.92rem;color:rgba(255,255,255,.82);line-height:1.85;font-style:italic;margin-bottom:1.2rem}
+.tau{font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:.85rem;color:var(--y)}
+.tac{font-size:.7rem;color:rgba(255,255,255,.35);font-family:'Baloo 2',sans-serif}
+
+/* ════════════════════════
+   CTA
+════════════════════════ */
+.cta-sec{padding:6rem 2rem;background:var(--y);position:relative;overflow:hidden}
+.cta-sec::before{content:'✨';position:absolute;font-size:22rem;opacity:.05;top:-4rem;right:-4rem;pointer-events:none;animation:spin 35s linear infinite}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.cta-in{max-width:1300px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.cl h2{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(2rem,3.5vw,3rem);color:var(--ink);line-height:1.1;margin-bottom:1rem}
+.cl p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1rem;color:var(--ink2);line-height:1.8;margin-bottom:1.75rem}
+.infos{display:flex;flex-direction:column;gap:.7rem}
+.irow{
+  display:flex;align-items:center;gap:.8rem;
+  background:rgba(255,255,255,.55);border-radius:12px;padding:.8rem 1.1rem;
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:.88rem;color:var(--ink2);font-weight:700;
+  border:1.5px solid rgba(0,0,0,.08);
+}
+.fcard{
+  background:var(--wh);border-radius:28px;padding:2.5rem;
+  border:3px solid var(--ink);box-shadow:10px 10px 0 var(--ink);
+}
+.fcard-h{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1.35rem;color:var(--ink);margin-bottom:1.4rem;text-align:center}
+.fg{margin-bottom:.9rem}
+.fg label{display:block;font-weight:800;font-size:.78rem;color:var(--ink2);margin-bottom:.32rem;font-family:'Noto Sans Devanagari',sans-serif}
+.fg input,.fg select{
+  width:100%;padding:.78rem 1rem;border:2.5px solid rgba(0,0,0,.1);
+  border-radius:12px;font-size:.92rem;background:var(--cream);color:var(--ink);
+  font-family:'Noto Sans Devanagari',sans-serif;transition:border-color .2s;outline:none;
+}
+.fg input:focus,.fg select:focus{border-color:var(--ink);background:var(--wh)}
+.frow2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.fsub{
+  width:100%;background:var(--ink);color:var(--y);border:2.5px solid var(--ink);
+  padding:1rem;border-radius:14px;font-weight:900;font-size:.98rem;cursor:pointer;
+  font-family:'Noto Sans Devanagari',sans-serif;
+  box-shadow:5px 5px 0 var(--yb);
+  transition:all .18s cubic-bezier(.34,1.56,.64,1);
+  display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:.4rem;
+}
+.fsub:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--yb)}
+.fsub:active{transform:translate(1px,1px);box-shadow:3px 3px 0 var(--yb)}
+.fsuccess{display:none;text-align:center;padding:2rem;font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:1rem;color:var(--ink);background:var(--yl);border-radius:14px;border:2px solid var(--ink)}
+
+/* ════════════════════════
+   CONTACT STRIP
+════════════════════════ */
+.cstrip{background:var(--wh);padding:2.5rem 2rem;border-top:2px solid rgba(245,196,0,.25)}
+.cs-in{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.csi{display:flex;align-items:center;gap:.8rem}
+.csi-icon{width:46px;height:46px;background:var(--y);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.csi-lbl{font-family:'Baloo 2',sans-serif;font-size:.68rem;color:var(--mid);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.csi-val{font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:.9rem;color:var(--ink)}
+.csi-val a{color:var(--ink);text-decoration:none}
+.csi-val a:hover{color:var(--yb)}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:#25D366;color:var(--wh);padding:.85rem 1.6rem;border-radius:14px;
+  font-weight:900;font-size:.88rem;text-decoration:none;
+  border:2px solid #1AA34A;box-shadow:4px 4px 0 #1AA34A;
+  font-family:'Noto Sans Devanagari',sans-serif;
+  transition:all .18s cubic-bezier(.34,1.56,.64,1);
+}
+.btn-wa:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #1AA34A}
+
+/* ════════════════════════
+   FOOTER
+════════════════════════ */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:4rem 2rem 0}
+.ft-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.ft-logo{font-family:'Lilita One',sans-serif;font-size:2rem;color:var(--y);margin-bottom:.4rem}
+.ft-sub{font-family:'Noto Sans Devanagari',sans-serif;font-size:.86rem;margin-bottom:.2rem}
+.ft-tiny{font-size:.7rem;color:rgba(255,255,255,.3);font-family:'Baloo 2',sans-serif}
+.ft-h{font-family:'Baloo 2',sans-serif;font-weight:900;font-size:.73rem;color:var(--y);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem}
+.ft-links{display:flex;flex-direction:column;gap:.45rem}
+.ft-links a{color:rgba(255,255,255,.62);text-decoration:none;font-size:.88rem;font-family:'Noto Sans Devanagari',sans-serif;transition:color .2s}
+.ft-links a:hover{color:var(--y)}
+.ft-ct p{font-size:.86rem;font-family:'Noto Sans Devanagari',sans-serif;margin-bottom:.45rem}
+.ft-ct a{color:var(--yl);text-decoration:none}
+.ft-ct a:hover{color:var(--y)}
+.ft-btm{max-width:1300px;margin:0 auto;padding:1.4rem 0;text-align:center;font-size:.73rem;color:rgba(255,255,255,.22);font-family:'Baloo 2',sans-serif}
+
+/* ════════════════════════
+   REVEAL ANIMATIONS
+════════════════════════ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.rvl{opacity:0;transform:translateX(-28px);transition:opacity .65s ease,transform .65s ease}
+.rvr{opacity:0;transform:translateX(28px);transition:opacity .65s ease,transform .65s ease}
+.rv.in,.rvl.in,.rvr.in{opacity:1;transform:none}
+
+/* ════════════════════════
+   RESPONSIVE
+════════════════════════ */
+@media(max-width:1060px){
+  .hero-grid{grid-template-columns:1fr}.hero-right{display:none}
+  .stats-in{grid-template-columns:1fr;gap:3rem}
+  .cls-grid{grid-template-columns:1fr 1fr}
+  .bento{grid-template-columns:1fr 1fr}.ba{grid-column:1/3;grid-row:1}
+  .cta-in{grid-template-columns:1fr;gap:3rem}
+  .tgrid{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr;gap:2rem}
+  .why-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .nlinks{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(253,248,236,.97);backdrop-filter:blur(18px);flex-direction:column;padding:1.4rem;border-bottom:2px solid var(--y);gap:.25rem}
+  .nlinks.open{display:flex}
+  .ham{display:flex}
+  .why-grid{grid-template-columns:1fr}
+  .cls-grid{grid-template-columns:1fr 1fr}
+  .bento{grid-template-columns:1fr}.ba{grid-column:1}
+  .tgrid{grid-template-columns:1fr}
+  .cs-in{flex-direction:column}
+  .frow2{grid-template-columns:1fr}
+  .sgrid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur2"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nlogo">
+      <div class="nlogo-gem">🌟</div>
+      <div class="nlogo-t">
+        <div class="nlogo-main">प्रायमा</div>
+        <div class="nlogo-sub">पूर्व प्राथमिक विद्यालय · मंगळवेढा</div>
+      </div>
+    </a>
+    <ul class="nlinks" id="nlinks">
+      <li><a href="index.html">🏠 मुख्यपृष्ठ</a></li>
+      <li><a href="about.html">📖 आमच्याबद्दल</a></li>
+      <li><a href="admissions.html">✏️ प्रवेश</a></li>
+      <li><a href="gallery.html">📸 गॅलरी</a></li>
+      <li><a href="contact.html">📞 संपर्क</a></li>
+      <li><a href="admissions.html" class="npill">प्रवेश घ्या →</a></li>
+    </ul>
+    <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="hero-dots"></div>
+
+  <div class="hero-grid">
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="h-chip"><span class="chip-pulse"></span>🏆 ISO 21001:2018 · ३७ वर्षांचा अनुभव · मंगळवेढ्यात प्रथम</div>
+      <h1 class="hero-h1">
+        मुलांचं <span class="hl-box">हसणं</span>,<br>
+        त्यांचं <span class="hl-wave">शिक्षण</span>.<br>
+        आमची जबाबदारी.
+      </h1>
+      <p class="hero-p">मंगळवेढ्याचं पहिलं AI Robot शिक्षक, Digital Touch Boards, CCTV सुरक्षितता असलेलं आधुनिक पूर्व प्राथमिक विद्यालय.</p>
+
+      <div class="h-stats">
+        <div class="hs"><div class="hs-n" data-target="37">0</div><div class="hs-l">वर्षांचा अनुभव</div></div>
+        <div class="hs"><div class="hs-n" data-target="300">0</div><div class="hs-l">विद्यार्थी</div></div>
+        <div class="hs"><div class="hs-n" data-target="15">0</div><div class="hs-l">शिक्षिका</div></div>
+        <div class="hs"><div class="hs-n" data-target="5000">0</div><div class="hs-l">माजी विद्यार्थी</div></div>
+      </div>
+
+      <div class="h-btns">
+        <a href="admissions.html" class="btn-blk">✏️ प्रवेशाची चौकशी करा</a>
+        <a href="about.html"      class="btn-out">📖 अधिक जाणून घ्या</a>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="hero-right">
+      <div class="stk stk1">🤖 Robot शिक्षक — प्रथम!</div>
+      <div class="stk stk2">🚌 Educational Bus — प्रथम!</div>
+      <div class="stk stk3">📷 CCTV सर्व वर्गांत</div>
+      <div class="hcard">
+        <div class="hcard-stripe"></div>
+        <div class="hcard-body">
+          <div class="hcard-top">
+            <div class="hcard-gem">🌟</div>
+            <div>
+              <div class="hcard-name">प्रायमा</div>
+              <div class="hcard-en">Digital Balwadi · Mangalwedha</div>
+            </div>
+          </div>
+          <div class="hbadges">
+            <div class="hbadge"><div class="hbadge-icon">🤖</div><div><div class="hbadge-t">AI Robot शिक्षक</div><div class="hbadge-s">मंगळवेढ्यात प्रथम</div></div></div>
+            <div class="hbadge"><div class="hbadge-icon">📺</div><div><div class="hbadge-t">Digital Touch Board</div><div class="hbadge-s">प्रत्येक वर्गात</div></div></div>
+            <div class="hbadge"><div class="hbadge-icon">📷</div><div><div class="hbadge-t">CCTV सुरक्षितता</div><div class="hbadge-s">जिल्ह्यात प्रथम</div></div></div>
+            <div class="hbadge"><div class="hbadge-icon">🚌</div><div><div class="hbadge-t">Educational Bus</div><div class="hbadge-s">मंगळवेढ्यात प्रथम</div></div></div>
+            <div class="hbadge"><div class="hbadge-icon">🩺</div><div><div class="hbadge-t">मोफत आरोग्य तपासणी</div><div class="hbadge-s">तज्ज्ञांकडून</div></div></div>
+            <div class="hbadge"><div class="hbadge-icon">🎓</div><div><div class="hbadge-t">Semi English</div><div class="hbadge-s">द्विभाषिक माध्यम</div></div></div>
+          </div>
+          <div class="hcard-iso">
+            <div class="hcard-iso-icon">🏆</div>
+            <div class="hcard-iso-t">ISO 21001:2018 प्रमाणित<span>First Digital Balwadi in Mangalwedha Taluka</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="mi">🤖 मंगळवेढ्यात प्रथम Robot शिक्षक</span><span class="md"></span>
+    <span class="mi">🚌 प्रथम Educational School Bus</span><span class="md"></span>
+    <span class="mi">📺 Digital Touch Screen Board — प्रत्येक वर्गात</span><span class="md"></span>
+    <span class="mi">🏆 ISO 21001:2018 · ३७ वर्षांचा अनुभव</span><span class="md"></span>
+    <span class="mi">📷 CCTV सर्व वर्गांत — सोलापूर जिल्ह्यात प्रथम</span><span class="md"></span>
+    <span class="mi">🩺 मोफत वार्षिक आरोग्य तपासणी</span><span class="md"></span>
+    <span class="mi">👴👵 आजी-आजोबा-नातू दिन</span><span class="md"></span>
+    <span class="mi">📞 98908 55040 · 94210 45752</span><span class="md"></span>
+    <span class="mi">🤖 मंगळवेढ्यात प्रथम Robot शिक्षक</span><span class="md"></span>
+    <span class="mi">🚌 प्रथम Educational School Bus</span><span class="md"></span>
+    <span class="mi">📺 Digital Touch Screen Board — प्रत्येक वर्गात</span><span class="md"></span>
+    <span class="mi">🏆 ISO 21001:2018 · ३७ वर्षांचा अनुभव</span><span class="md"></span>
+    <span class="mi">📷 CCTV सर्व वर्गांत — सोलापूर जिल्ह्यात प्रथम</span><span class="md"></span>
+    <span class="mi">🩺 मोफत वार्षिक आरोग्य तपासणी</span><span class="md"></span>
+    <span class="mi">👴👵 आजी-आजोबा-नातू दिन</span><span class="md"></span>
+    <span class="mi">📞 98908 55040 · 94210 45752</span><span class="md"></span>
+  </div>
+</div>
+
+<!-- ═══ WHY ═══ -->
+<section id="why">
+  <div class="why-in">
+    <div class="why-hdr">
+      <div class="eyebrow rv">⭐ आमची वैशिष्ट्ये</div>
+      <h2 class="sec-h rv">प्रायमा का वेगळी?</h2>
+      <p class="sec-p rv">मंगळवेढ्यातील पहिलं Digital बालवाडी — आधुनिक तंत्रज्ञान, अनुभवी शिक्षिका आणि हसत-खेळत शिक्षण.</p>
+    </div>
+    <div class="why-grid">
+      <div class="wcard rv"><div class="wc-in"><div class="wicon">🤖</div><div class="wt">मंगळवेढ्यात प्रथमच Robot शिक्षक</div><div class="wd">AI-आधारित Robot Teacher द्वारे इंग्रजी व मराठी बडबडगीते, मुलांना शाळेत रोज येण्याची आवड निर्माण होते.</div><span class="wtag">मंगळवेढ्यात प्रथम</span></div></div>
+      <div class="wcard rv"><div class="wc-in"><div class="wicon">📺</div><div class="wt">Digital Touch Screen Board</div><div class="wd">प्रत्येक वर्गात Digital Touch Screen Board & T.V. Interactive E-Learning सोबत LED Projector सुविधा.</div><span class="wtag">राज्यात प्रथम</span></div></div>
+      <div class="wcard rv"><div class="wc-in"><div class="wicon">📷</div><div class="wt">CCTV — सोलापूर जिल्ह्यात प्रथम</div><div class="wd">२०१३-१४ पासून सर्व वर्गांमध्ये CCTV. रोज रेकॉर्डिंग. तुमचं मूल नेहमी सुरक्षित असल्याची खात्री.</div><span class="wtag">जिल्ह्यात प्रथम</span></div></div>
+      <div class="wcard rv"><div class="wc-in"><div class="wicon">🚌</div><div class="wt">शैक्षणिक School Bus</div><div class="wd">मंगळवेढ्यात प्रथम Educational School Bus — अंक, अक्षरे, महिने, वार, स्पर्श ज्ञान Bus मधूनच!</div><span class="wtag">मंगळवेढ्यात प्रथम</span></div></div>
+      <div class="wcard rv"><div class="wc-in"><div class="wicon">🩺</div><div class="wt">मोफत आरोग्य तपासणी</div><div class="wd">बालरोग, दंतरोग, कान-नाक-घसा तज्ज्ञांकडून वार्षिक मोफत तपासणी. पोलिओ लसीकरण. आहार मार्गदर्शन.</div><span class="wtag">मोफत सेवा</span></div></div>
+      <div class="wcard rv"><div class="wc-in"><div class="wicon">📋</div><div class="wt">QR Code निकालपत्रक</div><div class="wd">रंगीत निकालपत्रात विद्यार्थ्यांचा फोटो, रजि.क्रमांक व QR Code — महाराष्ट्रातील पहिली अशी पद्धत!</div><span class="wtag">महाराष्ट्रात प्रथम</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DARK STATS ═══ -->
+<section class="stats-dark">
+  <div class="stats-in">
+    <div class="sl rvl">
+      <h2>३५ वर्षांत आम्ही<br><em>हजारो मुलांचं</em><br>भविष्य घडवलं.</h2>
+      <p>१९९० मध्ये सुरुवात झालेली ही संस्था आज मंगळवेढ्यातील सर्वात आधुनिक डिजिटल बालवाडी आहे. प्रत्येक मुलावर वैयक्तिक लक्ष — हाच आमचा मूलमंत्र.</p>
+      <a href="about.html" class="btn-out" style="display:inline-flex;">📖 आमची कहाणी वाचा</a>
+    </div>
+    <div class="sgrid">
+      <div class="sbox rv"><div class="sn">१९९०</div><div class="sl2">संस्था स्थापना वर्ष</div></div>
+      <div class="sbox rv"><div class="sn">३५०</div><div class="sl2">विक्रमी प्रवेश (२०२१-२२)</div></div>
+      <div class="sbox rv"><div class="sn">१५</div><div class="sl2">अनुभवी शिक्षिका व कर्मचारी</div></div>
+      <div class="sbox rv"><div class="sn">ISO</div><div class="sl2">21001:2018 प्रमाणित</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CLASSES ═══ -->
+<section id="classes">
+  <div class="cls-in">
+    <div class="cls-hdr" style="text-align:center">
+      <div class="eyebrow rv" style="margin:0 auto 1.2rem">🎓 वर्ग व शुल्क</div>
+      <h2 class="sec-h rv">तुमच्या मुलासाठी योग्य वर्ग</h2>
+      <p class="sec-p rv" style="margin:0 auto">सेमी इंग्रजी माध्यम | वार्षिक शुल्क एकरकमी</p>
+    </div>
+    <div class="cls-grid">
+      <a href="admissions.html" class="ccard rv"><span class="cemoji">🎮</span><div class="cmr">खेळ वर्ग</div><div class="cen">Play Group</div><div class="cage">वय २.५ – ३ वर्षे</div><div class="cfee">चौकशी करा</div><div class="cfee-n">शुल्कासाठी संपर्क करा</div></a>
+      <a href="admissions.html" class="ccard rv"><span class="cemoji">👶</span><div class="cmr">शिशु वर्ग</div><div class="cen">Nursery</div><div class="cage">वय ३ – ३.५ वर्षे</div><div class="cfee">₹ ८,३००</div><div class="cfee-n">वार्षिक शुल्क</div></a>
+      <a href="admissions.html" class="ccard rv"><span class="cemoji">🌱</span><div class="cmr">लहान वर्ग</div><div class="cen">Lower KG</div><div class="cage">वय ४ – ४.५ वर्षे</div><div class="cfee">₹ ९,३००</div><div class="cfee-n">वार्षिक शुल्क</div></a>
+      <a href="admissions.html" class="ccard rv"><span class="cemoji">🌟</span><div class="cmr">मोठा वर्ग</div><div class="cen">Upper KG</div><div class="cage">वय ५ – ५.५ वर्षे</div><div class="cfee">₹ १०,३००</div><div class="cfee-n">वार्षिक शुल्क</div></a>
+    </div>
+    <p style="text-align:center;margin-top:1.4rem;font-family:'Noto Sans Devanagari',sans-serif;font-size:.82rem;color:var(--mid)">* माहिती पुस्तकाचे शुल्क ₹२०० स्वतंत्र · वार्षिक शुल्क एकरकमी प्रवेशावेळीच</p>
+  </div>
+</section>
+
+<!-- ═══ BENTO FEATURES ═══ -->
+<section id="feats">
+  <div class="feats-in">
+    <div class="eyebrow rv">✨ विशेष उपक्रम</div>
+    <h2 class="sec-h rv">जे फक्त प्रायमात मिळते</h2>
+    <div class="bento">
+      <div class="bc ba rvl">
+        <div class="blbl">Highlight Feature</div>
+        <div class="bi">🤖</div>
+        <div class="bh">मंगळवेढ्यात प्रथमच AI Robot शिक्षक</div>
+        <div class="bp">कृत्रिम बुद्धिमत्तावर (AI) आधारित Robot Teacher द्वारे मुलांना इंग्रजी व मराठी बडबडगीते शिकवली जातात. मुलांना शाळेत दररोज उपस्थित राहण्याची आवड निर्माण होते. हे मंगळवेढ्यात फक्त प्रायमातच!</div>
+        <span class="btg">मंगळवेढ्यात प्रथम</span>
+      </div>
+      <div class="bc bb rv"><div class="bnum">🚌</div><div class="blbl">First in Mangalwedha</div><div class="bsi">🚌</div><div class="bsh">Educational School Bus</div><div class="bsp">अंकांची ओळख, इंग्रजी अक्षरे, महिने, वार, स्पर्श ज्ञान — Bus मधूनच!</div></div>
+      <div class="bc bc2 rv"><div class="bnum">👴</div><div class="blbl">Special Event</div><div class="bsi">👴👵</div><div class="bsh">आजी-आजोबा-नातू दिन</div><div class="bsp">नातवांसोबत आजी-आजोबांचा स्नेहमेळावा — एक अनोखी परंपरा.</div></div>
+      <div class="bc bd rv"><div class="bnum">👩</div><div class="blbl">Unique Program</div><div class="bsi">👩‍🏫</div><div class="bsh">माता पालक शिक्षक दिन</div><div class="bsp">आईने एक दिवस शिक्षिकेची भूमिका — तालुक्यात प्रथम उपक्रम.</div></div>
+      <div class="bc be rv"><div class="bnum">🛒</div><div class="blbl">Life Skills</div><div class="bsi">🛒</div><div class="bsh">आठवडा बाजार उपक्रम</div><div class="bsp">दर सोमवारी मुलांकडून भाजीपाला, मेवा, मिठाई विक्री — व्यवहारिक ज्ञान.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section id="testi">
+  <div class="testi-in">
+    <div class="eyebrow rv" style="margin:0 auto 1.2rem">💬 पालकांचे अभिप्राय</div>
+    <h2 class="sec-h rv" style="color:var(--wh)">पालक काय म्हणतात?</h2>
+    <div class="tgrid">
+      <div class="tcard rv"><div class="tstars">★★★★★</div><div class="ttxt">प्रायमा शाळेत माझ्या मुलाला Robot शिक्षकामुळे शाळेत जाण्याची खूप आवड निर्माण झाली. डिजिटल बोर्डवर शिकणे त्याला खूप आवडते. शाळा खऱ्या अर्थाने वेगळी आहे!</div><div class="tau">सौ. सुनीता देशमुख</div><div class="tac">पालक — मोठा वर्ग</div></div>
+      <div class="tcard rv"><div class="tstars">★★★★★</div><div class="ttxt">CCTV कॅमेरे असल्यामुळे मुलगी शाळेत सुरक्षित आहे याची खात्री पटते. शिक्षिका खूप प्रेमळ व अनुभवी आहेत. मोफत आरोग्य तपासणी हा तर खूप चांगला उपक्रम आहे.</div><div class="tau">श्री. राहुल पाटील</div><div class="tac">पालक — लहान वर्ग</div></div>
+      <div class="tcard rv"><div class="tstars">★★★★★</div><div class="ttxt">आजी-आजोबा दिन, आठवडा बाजार, माता पालक दिन — हे उपक्रम खरोखरच मुलांचा सर्वांगीण विकास करतात. इतर शाळेत हे मिळत नाही!</div><div class="tau">सौ. प्रिया कांबळे</div><div class="tac">पालक — शिशु वर्ग</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-sec">
+  <div class="cta-in">
+    <div class="cl">
+      <h2>आजच प्रवेश<br>निश्चित करा!</h2>
+      <p>मर्यादित जागा — प्रत्येक वर्गात मर्यादित प्रवेश. उशीर झाल्यास जागा मिळणार नाही. आजच चौकशी करा.</p>
+      <div class="infos">
+        <div class="irow">📍 खंडोबा गल्ली, मंगळवेढा, जि. सोलापूर</div>
+        <div class="irow">🕘 सोमवार – शनिवार | सकाळी ९:०० – १२:३०</div>
+        <div class="irow">📞 02188-299801 | 98908 55040 | 94210 45752</div>
+        <div class="irow">📧 primacomputer@gmail.com</div>
+      </div>
+    </div>
+    <div class="fcard rvr">
+      <div class="fcard-h">✏️ प्रवेश चौकशी</div>
+      <div id="ctaForm">
+        <div class="frow2">
+          <div class="fg"><label>👶 मुलाचे नाव *</label><input type="text" id="fn" placeholder="पूर्ण नाव"></div>
+          <div class="fg"><label>🎂 वय *</label><input type="text" id="fa" placeholder="उदा. ३ वर्षे"></div>
+        </div>
+        <div class="fg"><label>📚 इच्छित वर्ग</label>
+          <select id="fc">
+            <option value="">-- वर्ग निवडा --</option>
+            <option>खेळ वर्ग (Play Group)</option>
+            <option>शिशु वर्ग (Nursery) — ₹ ८,३००</option>
+            <option>लहान वर्ग (Lower KG) — ₹ ९,३००</option>
+            <option>मोठा वर्ग (Upper KG) — ₹ १०,३००</option>
+          </select>
+        </div>
+        <div class="frow2">
+          <div class="fg"><label>👨‍👩‍👦 पालकाचे नाव *</label><input type="text" id="fp" placeholder="आई / बाबा"></div>
+          <div class="fg"><label>📞 WhatsApp नंबर *</label><input type="tel" id="fph" placeholder="मोबाईल"></div>
+        </div>
+        <button class="fsub" onclick="ctaSub()">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp वर पाठवा
+        </button>
+        <p style="text-align:center;margin-top:.7rem;font-family:'Noto Sans Devanagari',sans-serif;font-size:.8rem;color:var(--mid)">किंवा थेट कॉल करा: <a href="tel:9890855040" style="color:var(--yb);font-weight:800">98908 55040</a></p>
+      </div>
+      <div class="fsuccess" id="ctaOk">🎉 धन्यवाद! तुमचा अर्ज WhatsApp वर पाठवला.<br>आम्ही लवकरच संपर्क करू. 🙏</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT STRIP ═══ -->
+<div class="cstrip">
+  <div class="cs-in">
+    <div class="csi"><div class="csi-icon">📞</div><div><div class="csi-lbl">Phone / WhatsApp</div><div class="csi-val"><a href="tel:9890855040">98908 55040</a> | <a href="tel:9421045752">94210 45752</a></div></div></div>
+    <div class="csi"><div class="csi-icon">☎️</div><div><div class="csi-lbl">Landline</div><div class="csi-val"><a href="tel:02188299801">02188-299801</a></div></div></div>
+    <div class="csi"><div class="csi-icon">📍</div><div><div class="csi-lbl">शाळेचा पत्ता</div><div class="csi-val">खंडोबा गल्ली, मंगळवेढा</div></div></div>
+    <div class="csi"><div class="csi-icon">⏰</div><div><div class="csi-lbl">वेळ</div><div class="csi-val">सोम–शनि | ९:०० – १२:३०</div></div></div>
+    <a href="https://wa.me/919890855040?text=नमस्कार! प्रायमा शाळेबद्दल माहिती हवी आहे." target="_blank" class="btn-wa">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp करा
+    </a>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="ft-grid">
+    <div><div class="ft-logo">🌟 प्रायमा</div><div class="ft-sub">पूर्व प्राथमिक विद्यालय (डिजिटल बालवाडी)</div><div class="ft-tiny">विश्वज्योती वाणिज्य प्रशिक्षण संस्था, मंगळवेढा संचलित · Est. 1990 · शैक्षणिक वर्ष २०२६-२७</div></div>
+    <div><div class="ft-h">पृष्ठे</div><div class="ft-links"><a href="index.html">🏠 मुख्यपृष्ठ</a><a href="about.html">📖 आमच्याबद्दल</a><a href="admissions.html">✏️ प्रवेश</a><a href="gallery.html">📸 गॅलरी</a><a href="contact.html">📞 संपर्क</a></div></div>
+    <div class="ft-ct"><div class="ft-h">संपर्क</div><p>📍 खंडोबा गल्ली, मंगळवेढा, जि. सोलापूर</p><p>📞 <a href="tel:9890855040">98908 55040</a> | <a href="tel:9421045752">94210 45752</a></p><p>☎️ <a href="tel:02188299801">02188-299801</a></p><p>📧 <a href="mailto:primacomputer@gmail.com">primacomputer@gmail.com</a></p><p>🌐 <a href="http://www.primaschoolmangalwedha.blogspot.com" target="_blank">Blogspot</a></p></div>
+  </div>
+  <div class="ft-btm">© २०२६-२७ प्रायमा पूर्व प्राथमिक विद्यालय, मंगळवेढा · www.primaedu.in · Designed with ❤️</div>
+</footer>
+
+<script>
+/* ── CURSOR ── */
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function lag(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(lag)})();
+document.querySelectorAll('a,button,.hbadge,.ccard,.wcard,.sbox,.tcard').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-big'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-big'));
+});
+
+/* ── NAV ── */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('solid',scrollY>30));
+const ham=document.getElementById('ham'),nl=document.getElementById('nlinks');
+ham.addEventListener('click',()=>nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+
+/* ── COUNT UP ── */
+function countUp(el,target,dur=1500){
+  let s=0,step=target/dur*16;
+  const t=setInterval(()=>{
+    s=Math.min(s+step,target);
+    const v=Math.floor(s);
+    el.textContent=v>=1000?(v/1000).toFixed(1)+'k+':v+(target>=100?'+':'+');
+    if(s>=target)clearInterval(t);
+  },16);
+}
+const cobs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){countUp(e.target,+e.target.dataset.target);cobs.unobserve(e.target)}
+}),{threshold:.5});
+document.querySelectorAll('[data-target]').forEach(el=>cobs.observe(el));
+
+/* ── REVEAL ── */
+const robs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){
+    const sibs=[...e.target.parentElement.querySelectorAll('.rv,.rvl,.rvr')];
+    const i=sibs.indexOf(e.target);
+    e.target.style.transitionDelay=(i*.09)+'s';
+    e.target.classList.add('in');
+    robs.unobserve(e.target);
+  }
+}),{threshold:.07});
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>robs.observe(el));
+
+/* ── CTA FORM ── */
+function ctaSub(){
+  const n=document.getElementById('fn').value.trim(),a=document.getElementById('fa').value.trim(),
+        c=document.getElementById('fc').value,p=document.getElementById('fp').value.trim(),
+        ph=document.getElementById('fph').value.trim();
+  if(!n||!a||!p||!ph){alert('कृपया * चिन्हांकित सर्व माहिती भरा.');return}
+  let t=`नमस्कार! 🙏 प्रायमा पूर्व प्राथमिक विद्यालयात प्रवेशाबद्दल चौकशी:%0A%0A`;
+  t+=`👶 ${n}%0A🎂 ${a}%0A`;if(c)t+=`📚 ${c}%0A`;t+=`👨‍👩‍👦 ${p}%0A📞 ${ph}`;
+  window.open(`https://wa.me/919890855040?text=${t}`,'_blank');
+  document.getElementById('ctaForm').style.display='none';
+  document.getElementById('ctaOk').style.display='block';
+}
+</script>
+</body>
+</html>

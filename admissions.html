@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>प्रवेश माहिती | प्रायमा डिजिटल बालवाडी · मंगळवेढा</title>
+<meta name="description" content="प्रायमा पूर्व प्राथमिक विद्यालयात प्रवेश — शुल्क, नियम, आवश्यक कागदपत्रे आणि WhatsApp अर्ज.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;900&family=Lilita+One&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   PRIYAMA — ADMISSIONS PAGE
+   Same design system as index + about
+═══════════════════════════════════════════ */
+:root{
+  --y:#F5C400;--yb:#D4A000;--yl:#FFF3A0;--yp:#FFFBE6;
+  --ink:#1A0F00;--ink2:#3D2000;--mid:#7A5530;
+  --cream:#FDF8EC;--off:#FAF3D8;--wh:#FFFFFF;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Baloo 2','Noto Sans Devanagari',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+#cur,#cur2{position:fixed;pointer-events:none;z-index:99999;border-radius:50%;transform:translate(-50%,-50%)}
+#cur{width:14px;height:14px;background:var(--y);mix-blend-mode:multiply;transition:width .15s,height .15s}
+#cur2{width:40px;height:40px;border:2px solid var(--y);opacity:.5;transition:width .2s,height .2s}
+body.cbig #cur{width:26px;height:26px}
+body.cbig #cur2{width:60px;height:60px;opacity:.3}
+
+/* NOISE */
+body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  opacity:.5}
+
+/* ── NAV ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:72px;display:flex;align-items:center;transition:background .4s,box-shadow .4s}
+#nav.solid{background:rgba(253,248,236,.95);backdrop-filter:blur(18px) saturate(180%);border-bottom:2px solid rgba(245,196,0,.25);box-shadow:0 4px 24px rgba(245,196,0,.12)}
+.nav-in{max-width:1300px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nlogo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nlogo-gem{width:44px;height:44px;background:var(--y);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.nlogo:hover .nlogo-gem{transform:rotate(-10deg) scale(1.1)}
+.nlogo-t{line-height:1.1}
+.nlogo-main{font-family:'Lilita One',sans-serif;font-size:1.2rem;color:var(--ink)}
+.nlogo-sub{font-size:.58rem;color:var(--mid);font-weight:600;font-family:'Baloo 2',sans-serif}
+.nlinks{display:flex;align-items:center;gap:.15rem;list-style:none}
+.nlinks a{font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:.85rem;color:var(--ink);text-decoration:none;padding:.5rem .85rem;border-radius:10px;transition:background .2s}
+.nlinks a:hover,.nlinks a.act{background:var(--yl)}
+.nlinks .npill{background:var(--ink);color:var(--y)!important;border-radius:12px;box-shadow:3px 3px 0 var(--yb);margin-left:.4rem;font-weight:800!important;transition:transform .2s,box-shadow .2s!important}
+.nlinks .npill:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--yb);background:var(--ink)!important}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:3px}
+.ham span{width:24px;height:2.5px;background:var(--ink);border-radius:3px;display:block;transition:all .3s}
+
+/* ── PAGE HERO ── */
+.phero{min-height:58vh;padding-top:72px;position:relative;overflow:hidden;display:flex;align-items:center}
+.blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(70px)}
+.b1{width:650px;height:650px;top:-200px;right:-140px;background:radial-gradient(circle,#FFE566 0%,#F5C400 45%,transparent 70%);animation:drift 9s ease-in-out infinite}
+.b2{width:420px;height:420px;bottom:-100px;left:-60px;background:radial-gradient(circle,#FFB800 0%,#FF8C00 55%,transparent 75%);animation:drift 11s ease-in-out infinite reverse 1.5s}
+.b3{width:280px;height:280px;top:30%;left:35%;background:radial-gradient(circle,rgba(255,220,0,.4) 0%,transparent 70%);animation:drift 13s ease-in-out infinite 3s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(28px,-22px) scale(1.05)}66%{transform:translate(-18px,28px) scale(.95)}}
+.hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(180,130,0,.22) 1.2px,transparent 1.2px);background-size:34px 34px}
+.phero-in{max-width:1300px;width:100%;margin:0 auto;padding:3rem 2rem;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+
+/* hero left */
+.phero-chip{display:inline-flex;align-items:center;gap:.5rem;background:var(--ink);color:var(--y);padding:.4rem 1.1rem;border-radius:50px;font-size:.78rem;font-weight:800;font-family:'Baloo 2',sans-serif;margin-bottom:1.4rem;box-shadow:4px 4px 0 var(--yb);animation:chipIn .6s cubic-bezier(.34,1.56,.64,1) both}
+.cpulse{width:7px;height:7px;border-radius:50%;background:var(--y);animation:pulse 2s ease-in-out infinite}
+@keyframes chipIn{from{opacity:0;transform:scale(.4) rotate(-12deg)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+.phero-h1{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(2.4rem,4vw,3.8rem);line-height:1.06;color:var(--ink);margin-bottom:.9rem;animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .1s both}
+@keyframes slideUp{from{opacity:0;transform:translateY(36px) skewY(2deg)}to{opacity:1;transform:none}}
+.hl-box{position:relative;display:inline}
+.hl-box::before{content:'';position:absolute;bottom:0;left:-3px;right:-3px;height:48%;background:var(--y);z-index:-1;border-radius:3px;transform:rotate(-.8deg)}
+.hl-wave{position:relative;color:var(--yb)}
+.hl-wave::after{content:'';position:absolute;bottom:-5px;left:0;right:0;height:5px;background:url("data:image/svg+xml,%3Csvg width='200' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4Q25 0 50 4Q75 8 100 4Q125 0 150 4Q175 8 200 4' stroke='%23F5C400' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;background-size:200px 6px;animation:waveMove 2.5s linear infinite}
+@keyframes waveMove{from{background-position-x:0}to{background-position-x:200px}}
+.phero-p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1.05rem;color:var(--mid);line-height:1.8;max-width:520px;animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .2s both}
+.phero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .3s both}
+
+/* hero right — urgency card */
+.urgency-card{background:var(--ink);border-radius:28px;border:3px solid var(--y);box-shadow:10px 10px 0 var(--yb);overflow:hidden;animation:cardIn .9s cubic-bezier(.22,.68,0,1.2) .25s both}
+@keyframes cardIn{from{opacity:0;transform:translateX(40px) scale(.95)}to{opacity:1;transform:none}}
+.uc-stripe{height:7px;background:repeating-linear-gradient(90deg,var(--y) 0,var(--y) 18px,rgba(255,255,255,.15) 18px,rgba(255,255,255,.15) 20px)}
+.uc-body{padding:2rem}
+.uc-label{font-family:'Baloo 2',sans-serif;font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,196,0,.6);margin-bottom:1rem}
+.uc-alert{background:rgba(245,196,0,.12);border:1.5px solid rgba(245,196,0,.3);border-radius:16px;padding:1rem 1.25rem;margin-bottom:1.2rem}
+.uc-alert-t{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1rem;color:var(--y);margin-bottom:.3rem}
+.uc-alert-d{font-family:'Noto Sans Devanagari',sans-serif;font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.65}
+.uc-classes{display:flex;flex-direction:column;gap:.6rem}
+.ucc{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.06);border-radius:12px;padding:.75rem 1rem;border:1px solid rgba(245,196,0,.15);transition:all .25s}
+.ucc:hover{background:rgba(245,196,0,.1);border-color:var(--y)}
+.ucc-name{font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:.88rem;color:var(--wh)}
+.ucc-fee{font-family:'Lilita One',sans-serif;font-size:1.1rem;color:var(--y)}
+.uc-wa{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;background:#25D366;color:var(--wh);border:2px solid #1AA34A;border-radius:14px;padding:.9rem;font-weight:900;font-size:.92rem;text-decoration:none;font-family:'Noto Sans Devanagari',sans-serif;box-shadow:4px 4px 0 #1AA34A;margin-top:1.2rem;transition:all .18s cubic-bezier(.34,1.56,.64,1)}
+.uc-wa:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #1AA34A}
+
+/* ── MARQUEE ── */
+.mwrap{background:var(--ink);overflow:hidden;padding:.75rem 0;border-top:2.5px solid var(--y);border-bottom:2.5px solid var(--y);position:relative;z-index:5}
+.mtrack{display:flex;width:max-content;animation:ticker 28s linear infinite}
+.mtrack:hover{animation-play-state:paused}
+.mi{display:flex;align-items:center;gap:.55rem;padding:0 2.2rem;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.85rem;color:var(--y);white-space:nowrap}
+.md{width:5px;height:5px;border-radius:50%;background:var(--y);opacity:.35;flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SHARED ATOMS ── */
+.eyebrow{display:inline-flex;align-items:center;gap:.45rem;background:var(--y);color:var(--ink);padding:.38rem 1rem;border-radius:8px;font-size:.75rem;font-weight:900;font-family:'Baloo 2',sans-serif;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);margin-bottom:1.2rem}
+.sec-h{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(1.9rem,3.5vw,2.9rem);color:var(--ink);line-height:1.1;margin-bottom:.9rem}
+.sec-p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1rem;color:var(--mid);line-height:1.8;max-width:620px}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.rvl{opacity:0;transform:translateX(-28px);transition:opacity .65s ease,transform .65s ease}
+.rvr{opacity:0;transform:translateX(28px);transition:opacity .65s ease,transform .65s ease}
+.rv.in,.rvl.in,.rvr.in{opacity:1;transform:none}
+.btn-blk{display:inline-flex;align-items:center;gap:.55rem;background:var(--ink);color:var(--y);padding:.95rem 2rem;border-radius:16px;font-weight:900;font-size:1rem;text-decoration:none;font-family:'Noto Sans Devanagari',sans-serif;border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--yb);transition:all .18s cubic-bezier(.34,1.56,.64,1);cursor:pointer}
+.btn-blk:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--yb)}
+.btn-out{display:inline-flex;align-items:center;gap:.55rem;background:var(--wh);color:var(--ink);padding:.95rem 1.9rem;border-radius:16px;font-weight:800;font-size:1rem;text-decoration:none;font-family:'Noto Sans Devanagari',sans-serif;border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:all .18s cubic-bezier(.34,1.56,.64,1)}
+.btn-out:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);background:var(--yl)}
+
+/* ── CLASS CARDS ── */
+.classes-sec{padding:6rem 2rem;background:var(--wh)}
+.classes-in{max-width:1300px;margin:0 auto}
+.classes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3.5rem}
+.ccard{
+  border-radius:28px;padding:2rem 1.5rem 1.75rem;text-align:center;
+  border:3px solid var(--ink);position:relative;overflow:hidden;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);cursor:default;
+}
+.ccard:nth-child(1){background:#FFF5B0}
+.ccard:nth-child(2){background:#FFE8A0}
+.ccard:nth-child(3){background:#FFEEC0}
+.ccard:nth-child(4){background:#FFD56E}
+.ccard:hover{transform:translateY(-10px) scale(1.03);box-shadow:10px 12px 0 var(--ink)}
+.ccard-top-bar{height:6px;position:absolute;top:0;left:0;right:0;background:var(--ink)}
+.ccard-em{font-size:3rem;margin-bottom:.75rem;display:block;animation:mojiBob 2.5s ease-in-out infinite}
+.ccard:nth-child(2) .ccard-em{animation-delay:.4s}
+.ccard:nth-child(3) .ccard-em{animation-delay:.8s}
+.ccard:nth-child(4) .ccard-em{animation-delay:1.2s}
+@keyframes mojiBob{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.14) rotate(-6deg)}}
+.ccard-mr{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1.1rem;color:var(--ink);margin-bottom:.2rem}
+.ccard-en{font-family:'Baloo 2',sans-serif;font-size:.8rem;color:var(--mid);margin-bottom:.75rem}
+.ccard-age{display:inline-block;background:var(--ink);color:var(--y);padding:.22rem .8rem;border-radius:8px;font-size:.72rem;font-weight:900;font-family:'Baloo 2',sans-serif;margin-bottom:1.1rem}
+.ccard-fee{font-family:'Lilita One',sans-serif;font-size:2rem;color:var(--ink);line-height:1}
+.ccard-fee-note{font-size:.7rem;color:var(--mid);font-family:'Baloo 2',sans-serif;margin-top:.3rem}
+.ccard-divider{height:2px;background:rgba(0,0,0,.1);border-radius:1px;margin:1rem 0}
+.ccard-inc{text-align:left}
+.ccard-inc-t{font-family:'Baloo 2',sans-serif;font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--mid);margin-bottom:.4rem}
+.ccard-inc-item{font-family:'Noto Sans Devanagari',sans-serif;font-size:.75rem;color:var(--ink2);display:flex;align-items:center;gap:.4rem;margin-bottom:.25rem;font-weight:700}
+.ccard-inc-item::before{content:'✓';color:var(--yb);font-weight:900;font-size:.9rem;flex-shrink:0}
+.fee-note-strip{background:var(--cream);border-radius:14px;border:2px solid rgba(245,196,0,.4);padding:.9rem 1.4rem;margin-top:2rem;font-family:'Noto Sans Devanagari',sans-serif;font-size:.85rem;color:var(--mid);text-align:center;font-weight:700}
+.fee-note-strip strong{color:var(--ink)}
+
+/* ── FEE RULES ── */
+.rules-sec{padding:6rem 2rem;background:linear-gradient(165deg,var(--yp) 0%,var(--cream) 65%);position:relative;overflow:hidden}
+.rules-sec::after{content:'✏️';position:absolute;font-size:20rem;opacity:.05;right:-3rem;top:-4rem;pointer-events:none;animation:spinSlow 40s linear infinite}
+@keyframes spinSlow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.rules-in{max-width:1300px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.rules-list{display:flex;flex-direction:column;gap:.85rem;margin-top:2rem}
+.rcard{
+  display:flex;align-items:flex-start;gap:1rem;
+  background:var(--wh);border-radius:18px;padding:1.2rem 1.4rem;
+  border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);cursor:default;
+}
+.rcard:hover{transform:translate(-4px,-4px);box-shadow:9px 9px 0 var(--ink);background:var(--yl)}
+.rnum{width:36px;height:36px;background:var(--ink);color:var(--y);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Lilita One',sans-serif;font-size:1rem;flex-shrink:0}
+.rcard-t{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:.93rem;color:var(--ink);margin-bottom:.2rem}
+.rcard-d{font-family:'Noto Sans Devanagari',sans-serif;font-size:.82rem;color:var(--mid);line-height:1.65}
+
+/* ── DOCUMENTS ── */
+.docs-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:2rem}
+.doc-item{
+  display:flex;align-items:center;gap:.85rem;
+  background:var(--ink);border-radius:16px;padding:1rem 1.25rem;
+  border:2px solid var(--ink);
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);cursor:default;
+}
+.doc-item:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--yb)}
+.doc-icon{font-size:1.5rem;flex-shrink:0}
+.doc-t{font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:.85rem;color:var(--y);line-height:1.35}
+.doc-note{font-size:.68rem;color:rgba(255,255,255,.45);font-family:'Baloo 2',sans-serif}
+
+/* ── PROCESS STEPS ── */
+.process-sec{padding:6rem 2rem;background:var(--ink);position:relative;overflow:hidden}
+.process-sec::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 28px,rgba(245,196,0,.025) 28px,rgba(245,196,0,.025) 29px)}
+.process-in{max-width:1300px;margin:0 auto;position:relative;z-index:1}
+.process-in .sec-h{color:var(--wh)}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3.5rem;position:relative}
+.steps-grid::before{content:'';position:absolute;top:2.8rem;left:calc(12.5% + 1rem);right:calc(12.5% + 1rem);height:3px;background:repeating-linear-gradient(90deg,var(--y) 0,var(--y) 20px,transparent 20px,transparent 30px);pointer-events:none}
+.step{background:rgba(255,255,255,.06);border-radius:22px;padding:1.75rem 1.5rem;text-align:center;border:1.5px solid rgba(245,196,0,.18);transition:all .3s cubic-bezier(.34,1.56,.64,1);cursor:default;position:relative}
+.step:hover{background:rgba(245,196,0,.1);border-color:var(--y);transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.step-num{width:56px;height:56px;background:var(--y);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Lilita One',sans-serif;font-size:1.4rem;color:var(--ink);margin:0 auto 1rem;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.step:hover .step-num{transform:scale(1.15) rotate(-10deg)}
+.step-icon{font-size:1.75rem;margin-bottom:.6rem}
+.step-t{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:.95rem;color:var(--wh);margin-bottom:.4rem}
+.step-d{font-family:'Noto Sans Devanagari',sans-serif;font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.65}
+
+/* ── BIG FORM SECTION ── */
+.form-sec{padding:6rem 2rem;background:var(--y);position:relative;overflow:hidden}
+.form-sec::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(0,0,0,.06)'/%3E%3C/svg%3E");background-size:30px 30px}
+.form-in{max-width:1300px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start}
+.form-left{}
+.form-left h2{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(2rem,3.5vw,2.8rem);color:var(--ink);line-height:1.1;margin-bottom:1rem}
+.form-left p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1rem;color:var(--ink2);line-height:1.8;margin-bottom:2rem}
+.f-info-stack{display:flex;flex-direction:column;gap:.75rem}
+.f-irow{display:flex;align-items:center;gap:.85rem;background:rgba(255,255,255,.55);border-radius:14px;padding:.9rem 1.2rem;border:1.5px solid rgba(0,0,0,.1);font-family:'Noto Sans Devanagari',sans-serif;font-size:.9rem;color:var(--ink2);font-weight:700}
+.f-irow-icon{width:38px;height:38px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+/* the big form card */
+.fcard{background:var(--wh);border-radius:28px;padding:2.5rem;border:3px solid var(--ink);box-shadow:12px 12px 0 var(--ink)}
+.fcard-h{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1.4rem;color:var(--ink);margin-bottom:.4rem;text-align:center}
+.fcard-sub{font-family:'Noto Sans Devanagari',sans-serif;font-size:.82rem;color:var(--mid);text-align:center;margin-bottom:1.75rem}
+.fg{margin-bottom:.9rem}
+.fg label{display:block;font-weight:900;font-size:.78rem;color:var(--ink2);margin-bottom:.35rem;font-family:'Noto Sans Devanagari',sans-serif}
+.fg input,.fg select,.fg textarea{width:100%;padding:.8rem 1rem;border:2.5px solid rgba(0,0,0,.1);border-radius:12px;font-size:.92rem;background:var(--cream);color:var(--ink);font-family:'Noto Sans Devanagari',sans-serif;transition:border-color .2s,background .2s;outline:none;resize:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--ink);background:var(--wh)}
+.frow2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.fsub{width:100%;background:var(--ink);color:var(--y);border:2.5px solid var(--ink);padding:1rem;border-radius:14px;font-weight:900;font-size:1rem;cursor:pointer;font-family:'Noto Sans Devanagari',sans-serif;box-shadow:5px 5px 0 var(--yb);transition:all .18s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:.5rem}
+.fsub:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--yb)}
+.fsub:active{transform:translate(1px,1px);box-shadow:3px 3px 0 var(--yb)}
+.fsuccess{display:none;text-align:center;padding:2.5rem 2rem;font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:1rem;color:var(--ink);background:var(--yl);border-radius:18px;border:2.5px solid var(--ink)}
+.form-also{text-align:center;margin-top:1rem;font-family:'Noto Sans Devanagari',sans-serif;font-size:.82rem;color:var(--mid)}
+.form-also a{color:var(--yb);font-weight:900}
+
+/* ── FAQ ── */
+.faq-sec{padding:6rem 2rem;background:var(--wh)}
+.faq-in{max-width:900px;margin:0 auto}
+.faq-grid{margin-top:3rem;display:flex;flex-direction:column;gap:.75rem}
+.faq-item{background:var(--cream);border-radius:18px;border:2.5px solid var(--ink);overflow:hidden;transition:box-shadow .2s}
+.faq-item.open{box-shadow:5px 5px 0 var(--ink)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;cursor:pointer;gap:1rem;user-select:none}
+.faq-q-text{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:.97rem;color:var(--ink);line-height:1.4}
+.faq-icon{width:32px;height:32px;background:var(--y);border-radius:8px;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;transition:transform .3s cubic-bezier(.34,1.56,.64,1);box-shadow:2px 2px 0 var(--ink)}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--ink);color:var(--y)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,.68,0,1.2),padding .3s}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a-inner{padding:0 1.5rem 1.25rem;font-family:'Noto Sans Devanagari',sans-serif;font-size:.9rem;color:var(--mid);line-height:1.85;border-top:1.5px solid rgba(245,196,0,.3);padding-top:.9rem;margin-top:.1rem}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:4rem 2rem 0}
+.ft-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.ft-logo{font-family:'Lilita One',sans-serif;font-size:2rem;color:var(--y);margin-bottom:.4rem}
+.ft-sub{font-family:'Noto Sans Devanagari',sans-serif;font-size:.86rem;margin-bottom:.2rem}
+.ft-tiny{font-size:.7rem;color:rgba(255,255,255,.3);font-family:'Baloo 2',sans-serif}
+.ft-h{font-family:'Baloo 2',sans-serif;font-weight:900;font-size:.73rem;color:var(--y);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem}
+.ft-links{display:flex;flex-direction:column;gap:.45rem}
+.ft-links a{color:rgba(255,255,255,.62);text-decoration:none;font-size:.88rem;font-family:'Noto Sans Devanagari',sans-serif;transition:color .2s}
+.ft-links a:hover{color:var(--y)}
+.ft-ct p{font-size:.86rem;font-family:'Noto Sans Devanagari',sans-serif;margin-bottom:.45rem}
+.ft-ct a{color:#FFF3A0;text-decoration:none}
+.ft-ct a:hover{color:var(--y)}
+.ft-btm{max-width:1300px;margin:0 auto;padding:1.4rem 0;text-align:center;font-size:.73rem;color:rgba(255,255,255,.22);font-family:'Baloo 2',sans-serif}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1060px){
+  .phero-in{grid-template-columns:1fr}.urgency-card{display:none}
+  .classes-grid{grid-template-columns:1fr 1fr}
+  .rules-in{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr 1fr}.steps-grid::before{display:none}
+  .form-in{grid-template-columns:1fr;gap:3rem}
+  .ft-grid{grid-template-columns:1fr;gap:2rem}
+}
+@media(max-width:720px){
+  .nlinks{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(253,248,236,.97);backdrop-filter:blur(18px);flex-direction:column;padding:1.4rem;border-bottom:2px solid var(--y);gap:.25rem}
+  .nlinks.open{display:flex}.ham{display:flex}
+  .classes-grid{grid-template-columns:1fr 1fr}
+  .docs-grid{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr}
+  .frow2{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur2"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nlogo">
+      <div class="nlogo-gem">🌟</div>
+      <div class="nlogo-t"><div class="nlogo-main">प्रायमा</div><div class="nlogo-sub">पूर्व प्राथमिक विद्यालय · मंगळवेढा</div></div>
+    </a>
+    <ul class="nlinks" id="nlinks">
+      <li><a href="index.html">🏠 मुख्यपृष्ठ</a></li>
+      <li><a href="about.html">📖 आमच्याबद्दल</a></li>
+      <li><a href="admissions.html" class="act">✏️ प्रवेश</a></li>
+      <li><a href="gallery.html">📸 गॅलरी</a></li>
+      <li><a href="contact.html">📞 संपर्क</a></li>
+      <li><a href="#form-section" class="npill">अर्ज करा →</a></li>
+    </ul>
+    <button class="ham" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="phero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="hero-dots"></div>
+  <div class="phero-in">
+    <div>
+      <div class="phero-chip"><span class="cpulse"></span>✏️ प्रवेश माहिती · २०२६-२७</div>
+      <h1 class="phero-h1">
+        आपल्या मुलाचे<br>
+        <span class="hl-box">भविष्य</span> घडवा<br>
+        <span class="hl-wave">प्रायमासोबत</span>
+      </h1>
+      <p class="phero-p">मर्यादित जागा — वेळेत प्रवेश निश्चित करा. Nursery ते Upper KG पर्यंत Semi English माध्यमात सर्वोत्तम पूर्व प्राथमिक शिक्षण.</p>
+      <div class="phero-btns">
+        <a href="#form-section" class="btn-blk">✏️ आत्ता अर्ज करा</a>
+        <a href="#classes-section" class="btn-out">📚 शुल्क पाहा</a>
+      </div>
+    </div>
+    <!-- Urgency Card -->
+    <div class="urgency-card">
+      <div class="uc-stripe"></div>
+      <div class="uc-body">
+        <div class="uc-label">⚡ प्रवेश उपलब्ध — मर्यादित जागा</div>
+        <div class="uc-alert">
+          <div class="uc-alert-t">⏰ लवकर प्रवेश घ्या!</div>
+          <div class="uc-alert-d">प्रत्येक वर्गात मर्यादित विद्यार्थी — वार्षिक प्रवेश एकदा बंद झाल्यावर जागा मिळत नाही.</div>
+        </div>
+        <div class="uc-classes">
+          <div class="ucc"><span class="ucc-name">🎮 खेळ वर्ग (Play Group)</span><span class="ucc-fee">चौकशी</span></div>
+          <div class="ucc"><span class="ucc-name">👶 शिशु वर्ग (Nursery)</span><span class="ucc-fee">₹ ८,३००</span></div>
+          <div class="ucc"><span class="ucc-name">🌱 लहान वर्ग (LKG)</span><span class="ucc-fee">₹ ९,३००</span></div>
+          <div class="ucc"><span class="ucc-name">🌟 मोठा वर्ग (UKG)</span><span class="ucc-fee">₹ १०,३००</span></div>
+        </div>
+        <a href="https://wa.me/919890855040?text=नमस्कार! प्रायमा शाळेत प्रवेशाबद्दल चौकशी करायची आहे." target="_blank" class="uc-wa">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp वर चौकशी करा
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="mwrap"><div class="mtrack">
+  <span class="mi">✏️ प्रवेश चालू आहेत — मर्यादित जागा</span><span class="md"></span>
+  <span class="mi">👶 Nursery ₹ ८,३०० | LKG ₹ ९,३०० | UKG ₹ १०,३००</span><span class="md"></span>
+  <span class="mi">📋 माहिती पुस्तक ₹ २०० स्वतंत्र</span><span class="md"></span>
+  <span class="mi">📞 98908 55040 | 94210 45752</span><span class="md"></span>
+  <span class="mi">🕘 सोम–शनि | सकाळी ९:०० – १२:३०</span><span class="md"></span>
+  <span class="mi">📍 खंडोबा गल्ली, मंगळवेढा</span><span class="md"></span>
+  <span class="mi">✏️ प्रवेश चालू आहेत — मर्यादित जागा</span><span class="md"></span>
+  <span class="mi">👶 Nursery ₹ ८,३०० | LKG ₹ ९,३०० | UKG ₹ १०,३००</span><span class="md"></span>
+  <span class="mi">📋 माहिती पुस्तक ₹ २०० स्वतंत्र</span><span class="md"></span>
+  <span class="mi">📞 98908 55040 | 94210 45752</span><span class="md"></span>
+  <span class="mi">🕘 सोम–शनि | सकाळी ९:०० – १२:३०</span><span class="md"></span>
+  <span class="mi">📍 खंडोबा गल्ली, मंगळवेढा</span><span class="md"></span>
+</div></div>
+
+<!-- ═══ CLASS CARDS ═══ -->
+<section class="classes-sec" id="classes-section">
+  <div class="classes-in">
+    <div style="text-align:center">
+      <div class="eyebrow rv" style="margin:0 auto 1.2rem">🎓 वर्ग व शुल्क</div>
+      <h2 class="sec-h rv">तुमच्या मुलासाठी योग्य वर्ग निवडा</h2>
+      <p class="sec-p rv" style="margin:0 auto">सेमी इंग्रजी माध्यम · वार्षिक शुल्क प्रवेशावेळीच एकरकमी</p>
+    </div>
+    <div class="classes-grid">
+      <!-- Play Group -->
+      <div class="ccard rv">
+        <div class="ccard-top-bar"></div>
+        <span class="ccard-em">🎮</span>
+        <div class="ccard-mr">खेळ वर्ग</div>
+        <div class="ccard-en">Play Group</div>
+        <div class="ccard-age">वय २.५ – ३ वर्षे</div>
+        <div class="ccard-fee">चौकशी करा</div>
+        <div class="ccard-fee-note">शुल्कासाठी संपर्क करा</div>
+        <div class="ccard-divider"></div>
+        <div class="ccard-inc">
+          <div class="ccard-inc-t">समाविष्ट</div>
+          <div class="ccard-inc-item">खेळ व मनोरंजनातून शिक्षण</div>
+          <div class="ccard-inc-item">बडबडगीते व गोष्टी</div>
+          <div class="ccard-inc-item">Robot शिक्षकाशी ओळख</div>
+        </div>
+      </div>
+      <!-- Nursery -->
+      <div class="ccard rv">
+        <div class="ccard-top-bar"></div>
+        <span class="ccard-em">👶</span>
+        <div class="ccard-mr">शिशु वर्ग</div>
+        <div class="ccard-en">Nursery</div>
+        <div class="ccard-age">वय ३ – ३.५ वर्षे</div>
+        <div class="ccard-fee">₹ ८,३००</div>
+        <div class="ccard-fee-note">वार्षिक शुल्क</div>
+        <div class="ccard-divider"></div>
+        <div class="ccard-inc">
+          <div class="ccard-inc-t">समाविष्ट</div>
+          <div class="ccard-inc-item">अक्षर व अंक ओळख</div>
+          <div class="ccard-inc-item">इंग्रजी बडबडगीते</div>
+          <div class="ccard-inc-item">Digital Board शिक्षण</div>
+        </div>
+      </div>
+      <!-- LKG -->
+      <div class="ccard rv">
+        <div class="ccard-top-bar"></div>
+        <span class="ccard-em">🌱</span>
+        <div class="ccard-mr">लहान वर्ग</div>
+        <div class="ccard-en">Lower KG</div>
+        <div class="ccard-age">वय ४ – ४.५ वर्षे</div>
+        <div class="ccard-fee">₹ ९,३००</div>
+        <div class="ccard-fee-note">वार्षिक शुल्क</div>
+        <div class="ccard-divider"></div>
+        <div class="ccard-inc">
+          <div class="ccard-inc-t">समाविष्ट</div>
+          <div class="ccard-inc-item">मराठी व इंग्रजी लेखन</div>
+          <div class="ccard-inc-item">गणित पायाभूत ज्ञान</div>
+          <div class="ccard-inc-item">E-Learning अ‍ॅक्टिव्हिटी</div>
+        </div>
+      </div>
+      <!-- UKG -->
+      <div class="ccard rv">
+        <div class="ccard-top-bar"></div>
+        <span class="ccard-em">🌟</span>
+        <div class="ccard-mr">मोठा वर्ग</div>
+        <div class="ccard-en">Upper KG</div>
+        <div class="ccard-age">वय ५ – ५.५ वर्षे</div>
+        <div class="ccard-fee">₹ १०,३००</div>
+        <div class="ccard-fee-note">वार्षिक शुल्क</div>
+        <div class="ccard-divider"></div>
+        <div class="ccard-inc">
+          <div class="ccard-inc-t">समाविष्ट</div>
+          <div class="ccard-inc-item">पहिलीसाठी पूर्ण तयारी</div>
+          <div class="ccard-inc-item">इंग्रजी व मराठी वाचन</div>
+          <div class="ccard-inc-item">Robot Teacher AI Learning</div>
+        </div>
+      </div>
+    </div>
+    <div class="fee-note-strip rv">
+      <strong>📋 माहिती पुस्तक: ₹ २००</strong> स्वतंत्र · वार्षिक शुल्क <strong>एकरकमी प्रवेशावेळीच</strong> भरणे आवश्यक · हप्ते उपलब्ध नाहीत
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RULES + DOCUMENTS ═══ -->
+<section class="rules-sec">
+  <div class="rules-in">
+    <!-- Rules -->
+    <div>
+      <div class="eyebrow rv">📜 प्रवेश नियम</div>
+      <h2 class="sec-h rv">प्रवेशाचे महत्त्वाचे नियम</h2>
+      <div class="rules-list">
+        <div class="rcard rv">
+          <div class="rnum">१</div>
+          <div><div class="rcard-t">वार्षिक शुल्क एकरकमी</div><div class="rcard-d">प्रवेशावेळीच संपूर्ण वार्षिक शुल्क एकरकमी भरणे आवश्यक. कोणत्याही प्रकारचे हप्ते उपलब्ध नाहीत.</div></div>
+        </div>
+        <div class="rcard rv">
+          <div class="rnum">२</div>
+          <div><div class="rcard-t">माहिती पुस्तक स्वतंत्र</div><div class="rcard-d">₹ २०० माहिती पुस्तकाचे शुल्क वार्षिक शुल्काव्यतिरिक्त स्वतंत्र भरावे लागते.</div></div>
+        </div>
+        <div class="rcard rv">
+          <div class="rnum">३</div>
+          <div><div class="rcard-t">वयाची अट काटेकोर</div><div class="rcard-d">प्रत्येक वर्गाची वयाची अट काटेकोरपणे पाळली जाते. प्रवेशावेळी जन्म दाखला सादर करणे अनिवार्य.</div></div>
+        </div>
+        <div class="rcard rv">
+          <div class="rnum">४</div>
+          <div><div class="rcard-t">शाळेचा गणवेश अनिवार्य</div><div class="rcard-d">शाळेने ठरवून दिलेला पिवळा गणवेश दररोज घालणे बंधनकारक. गणवेश शाळेतून उपलब्ध.</div></div>
+        </div>
+        <div class="rcard rv">
+          <div class="rnum">५</div>
+          <div><div class="rcard-t">नियमित उपस्थिती</div><div class="rcard-d">७५% पेक्षा कमी उपस्थिती असल्यास परीक्षेस बसण्यास परवानगी दिली जाणार नाही.</div></div>
+        </div>
+        <div class="rcard rv">
+          <div class="rnum">६</div>
+          <div><div class="rcard-t">पालक बैठक अनिवार्य</div><div class="rcard-d">माता पालक शिक्षक बैठकीस उपस्थित राहणे सर्व पालकांसाठी अनिवार्य आहे.</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- Documents -->
+    <div>
+      <div class="eyebrow rv">📂 आवश्यक कागदपत्रे</div>
+      <h2 class="sec-h rv">प्रवेशावेळी आणावयाची कागदपत्रे</h2>
+      <p class="sec-p rv">खाली दिलेली सर्व कागदपत्रे प्रवेशावेळी मूळ व झेरॉक्स सोबत आणावीत.</p>
+      <div class="docs-grid">
+        <div class="doc-item rv">
+          <div class="doc-icon">📋</div>
+          <div><div class="doc-t">जन्म दाखला</div><div class="doc-note">मूळ + झेरॉक्स</div></div>
+        </div>
+        <div class="doc-item rv">
+          <div class="doc-icon">🖼️</div>
+          <div><div class="doc-t">पासपोर्ट फोटो</div><div class="doc-note">मुलाचे — ४ फोटो</div></div>
+        </div>
+        <div class="doc-item rv">
+          <div class="doc-icon">🏠</div>
+          <div><div class="doc-t">रहिवास पुरावा</div><div class="doc-note">आधार कार्ड / रेशन कार्ड</div></div>
+        </div>
+        <div class="doc-item rv">
+          <div class="doc-icon">👨‍👩‍👦</div>
+          <div><div class="doc-t">पालकाचा आधार</div><div class="doc-note">आई / बाबा — एकाचे</div></div>
+        </div>
+        <div class="doc-item rv">
+          <div class="doc-icon">📱</div>
+          <div><div class="doc-t">WhatsApp नंबर</div><div class="doc-note">सक्रिय मोबाईल क्रमांक</div></div>
+        </div>
+        <div class="doc-item rv">
+          <div class="doc-icon">💉</div>
+          <div><div class="doc-t">लसीकरण कार्ड</div><div class="doc-note">आरोग्य तपासणीसाठी</div></div>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;background:var(--wh);border-radius:16px;padding:1.25rem 1.5rem;border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink)" class="rv">
+        <div style="font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:.92rem;color:var(--ink);margin-bottom:.4rem">⚠️ महत्त्वाची सूचना</div>
+        <div style="font-family:'Noto Sans Devanagari',sans-serif;font-size:.85rem;color:var(--mid);line-height:1.75">कागदपत्रे अपूर्ण असल्यास प्रवेश देता येणार नाही. सर्व कागदपत्रे एकत्र घेऊन शाळेत या. शंका असल्यास आधी WhatsApp वर संपर्क करा.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS STEPS ═══ -->
+<section class="process-sec">
+  <div class="process-in">
+    <div style="text-align:center">
+      <div class="eyebrow rv" style="margin:0 auto 1.2rem">🔢 प्रवेश प्रक्रिया</div>
+      <h2 class="sec-h rv" style="color:var(--wh)">प्रवेश कसा घ्यायचा?</h2>
+      <p class="sec-p rv" style="margin:0 auto;color:rgba(255,255,255,.6)">फक्त ४ सोप्या पावले — आणि तुमच्या मुलाचे प्रायमाचे प्रवेश निश्चित!</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step rv">
+        <div class="step-num">१</div>
+        <div class="step-icon">📞</div>
+        <div class="step-t">संपर्क करा</div>
+        <div class="step-d">WhatsApp किंवा फोनवर संपर्क करा. जागा उपलब्धता व वेळ निश्चित करा.</div>
+      </div>
+      <div class="step rv">
+        <div class="step-num">२</div>
+        <div class="step-icon">📂</div>
+        <div class="step-t">कागदपत्रे आणा</div>
+        <div class="step-d">जन्म दाखला, फोटो, आधार कार्ड व इतर आवश्यक कागदपत्रे तयार करा.</div>
+      </div>
+      <div class="step rv">
+        <div class="step-num">३</div>
+        <div class="step-icon">🏫</div>
+        <div class="step-t">शाळेत भेट द्या</div>
+        <div class="step-d">खंडोबा गल्ली येथे शाळेत या. शाळा पाहा, शिक्षिकांशी बोला, सर्व माहिती घ्या.</div>
+      </div>
+      <div class="step rv">
+        <div class="step-num">४</div>
+        <div class="step-icon">✅</div>
+        <div class="step-t">शुल्क भरा व प्रवेश घ्या</div>
+        <div class="step-d">वार्षिक शुल्क एकरकमी भरा, अर्ज पूर्ण करा आणि प्रवेश निश्चित करा!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FORM SECTION ═══ -->
+<section class="form-sec" id="form-section">
+  <div class="form-in">
+    <!-- Left -->
+    <div class="form-left rvl">
+      <h2>आजच<br>प्रवेश निश्चित<br>करा!</h2>
+      <p>खाली अर्ज भरा — तुमचा अर्ज थेट WhatsApp वर जाईल. आम्ही लवकरच संपर्क करू व प्रवेशाची तारीख निश्चित करू.</p>
+      <div class="f-info-stack">
+        <div class="f-irow"><div class="f-irow-icon">📍</div><span>खंडोबा गल्ली, मंगळवेढा, जि. सोलापूर</span></div>
+        <div class="f-irow"><div class="f-irow-icon">🕘</div><span>सोमवार – शनिवार | सकाळी ९:०० – १२:३०</span></div>
+        <div class="f-irow"><div class="f-irow-icon">📞</div><span>02188-299801 | 98908 55040 | 94210 45752</span></div>
+        <div class="f-irow"><div class="f-irow-icon">📧</div><span>primacomputer@gmail.com</span></div>
+        <div class="f-irow"><div class="f-irow-icon">💛</div><span>मर्यादित जागा — उशीर करू नका!</span></div>
+      </div>
+    </div>
+    <!-- Form Card -->
+    <div class="fcard rvr">
+      <div id="admForm">
+        <div class="fcard-h">✏️ प्रवेश अर्ज</div>
+        <div class="fcard-sub">खाली माहिती भरा — WhatsApp वर अर्ज पाठवला जाईल</div>
+        <div class="frow2">
+          <div class="fg"><label>👶 मुलाचे संपूर्ण नाव *</label><input type="text" id="f_child" placeholder="उदा. अर्जुन पाटील"></div>
+          <div class="fg"><label>🎂 मुलाचे वय *</label><input type="text" id="f_age" placeholder="उदा. ३ वर्षे ४ महिने"></div>
+        </div>
+        <div class="fg"><label>📚 इच्छित वर्ग *</label>
+          <select id="f_class">
+            <option value="">-- वर्ग निवडा --</option>
+            <option value="खेळ वर्ग (Play Group) — शुल्क चौकशी">🎮 खेळ वर्ग (Play Group) — शुल्क चौकशी</option>
+            <option value="शिशु वर्ग (Nursery) — ₹ ८,३००">👶 शिशु वर्ग (Nursery) — ₹ ८,३००</option>
+            <option value="लहान वर्ग (Lower KG) — ₹ ९,३००">🌱 लहान वर्ग (Lower KG) — ₹ ९,३००</option>
+            <option value="मोठा वर्ग (Upper KG) — ₹ १०,३००">🌟 मोठा वर्ग (Upper KG) — ₹ १०,३००</option>
+          </select>
+        </div>
+        <div class="frow2">
+          <div class="fg"><label>👨‍👩‍👦 पालकाचे नाव *</label><input type="text" id="f_parent" placeholder="आई किंवा बाबाचे नाव"></div>
+          <div class="fg"><label>📱 WhatsApp नंबर *</label><input type="tel" id="f_phone" placeholder="98908 XXXXX"></div>
+        </div>
+        <div class="fg"><label>🏠 राहण्याचा पत्ता</label><input type="text" id="f_addr" placeholder="गल्ली, मंगळवेढा"></div>
+        <div class="fg"><label>💬 अतिरिक्त प्रश्न / माहिती</label><textarea id="f_note" rows="2" placeholder="काही विचारायचे असल्यास इथे लिहा..."></textarea></div>
+        <button class="fsub" onclick="submitAdm()">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp वर अर्ज पाठवा
+        </button>
+        <div class="form-also">किंवा थेट कॉल करा: <a href="tel:9890855040">98908 55040</a></div>
+      </div>
+      <div class="fsuccess" id="admSuccess">
+        🎉 धन्यवाद! तुमचा प्रवेश अर्ज WhatsApp वर पाठवला गेला आहे.<br><br>
+        आम्ही लवकरच संपर्क करू व प्रवेशाची तारीख निश्चित करू.<br><br>
+        <strong>🙏 प्रायमा कुटुंबात स्वागत!</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq-sec">
+  <div class="faq-in">
+    <div style="text-align:center">
+      <div class="eyebrow rv" style="margin:0 auto 1.2rem">❓ वारंवार विचारले जाणारे प्रश्न</div>
+      <h2 class="sec-h rv">प्रवेशाबद्दल शंका?</h2>
+      <p class="sec-p rv" style="margin:0 auto">पालकांचे सर्वात जास्त येणारे प्रश्न आणि त्यांची उत्तरे.</p>
+    </div>
+    <div class="faq-grid rv">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">शुल्क एकरकमी भरणे शक्य नसल्यास काय?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">शाळेचे धोरण एकरकमी शुल्काचे आहे. हप्त्यांची सुविधा उपलब्ध नाही. अडचण असल्यास थेट शाळेत येऊन संचालकांशी बोलावे. विशेष परिस्थितीत विचार केला जाऊ शकतो.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">माझे मूल मंगळवेढ्याबाहेर राहते — Bus सुविधा आहे का?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">होय! प्रायमाची Educational School Bus उपलब्ध आहे. Bus मध्येच मुले अंक, अक्षरे, रंग शिकतात. Bus रूट व शुल्काबद्दल अधिक माहितीसाठी शाळेशी संपर्क करा.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">प्रवेश कधी सुरू होतात आणि कधी बंद होतात?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">प्रवेश साधारणपणे मार्च-एप्रिल महिन्यात सुरू होतात. जागा मर्यादित असल्याने लवकर संपतात. जून मध्ये शाळा सुरू होते. तुमचा प्रवेश आधीच निश्चित करण्याचा सल्ला आहे.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Medium काय आहे? Marathi की English?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">प्रायमा Semi English माध्यमाची शाळा आहे. मराठी व इंग्रजी दोन्ही भाषांमध्ये शिक्षण दिले जाते. मुलांना दोन्ही भाषांत आत्मविश्वास निर्माण होतो.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">CCTV चे footage पालकांना पाहता येते का?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">CCTV footage शाळेच्या व्यवस्थापनाकडे सुरक्षित ठेवले जाते. आवश्यकता असल्यास पालक शाळेत येऊन संचालकांकडे विनंती करू शकतात. मुलाच्या सुरक्षिततेसाठी हे आहे.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">आरोग्य तपासणी नक्की काय असते?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">वर्षातून एकदा बालरोग तज्ज्ञ, दंतरोग तज्ज्ञ, आणि कान-नाक-घसा तज्ज्ञांकडून मोफत तपासणी केली जाते. पोलिओ लसीकरण व आहार मार्गदर्शन देखील दिले जाते. हे सर्व मोफत आहे.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="ft-grid">
+    <div><div class="ft-logo">🌟 प्रायमा</div><div class="ft-sub">पूर्व प्राथमिक विद्यालय (डिजिटल बालवाडी)</div><div class="ft-tiny">विश्वज्योती वाणिज्य प्रशिक्षण संस्था, मंगळवेढा संचलित · Est. 1990</div></div>
+    <div><div class="ft-h">पृष्ठे</div><div class="ft-links"><a href="index.html">🏠 मुख्यपृष्ठ</a><a href="about.html">📖 आमच्याबद्दल</a><a href="admissions.html">✏️ प्रवेश</a><a href="gallery.html">📸 गॅलरी</a><a href="contact.html">📞 संपर्क</a></div></div>
+    <div class="ft-ct"><div class="ft-h">संपर्क</div><p>📍 खंडोबा गल्ली, मंगळवेढा, जि. सोलापूर</p><p>📞 <a href="tel:9890855040">98908 55040</a> | <a href="tel:9421045752">94210 45752</a></p><p>☎️ <a href="tel:02188299801">02188-299801</a></p><p>📧 <a href="mailto:primacomputer@gmail.com">primacomputer@gmail.com</a></p><p>🌐 <a href="http://www.primaschoolmangalwedha.blogspot.com" target="_blank">Blogspot</a></p></div>
+  </div>
+  <div class="ft-btm">© २०२६-२७ प्रायमा पूर्व प्राथमिक विद्यालय, मंगळवेढा · www.primaedu.in · Designed with ❤️</div>
+</footer>
+
+<script>
+/* CURSOR */
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function lag(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(lag)})();
+document.querySelectorAll('a,button,.rcard,.ccard,.step,.doc-item,.ucc,.faq-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cbig'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cbig'));
+});
+/* NAV */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('solid',scrollY>30));
+const ham=document.getElementById('ham'),nl=document.getElementById('nlinks');
+ham.addEventListener('click',()=>nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+/* REVEAL */
+const robs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){
+    const sibs=[...e.target.parentElement.querySelectorAll('.rv,.rvl,.rvr')];
+    const i=sibs.indexOf(e.target);
+    e.target.style.transitionDelay=(i*.09)+'s';
+    e.target.classList.add('in');
+    robs.unobserve(e.target);
+  }
+}),{threshold:.07});
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>robs.observe(el));
+/* FAQ */
+function toggleFaq(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open')});
+  if(!isOpen) item.classList.add('open');
+}
+/* FORM */
+function submitAdm(){
+  const child=document.getElementById('f_child').value.trim();
+  const age=document.getElementById('f_age').value.trim();
+  const cls=document.getElementById('f_class').value;
+  const parent=document.getElementById('f_parent').value.trim();
+  const phone=document.getElementById('f_phone').value.trim();
+  const addr=document.getElementById('f_addr').value.trim();
+  const note=document.getElementById('f_note').value.trim();
+  if(!child||!age||!cls||!parent||!phone){alert('कृपया * चिन्हांकित सर्व माहिती भरा.');return}
+  let t=`नमस्कार! 🙏 प्रायमा पूर्व प्राथमिक विद्यालयात प्रवेशासाठी अर्ज:%0A%0A`;
+  t+=`👶 मुलाचे नाव: ${child}%0A`;
+  t+=`🎂 वय: ${age}%0A`;
+  t+=`📚 इच्छित वर्ग: ${cls}%0A`;
+  t+=`👨‍👩‍👦 पालकाचे नाव: ${parent}%0A`;
+  t+=`📱 WhatsApp: ${phone}%0A`;
+  if(addr) t+=`🏠 पत्ता: ${addr}%0A`;
+  if(note) t+=`💬 प्रश्न: ${note}%0A`;
+  t+=`%0A🙏 लवकर संपर्क करावा.`;
+  window.open(`https://wa.me/919890855040?text=${t}`,'_blank');
+  document.getElementById('admForm').style.display='none';
+  document.getElementById('admSuccess').style.display='block';
+}
+</script>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="admissions.html">Admissions</a>
+<a href="gallery.html">Gallery</a>
+<a href="contact.html">Contact</a>
+</nav>
+</body>
+</html>

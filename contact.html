@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>संपर्क | प्रायमा डिजिटल बालवाडी · मंगळवेढा</title>
+<meta name="description" content="प्रायमा पूर्व प्राथमिक विद्यालय संपर्क — फोन, WhatsApp, पत्ता, नकाशा आणि प्रवेश चौकशी.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;900&family=Lilita+One&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   PRIYAMA — CONTACT PAGE
+   Same design system as all other pages
+═══════════════════════════════════════════ */
+:root{
+  --y:#F5C400;--yb:#D4A000;--yl:#FFF3A0;--yp:#FFFBE6;
+  --ink:#1A0F00;--ink2:#3D2000;--mid:#7A5530;
+  --cream:#FDF8EC;--off:#FAF3D8;--wh:#FFFFFF;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Baloo 2','Noto Sans Devanagari',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+#cur,#cur2{position:fixed;pointer-events:none;z-index:99999;border-radius:50%;transform:translate(-50%,-50%)}
+#cur{width:14px;height:14px;background:var(--y);mix-blend-mode:multiply;transition:width .15s,height .15s}
+#cur2{width:40px;height:40px;border:2px solid var(--y);opacity:.5;transition:width .2s,height .2s}
+body.cbig #cur{width:26px;height:26px}
+body.cbig #cur2{width:60px;height:60px;opacity:.3}
+body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");opacity:.5}
+
+/* ── NAV ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:72px;display:flex;align-items:center;transition:background .4s,box-shadow .4s}
+#nav.solid{background:rgba(253,248,236,.95);backdrop-filter:blur(18px) saturate(180%);border-bottom:2px solid rgba(245,196,0,.25);box-shadow:0 4px 24px rgba(245,196,0,.12)}
+.nav-in{max-width:1300px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nlogo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nlogo-gem{width:44px;height:44px;background:var(--y);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.nlogo:hover .nlogo-gem{transform:rotate(-10deg) scale(1.1)}
+.nlogo-t{line-height:1.1}
+.nlogo-main{font-family:'Lilita One',sans-serif;font-size:1.2rem;color:var(--ink)}
+.nlogo-sub{font-size:.58rem;color:var(--mid);font-weight:600;font-family:'Baloo 2',sans-serif}
+.nlinks{display:flex;align-items:center;gap:.15rem;list-style:none}
+.nlinks a{font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:.85rem;color:var(--ink);text-decoration:none;padding:.5rem .85rem;border-radius:10px;transition:background .2s}
+.nlinks a:hover,.nlinks a.act{background:var(--yl)}
+.nlinks .npill{background:var(--ink);color:var(--y)!important;border-radius:12px;box-shadow:3px 3px 0 var(--yb);margin-left:.4rem;font-weight:800!important;transition:transform .2s,box-shadow .2s!important}
+.nlinks .npill:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--yb);background:var(--ink)!important}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:3px}
+.ham span{width:24px;height:2.5px;background:var(--ink);border-radius:3px;display:block;transition:all .3s}
+
+/* ── PAGE HERO ── */
+.phero{min-height:58vh;padding-top:72px;position:relative;overflow:hidden;display:flex;align-items:center}
+.blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(70px)}
+.b1{width:650px;height:650px;top:-200px;right:-140px;background:radial-gradient(circle,#FFE566 0%,#F5C400 45%,transparent 70%);animation:drift 9s ease-in-out infinite}
+.b2{width:420px;height:420px;bottom:-100px;left:-60px;background:radial-gradient(circle,#FFB800 0%,#FF8C00 55%,transparent 75%);animation:drift 11s ease-in-out infinite reverse 1.5s}
+.b3{width:280px;height:280px;top:30%;left:35%;background:radial-gradient(circle,rgba(255,220,0,.4) 0%,transparent 70%);animation:drift 13s ease-in-out infinite 3s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(28px,-22px) scale(1.05)}66%{transform:translate(-18px,28px) scale(.95)}}
+.hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(180,130,0,.22) 1.2px,transparent 1.2px);background-size:34px 34px}
+.phero-in{max-width:1300px;width:100%;margin:0 auto;padding:3rem 2rem;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+
+.phero-chip{display:inline-flex;align-items:center;gap:.5rem;background:var(--ink);color:var(--y);padding:.4rem 1.1rem;border-radius:50px;font-size:.78rem;font-weight:800;font-family:'Baloo 2',sans-serif;margin-bottom:1.4rem;box-shadow:4px 4px 0 var(--yb);animation:chipIn .6s cubic-bezier(.34,1.56,.64,1) both}
+.cpulse{width:7px;height:7px;border-radius:50%;background:var(--y);animation:pulse 2s ease-in-out infinite}
+@keyframes chipIn{from{opacity:0;transform:scale(.4) rotate(-12deg)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+.phero-h1{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(2.4rem,4vw,3.8rem);line-height:1.06;color:var(--ink);margin-bottom:.9rem;animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .1s both}
+@keyframes slideUp{from{opacity:0;transform:translateY(36px) skewY(2deg)}to{opacity:1;transform:none}}
+.hl-box{position:relative;display:inline}
+.hl-box::before{content:'';position:absolute;bottom:0;left:-3px;right:-3px;height:48%;background:var(--y);z-index:-1;border-radius:3px;transform:rotate(-.8deg)}
+.hl-wave{position:relative;color:var(--yb)}
+.hl-wave::after{content:'';position:absolute;bottom:-5px;left:0;right:0;height:5px;background:url("data:image/svg+xml,%3Csvg width='200' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4Q25 0 50 4Q75 8 100 4Q125 0 150 4Q175 8 200 4' stroke='%23F5C400' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;background-size:200px 6px;animation:waveMove 2.5s linear infinite}
+@keyframes waveMove{from{background-position-x:0}to{background-position-x:200px}}
+.phero-p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1.05rem;color:var(--mid);line-height:1.8;max-width:520px;animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .2s both;margin-bottom:2rem}
+
+/* hero right — quick contact card */
+.hero-ccard{background:var(--wh);border-radius:28px;border:3px solid var(--ink);box-shadow:12px 12px 0 var(--ink);overflow:hidden;animation:cardIn .9s cubic-bezier(.22,.68,0,1.2) .25s both}
+@keyframes cardIn{from{opacity:0;transform:translateX(40px) scale(.95)}to{opacity:1;transform:none}}
+.hcc-stripe{height:7px;background:repeating-linear-gradient(90deg,var(--y) 0,var(--y) 18px,var(--ink) 18px,var(--ink) 20px)}
+.hcc-body{padding:2rem}
+.hcc-label{font-family:'Baloo 2',sans-serif;font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:1.2rem}
+.hcc-rows{display:flex;flex-direction:column;gap:.7rem}
+.hccr{display:flex;align-items:center;gap:.85rem;background:var(--cream);border-radius:14px;padding:.9rem 1.1rem;border:2px solid rgba(245,196,0,.3);transition:all .25s cubic-bezier(.34,1.56,.64,1)}
+.hccr:hover{border-color:var(--ink);background:var(--yl);transform:translateX(4px)}
+.hccr-icon{width:38px;height:38px;background:var(--y);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);flex-shrink:0}
+.hccr-lbl{font-family:'Baloo 2',sans-serif;font-size:.65rem;color:var(--mid);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.hccr-val{font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:.9rem;color:var(--ink);line-height:1.3}
+.hccr-val a{color:var(--ink);text-decoration:none}
+.hccr-val a:hover{color:var(--yb)}
+.hcc-wa{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;background:#25D366;color:var(--wh);border:2px solid #1AA34A;border-radius:14px;padding:.9rem;font-weight:900;font-size:.92rem;text-decoration:none;font-family:'Noto Sans Devanagari',sans-serif;box-shadow:4px 4px 0 #1AA34A;margin-top:1rem;transition:all .18s cubic-bezier(.34,1.56,.64,1)}
+.hcc-wa:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #1AA34A}
+
+/* ── MARQUEE ── */
+.mwrap{background:var(--ink);overflow:hidden;padding:.75rem 0;border-top:2.5px solid var(--y);border-bottom:2.5px solid var(--y);position:relative;z-index:5}
+.mtrack{display:flex;width:max-content;animation:ticker 28s linear infinite}
+.mtrack:hover{animation-play-state:paused}
+.mi{display:flex;align-items:center;gap:.55rem;padding:0 2.2rem;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.85rem;color:var(--y);white-space:nowrap}
+.md{width:5px;height:5px;border-radius:50%;background:var(--y);opacity:.35;flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SHARED ── */
+.eyebrow{display:inline-flex;align-items:center;gap:.45rem;background:var(--y);color:var(--ink);padding:.38rem 1rem;border-radius:8px;font-size:.75rem;font-weight:900;font-family:'Baloo 2',sans-serif;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);margin-bottom:1.2rem}
+.sec-h{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(1.9rem,3.5vw,2.9rem);color:var(--ink);line-height:1.1;margin-bottom:.9rem}
+.sec-p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1rem;color:var(--mid);line-height:1.8;max-width:620px}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.rvl{opacity:0;transform:translateX(-28px);transition:opacity .65s ease,transform .65s ease}
+.rvr{opacity:0;transform:translateX(28px);transition:opacity .65s ease,transform .65s ease}
+.rv.in,.rvl.in,.rvr.in{opacity:1;transform:none}
+.btn-blk{display:inline-flex;align-items:center;gap:.55rem;background:var(--ink);color:var(--y);padding:.95rem 2rem;border-radius:16px;font-weight:900;font-size:1rem;text-decoration:none;font-family:'Noto Sans Devanagari',sans-serif;border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--yb);transition:all .18s cubic-bezier(.34,1.56,.64,1);cursor:pointer}
+.btn-blk:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--yb)}
+.btn-out{display:inline-flex;align-items:center;gap:.55rem;background:var(--wh);color:var(--ink);padding:.95rem 1.9rem;border-radius:16px;font-weight:800;font-size:1rem;text-decoration:none;font-family:'Noto Sans Devanagari',sans-serif;border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:all .18s cubic-bezier(.34,1.56,.64,1)}
+.btn-out:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);background:var(--yl)}
+
+/* ── BIG CONTACT GRID ── */
+.contact-sec{padding:6rem 2rem;background:var(--wh)}
+.contact-in{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+
+/* LEFT — info stack */
+.cinfo-stack{display:flex;flex-direction:column;gap:1rem}
+.cicard{
+  display:flex;align-items:flex-start;gap:1.1rem;
+  background:var(--cream);border-radius:20px;padding:1.4rem 1.6rem;
+  border:2.5px solid var(--ink);box-shadow:6px 6px 0 var(--ink);
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);cursor:default;
+}
+.cicard:hover{transform:translate(-4px,-4px);box-shadow:10px 10px 0 var(--ink);background:var(--yl)}
+.cicard-icon{width:52px;height:52px;background:var(--y);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);flex-shrink:0;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.cicard:hover .cicard-icon{transform:rotate(-8deg) scale(1.1)}
+.cicard-label{font-family:'Baloo 2',sans-serif;font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--mid);margin-bottom:.3rem}
+.cicard-val{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1rem;color:var(--ink);line-height:1.4}
+.cicard-val a{color:var(--ink);text-decoration:none}
+.cicard-val a:hover{color:var(--yb);text-decoration:underline}
+.cicard-sub{font-family:'Noto Sans Devanagari',sans-serif;font-size:.8rem;color:var(--mid);margin-top:.25rem;line-height:1.5}
+
+/* hours card */
+.hours-card{background:var(--ink);border-radius:20px;padding:1.5rem 1.75rem;border:2.5px solid var(--yb);box-shadow:6px 6px 0 var(--yb);margin-top:.25rem}
+.hours-title{font-family:'Baloo 2',sans-serif;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:rgba(245,196,0,.6);margin-bottom:1rem}
+.hours-row{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.hours-row:last-child{border-bottom:none}
+.hours-day{font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:.88rem;color:rgba(255,255,255,.8)}
+.hours-time{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.88rem;color:var(--y)}
+.hours-closed{color:rgba(255,255,255,.3)}
+
+/* right — form */
+.cform-card{background:var(--wh);border-radius:28px;padding:2.5rem;border:3px solid var(--ink);box-shadow:12px 12px 0 var(--ink);position:sticky;top:90px}
+.cform-stripe{height:7px;background:repeating-linear-gradient(90deg,var(--y) 0,var(--y) 18px,var(--ink) 18px,var(--ink) 20px);margin:-2.5rem -2.5rem 2rem;border-radius:0}
+.cform-h{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1.4rem;color:var(--ink);margin-bottom:.35rem}
+.cform-sub{font-family:'Noto Sans Devanagari',sans-serif;font-size:.82rem;color:var(--mid);margin-bottom:1.6rem;line-height:1.6}
+.fg{margin-bottom:.9rem}
+.fg label{display:block;font-weight:900;font-size:.78rem;color:var(--ink2);margin-bottom:.35rem;font-family:'Noto Sans Devanagari',sans-serif}
+.fg input,.fg select,.fg textarea{width:100%;padding:.8rem 1rem;border:2.5px solid rgba(0,0,0,.1);border-radius:12px;font-size:.92rem;background:var(--cream);color:var(--ink);font-family:'Noto Sans Devanagari',sans-serif;transition:border-color .2s,background .2s;outline:none;resize:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--ink);background:var(--wh)}
+.frow2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.fsub{width:100%;background:var(--ink);color:var(--y);border:2.5px solid var(--ink);padding:1rem;border-radius:14px;font-weight:900;font-size:1rem;cursor:pointer;font-family:'Noto Sans Devanagari',sans-serif;box-shadow:5px 5px 0 var(--yb);transition:all .18s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:.5rem}
+.fsub:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--yb)}
+.fsub:active{transform:translate(1px,1px);box-shadow:3px 3px 0 var(--yb)}
+.fsuccess{display:none;text-align:center;padding:2.5rem 2rem;font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:1rem;color:var(--ink);background:var(--yl);border-radius:18px;border:2.5px solid var(--ink)}
+
+/* ── DUAL MAP SECTION ── */
+.map-sec{padding:6rem 2rem;background:linear-gradient(165deg,var(--yp) 0%,var(--cream) 65%);position:relative;overflow:hidden}
+.map-sec::after{content:'📍';position:absolute;right:-3rem;top:50%;transform:translateY(-50%) rotate(15deg);font-size:18rem;opacity:.05;pointer-events:none}
+.map-in{max-width:1300px;margin:0 auto;position:relative;z-index:1}
+.map-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem}
+.map-card{background:var(--wh);border-radius:24px;border:2.5px solid var(--ink);box-shadow:7px 7px 0 var(--ink);overflow:hidden;transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+.map-card:hover{transform:translateY(-5px);box-shadow:10px 12px 0 var(--ink)}
+.map-card-header{padding:1.25rem 1.5rem;background:var(--ink);display:flex;align-items:center;gap:.85rem}
+.mch-icon{width:40px;height:40px;background:var(--y);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;border:2px solid var(--yb);flex-shrink:0}
+.mch-title{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:.95rem;color:var(--y);line-height:1.2}
+.mch-sub{font-size:.72rem;color:rgba(255,255,255,.5);font-family:'Baloo 2',sans-serif}
+.map-frame{width:100%;height:280px;border:none;display:block}
+.map-card-footer{padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.map-addr{font-family:'Noto Sans Devanagari',sans-serif;font-size:.85rem;color:var(--mid);font-weight:700}
+.map-directions{display:inline-flex;align-items:center;gap:.4rem;background:var(--y);color:var(--ink);padding:.5rem 1rem;border-radius:10px;font-size:.75rem;font-weight:900;font-family:'Baloo 2',sans-serif;text-decoration:none;border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);transition:all .2s cubic-bezier(.34,1.56,.64,1);white-space:nowrap}
+.map-directions:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+
+/* ── DARK CONTACT INFO BAND ── */
+.cband{background:var(--ink);padding:6rem 2rem;position:relative;overflow:hidden}
+.cband::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 28px,rgba(245,196,0,.025) 28px,rgba(245,196,0,.025) 29px)}
+.cband-in{max-width:1300px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center}
+.cb-left h2{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(2rem,3vw,2.8rem);color:var(--wh);line-height:1.15;margin-bottom:1rem}
+.cb-left h2 em{font-style:normal;color:var(--y)}
+.cb-left p{font-family:'Noto Sans Devanagari',sans-serif;font-size:.95rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:2rem}
+.cb-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.cb-right{display:flex;flex-direction:column;gap:.85rem}
+.cbr-item{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.06);border-radius:18px;padding:1.1rem 1.4rem;border:1.5px solid rgba(245,196,0,.18);transition:all .3s}
+.cbr-item:hover{background:rgba(245,196,0,.1);border-color:var(--y);transform:translateX(6px)}
+.cbr-icon{width:44px;height:44px;background:var(--y);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;border:2px solid var(--yb);flex-shrink:0}
+.cbr-lbl{font-family:'Baloo 2',sans-serif;font-size:.65rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:rgba(245,196,0,.6);margin-bottom:.2rem}
+.cbr-val{font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:.92rem;color:var(--wh);line-height:1.3}
+.cbr-val a{color:var(--yl);text-decoration:none}
+.cbr-val a:hover{color:var(--y)}
+
+/* ── SOCIAL / ONLINE PRESENCE ── */
+.social-sec{padding:6rem 2rem;background:var(--wh)}
+.social-in{max-width:1300px;margin:0 auto}
+.social-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:3rem}
+.soc-card{
+  background:var(--cream);border-radius:22px;padding:1.75rem;text-align:center;
+  border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+  text-decoration:none;display:block;color:var(--ink);
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  position:relative;overflow:hidden;
+}
+.soc-card::before{content:'';position:absolute;inset:0;background:var(--y);transform:scaleY(0);transform-origin:bottom;transition:transform .3s cubic-bezier(.22,.68,0,1.2);z-index:0}
+.soc-card:hover{transform:translateY(-7px) scale(1.03);box-shadow:8px 10px 0 var(--ink)}
+.soc-card:hover::before{transform:scaleY(1)}
+.soc-card-in{position:relative;z-index:1}
+.soc-icon{font-size:2.8rem;margin-bottom:.75rem;display:block;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.soc-card:hover .soc-icon{transform:scale(1.2) rotate(-8deg)}
+.soc-platform{font-family:'Baloo 2',sans-serif;font-weight:900;font-size:.75rem;color:var(--mid);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.35rem}
+.soc-title{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:.95rem;color:var(--ink);line-height:1.3;margin-bottom:.3rem}
+.soc-desc{font-family:'Noto Sans Devanagari',sans-serif;font-size:.78rem;color:var(--mid);line-height:1.55}
+
+/* ── FAQ ── */
+.faq-sec{padding:6rem 2rem;background:var(--ink);position:relative;overflow:hidden}
+.faq-sec::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 38px,rgba(245,196,0,.02) 38px,rgba(245,196,0,.02) 39px)}
+.faq-in{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.faq-in .sec-h{color:var(--wh)}
+.faq-grid{margin-top:3rem;display:flex;flex-direction:column;gap:.75rem}
+.faq-item{background:rgba(255,255,255,.06);border-radius:18px;border:1.5px solid rgba(245,196,0,.18);overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:var(--y);background:rgba(245,196,0,.08)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;cursor:pointer;gap:1rem;user-select:none}
+.faq-q-text{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:.97rem;color:var(--wh);line-height:1.4}
+.faq-icon{width:32px;height:32px;background:var(--y);border-radius:8px;border:2px solid var(--yb);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;transition:transform .3s cubic-bezier(.34,1.56,.64,1);box-shadow:2px 2px 0 var(--yb);color:var(--ink);font-weight:900}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,.68,0,1.2)}
+.faq-item.open .faq-a{max-height:250px}
+.faq-a-inner{padding:0 1.5rem 1.25rem 1.5rem;font-family:'Noto Sans Devanagari',sans-serif;font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.85;border-top:1px solid rgba(245,196,0,.15);padding-top:.9rem;margin-top:.1rem}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:4rem 2rem 0;border-top:1px solid rgba(245,196,0,.1)}
+.ft-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.ft-logo{font-family:'Lilita One',sans-serif;font-size:2rem;color:var(--y);margin-bottom:.4rem}
+.ft-sub{font-family:'Noto Sans Devanagari',sans-serif;font-size:.86rem;margin-bottom:.2rem}
+.ft-tiny{font-size:.7rem;color:rgba(255,255,255,.3);font-family:'Baloo 2',sans-serif}
+.ft-h{font-family:'Baloo 2',sans-serif;font-weight:900;font-size:.73rem;color:var(--y);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem}
+.ft-links{display:flex;flex-direction:column;gap:.45rem}
+.ft-links a{color:rgba(255,255,255,.62);text-decoration:none;font-size:.88rem;font-family:'Noto Sans Devanagari',sans-serif;transition:color .2s}
+.ft-links a:hover{color:var(--y)}
+.ft-ct p{font-size:.86rem;font-family:'Noto Sans Devanagari',sans-serif;margin-bottom:.45rem}
+.ft-ct a{color:#FFF3A0;text-decoration:none}
+.ft-ct a:hover{color:var(--y)}
+.ft-btm{max-width:1300px;margin:0 auto;padding:1.4rem 0;text-align:center;font-size:.73rem;color:rgba(255,255,255,.22);font-family:'Baloo 2',sans-serif}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1060px){
+  .phero-in{grid-template-columns:1fr}.hero-ccard{display:none}
+  .contact-in{grid-template-columns:1fr}
+  .cform-card{position:static}
+  .map-grid{grid-template-columns:1fr}
+  .cband-in{grid-template-columns:1fr;gap:3rem}
+  .social-grid{grid-template-columns:1fr 1fr}
+  .ft-grid{grid-template-columns:1fr;gap:2rem}
+}
+@media(max-width:720px){
+  .nlinks{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(253,248,236,.97);backdrop-filter:blur(18px);flex-direction:column;padding:1.4rem;border-bottom:2px solid var(--y);gap:.25rem}
+  .nlinks.open{display:flex}.ham{display:flex}
+  .social-grid{grid-template-columns:1fr 1fr}
+  .frow2{grid-template-columns:1fr}
+  .cb-btns{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur2"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nlogo">
+      <div class="nlogo-gem">🌟</div>
+      <div class="nlogo-t"><div class="nlogo-main">प्रायमा</div><div class="nlogo-sub">पूर्व प्राथमिक विद्यालय · मंगळवेढा</div></div>
+    </a>
+    <ul class="nlinks" id="nlinks">
+      <li><a href="index.html">🏠 मुख्यपृष्ठ</a></li>
+      <li><a href="about.html">📖 आमच्याबद्दल</a></li>
+      <li><a href="admissions.html">✏️ प्रवेश</a></li>
+      <li><a href="gallery.html">📸 गॅलरी</a></li>
+      <li><a href="contact.html" class="act">📞 संपर्क</a></li>
+      <li><a href="admissions.html" class="npill">प्रवेश घ्या →</a></li>
+    </ul>
+    <button class="ham" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="phero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="hero-dots"></div>
+  <div class="phero-in">
+    <!-- LEFT -->
+    <div>
+      <div class="phero-chip"><span class="cpulse"></span>📞 संपर्क करा · आम्ही उत्तर देण्यास तयार आहोत</div>
+      <h1 class="phero-h1">
+        आम्हाला<br>
+        <span class="hl-box">कधीही</span><br>
+        <span class="hl-wave">संपर्क करा</span>
+      </h1>
+      <p class="phero-p">प्रवेश चौकशी, शुल्क माहिती, शाळेची वेळ — कोणतेही प्रश्न असले तरी आम्ही WhatsApp, फोन किंवा प्रत्यक्ष भेटीसाठी नेहमी उपलब्ध आहोत.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .3s both">
+        <a href="https://wa.me/919890855040?text=नमस्कार! प्रायमा शाळेबद्दल चौकशी करायची आहे." target="_blank" style="display:inline-flex;align-items:center;gap:.55rem;background:#25D366;color:#fff;padding:.95rem 2rem;border-radius:16px;font-weight:900;font-size:1rem;text-decoration:none;border:2.5px solid #1AA34A;box-shadow:5px 5px 0 #1AA34A;font-family:'Noto Sans Devanagari',sans-serif;transition:all .18s cubic-bezier(.34,1.56,.64,1)" onmouseover="this.style.transform='translate(-3px,-3px)';this.style.boxShadow='8px 8px 0 #1AA34A'" onmouseout="this.style.transform='';this.style.boxShadow='5px 5px 0 #1AA34A'">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp करा
+        </a>
+        <a href="tel:9890855040" class="btn-out">📞 कॉल करा</a>
+      </div>
+    </div>
+    <!-- RIGHT — quick contact card -->
+    <div class="hero-ccard">
+      <div class="hcc-stripe"></div>
+      <div class="hcc-body">
+        <div class="hcc-label">📋 संपर्क एका नजरेत</div>
+        <div class="hcc-rows">
+          <div class="hccr">
+            <div class="hccr-icon">📞</div>
+            <div><div class="hccr-lbl">WhatsApp / Phone</div><div class="hccr-val"><a href="tel:9890855040">98908 55040</a> | <a href="tel:9421045752">94210 45752</a></div></div>
+          </div>
+          <div class="hccr">
+            <div class="hccr-icon">☎️</div>
+            <div><div class="hccr-lbl">Landline</div><div class="hccr-val"><a href="tel:02188299801">02188-299801</a></div></div>
+          </div>
+          <div class="hccr">
+            <div class="hccr-icon">🏫</div>
+            <div><div class="hccr-lbl">शाळा</div><div class="hccr-val">खंडोबा गल्ली, मंगळवेढा</div></div>
+          </div>
+          <div class="hccr">
+            <div class="hccr-icon">🏢</div>
+            <div><div class="hccr-lbl">मुख्य कार्यालय</div><div class="hccr-val">कुंभार गल्ली, मंगळवेढा</div></div>
+          </div>
+          <div class="hccr">
+            <div class="hccr-icon">📧</div>
+            <div><div class="hccr-lbl">Email</div><div class="hccr-val"><a href="mailto:primacomputer@gmail.com">primacomputer@gmail.com</a></div></div>
+          </div>
+          <div class="hccr">
+            <div class="hccr-icon">⏰</div>
+            <div><div class="hccr-lbl">वेळ</div><div class="hccr-val">सोम–शनि | ९:०० – १२:३०</div></div>
+          </div>
+        </div>
+        <a href="https://wa.me/919890855040?text=नमस्कार! प्रायमा शाळेबद्दल चौकशी करायची आहे." target="_blank" class="hcc-wa">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp वर संदेश पाठवा
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="mwrap"><div class="mtrack">
+  <span class="mi">📞 98908 55040 | 94210 45752</span><span class="md"></span>
+  <span class="mi">☎️ 02188-299801</span><span class="md"></span>
+  <span class="mi">🏫 शाळा: खंडोबा गल्ली, मंगळवेढा</span><span class="md"></span>
+  <span class="mi">🏢 कार्यालय: कुंभार गल्ली, मंगळवेढा</span><span class="md"></span>
+  <span class="mi">⏰ सोम–शनि | सकाळी ९:०० – १२:३०</span><span class="md"></span>
+  <span class="mi">📧 primacomputer@gmail.com</span><span class="md"></span>
+  <span class="mi">🌐 www.primaedu.in</span><span class="md"></span>
+  <span class="mi">📞 98908 55040 | 94210 45752</span><span class="md"></span>
+  <span class="mi">☎️ 02188-299801</span><span class="md"></span>
+  <span class="mi">🏫 शाळा: खंडोबा गल्ली, मंगळवेढा</span><span class="md"></span>
+  <span class="mi">🏢 कार्यालय: कुंभार गल्ली, मंगळवेढा</span><span class="md"></span>
+  <span class="mi">⏰ सोम–शनि | सकाळी ९:०० – १२:३०</span><span class="md"></span>
+  <span class="mi">📧 primacomputer@gmail.com</span><span class="md"></span>
+  <span class="mi">🌐 www.primaedu.in</span><span class="md"></span>
+</div></div>
+
+<!-- ═══ MAIN CONTACT + FORM ═══ -->
+<section class="contact-sec">
+  <div class="contact-in">
+    <!-- LEFT: contact info -->
+    <div>
+      <div class="eyebrow rvl">📋 संपर्क माहिती</div>
+      <h2 class="sec-h rvl">आमच्याशी बोला</h2>
+      <p class="sec-p rvl" style="margin-bottom:2rem">कोणत्याही प्रश्नासाठी, प्रवेश चौकशीसाठी किंवा शाळेची माहितीसाठी खालीलपैकी कोणत्याही माध्यमातून संपर्क करा.</p>
+
+      <div class="cinfo-stack">
+        <div class="cicard rvl">
+          <div class="cicard-icon">📞</div>
+          <div>
+            <div class="cicard-label">WhatsApp / Phone</div>
+            <div class="cicard-val">
+              <a href="tel:9890855040">98908 55040</a> &nbsp;|&nbsp;
+              <a href="tel:9421045752">94210 45752</a>&nbsp;&nbsp;
+              <a href="tel:7219161019">72191 61019</a>
+            </div>
+            <div class="cicard-sub">WhatsApp वर संदेश पाठवण्यासाठी देखील हे नंबर वापरा</div>
+          </div>
+        </div>
+        <div class="cicard rvl">
+          <div class="cicard-icon">☎️</div>
+          <div>
+            <div class="cicard-label">Landline</div>
+            <div class="cicard-val"><a href="tel:02188299801">02188-299801</a></div>
+            <div class="cicard-sub">कार्यालयीन वेळेत उपलब्ध</div>
+          </div>
+        </div>
+        <div class="cicard rvl">
+          <div class="cicard-icon">🏫</div>
+          <div>
+            <div class="cicard-label">शाळेचा पत्ता</div>
+            <div class="cicard-val">खंडोबा गल्ली, मंगळवेढा</div>
+            <div class="cicard-sub">जि. सोलापूर, महाराष्ट्र · ४१३३०५</div>
+          </div>
+        </div>
+        <div class="cicard rvl">
+          <div class="cicard-icon">🏢</div>
+          <div>
+            <div class="cicard-label">मुख्य कार्यालय</div>
+            <div class="cicard-val">कुंभार गल्ली, मंगळवेढा</div>
+            <div class="cicard-sub">विश्वज्योती वाणिज्य प्रशिक्षण संस्था · जि. सोलापूर</div>
+          </div>
+        </div>
+        <div class="cicard rvl">
+          <div class="cicard-icon">📧</div>
+          <div>
+            <div class="cicard-label">Email</div>
+            <div class="cicard-val"><a href="mailto:primacomputer@gmail.com">primacomputer@gmail.com</a></div>
+            <div class="cicard-sub">Email ला उत्तर देण्यास काही वेळ लागू शकतो — WhatsApp जलद आहे</div>
+          </div>
+        </div>
+        <div class="cicard rvl">
+          <div class="cicard-icon">🌐</div>
+          <div>
+            <div class="cicard-label">Website / Blogspot</div>
+            <div class="cicard-val"><a href="http://www.primaedu.in" target="_blank">www.primaedu.in</a></div>
+            <div class="cicard-sub"><a href="http://www.primaschoolmangalwedha.blogspot.com" target="_blank">primaschoolmangalwedha.blogspot.com</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- hours card -->
+      <div class="hours-card rvl" style="margin-top:1.5rem">
+        <div class="hours-title">⏰ शाळेच्या वेळा</div>
+        <div class="hours-row"><span class="hours-day">सोमवार – शुक्रवार</span><span class="hours-time">सकाळी ९:०० – १२:३०</span></div>
+        <div class="hours-row"><span class="hours-day">शनिवार</span><span class="hours-time">सकाळी ९:०० – १२:०० (चौकशी)</span></div>
+        <div class="hours-row"><span class="hours-day">रविवार</span><span class="hours-time hours-closed">बंद</span></div>
+        <div class="hours-row"><span class="hours-day">सार्वजनिक सुट्ट्या</span><span class="hours-time hours-closed">बंद</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: contact form -->
+    <div class="rvr">
+      <div class="cform-card">
+        <div class="cform-stripe"></div>
+        <div class="cform-h">📩 संदेश पाठवा</div>
+        <div class="cform-sub">खाली माहिती भरा — तुमचा संदेश WhatsApp वर आमच्यापर्यंत पोहोचेल. आम्ही लवकरच उत्तर देऊ.</div>
+        <div id="contactForm">
+          <div class="frow2">
+            <div class="fg"><label>👤 तुमचे नाव *</label><input type="text" id="cf_name" placeholder="पूर्ण नाव"></div>
+            <div class="fg"><label>📱 WhatsApp नंबर *</label><input type="tel" id="cf_phone" placeholder="98XXX XXXXX"></div>
+          </div>
+          <div class="fg"><label>📌 विषय *</label>
+            <select id="cf_subject">
+              <option value="">-- विषय निवडा --</option>
+              <option value="प्रवेश चौकशी">✏️ प्रवेश चौकशी</option>
+              <option value="शुल्क माहिती">💰 शुल्क माहिती</option>
+              <option value="Bus सेवा चौकशी">🚌 Bus सेवा चौकशी</option>
+              <option value="CCTV / सुरक्षितता">📷 CCTV / सुरक्षितता</option>
+              <option value="शाळेची वेळ">⏰ शाळेची वेळ</option>
+              <option value="अन्य प्रश्न">💬 अन्य प्रश्न</option>
+            </select>
+          </div>
+          <div class="fg"><label>💬 संदेश *</label><textarea id="cf_msg" rows="4" placeholder="तुमचा प्रश्न किंवा संदेश इथे लिहा..."></textarea></div>
+          <button class="fsub" onclick="sendContact()">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp वर पाठवा
+          </button>
+          <p style="text-align:center;margin-top:.8rem;font-family:'Noto Sans Devanagari',sans-serif;font-size:.8rem;color:var(--mid)">किंवा थेट कॉल करा: <a href="tel:9890855040" style="color:var(--yb);font-weight:900">98908 55040</a></p>
+        </div>
+        <div class="fsuccess" id="contactSuccess">
+          🎉 धन्यवाद! तुमचा संदेश WhatsApp वर पाठवला गेला आहे.<br><br>
+          आम्ही लवकरच तुमच्याशी संपर्क करू.<br><br>
+          <strong>🙏 प्रायमा परिवारातर्फे धन्यवाद!</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DUAL MAPS ═══ -->
+<section class="map-sec">
+  <div class="map-in">
+    <div style="text-align:center">
+      <div class="eyebrow rv" style="margin:0 auto 1.2rem">📍 आमचे ठिकाण</div>
+      <h2 class="sec-h rv">शाळा कशी शोधावी?</h2>
+      <p class="sec-p rv" style="margin:0 auto">शाळा आणि मुख्य कार्यालय — दोन्हीचे नकाशे खाली दिले आहेत.</p>
+    </div>
+    <div class="map-grid">
+      <!-- School Map -->
+      <div class="map-card rv">
+        <div class="map-card-header">
+          <div class="mch-icon">🏫</div>
+          <div>
+            <div class="mch-title">प्रायमा पूर्व प्राथमिक विद्यालय</div>
+            <div class="mch-sub">शाळा · खंडोबा गल्ली</div>
+          </div>
+        </div>
+        <iframe
+          class="map-frame"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.4!2d75.3208!3d17.5167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDMxJzAwLjEiTiA3NcKwMTknMTQuOSJF!5e0!3m2!1smr!2sin!4v1699000000000!5m2!1smr!2sin"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-card-footer">
+          <div class="map-addr">📍 खंडोबा गल्ली, मंगळवेढा, जि. सोलापूर</div>
+          <a href="https://maps.google.com/?q=Prima+School+Mangalwedha+Khandoba+Galli" target="_blank" class="map-directions">🗺️ Directions →</a>
+        </div>
+      </div>
+      <!-- Office Map -->
+      <div class="map-card rv">
+        <div class="map-card-header">
+          <div class="mch-icon">🏢</div>
+          <div>
+            <div class="mch-title">मुख्य कार्यालय</div>
+            <div class="mch-sub">कार्यालय · कुंभार गल्ली</div>
+          </div>
+        </div>
+        <iframe
+          class="map-frame"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.4!2d75.3195!3d17.5170!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDMxJzAxLjIiTiA3NcKwMTknMTAuMiJF!5e0!3m2!1smr!2sin!4v1699000000001!5m2!1smr!2sin"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-card-footer">
+          <div class="map-addr">📍 कुंभार गल्ली, मंगळवेढा, जि. सोलापूर</div>
+          <a href="https://maps.google.com/?q=Prima+Computer+Mangalwedha+Kumbhar+Galli" target="_blank" class="map-directions">🗺️ Directions →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DARK CONTACT BAND ═══ -->
+<section class="cband">
+  <div class="cband-in">
+    <div class="cb-left rvl">
+      <h2>आत्ताच <em>संपर्क</em> करा<br>उशीर नको!</h2>
+      <p>प्रवेशाच्या जागा मर्यादित आहेत — दर वर्षी लवकर भरतात. आजच WhatsApp किंवा फोन करा आणि तुमच्या मुलाचे प्रवेश निश्चित करा.</p>
+      <div class="cb-btns">
+        <a href="https://wa.me/919890855040?text=नमस्कार! प्रायमा शाळेत प्रवेशाबद्दल चौकशी करायची आहे." target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;padding:.95rem 2rem;border-radius:16px;font-weight:900;font-size:1rem;text-decoration:none;border:2.5px solid #1AA34A;box-shadow:5px 5px 0 #1AA34A;font-family:'Noto Sans Devanagari',sans-serif;transition:all .18s cubic-bezier(.34,1.56,.64,1)" onmouseover="this.style.transform='translate(-3px,-3px)';this.style.boxShadow='8px 8px 0 #1AA34A'" onmouseout="this.style.transform='';this.style.boxShadow='5px 5px 0 #1AA34A'">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp करा
+        </a>
+        <a href="tel:9890855040" style="display:inline-flex;align-items:center;gap:.55rem;background:transparent;color:var(--y);padding:.95rem 2rem;border-radius:16px;font-weight:900;font-size:1rem;text-decoration:none;border:2.5px solid var(--y);font-family:'Noto Sans Devanagari',sans-serif;transition:all .18s" onmouseover="this.style.background='rgba(245,196,0,.1)'" onmouseout="this.style.background='transparent'">📞 98908 55040</a>
+        <a href="tel:9421045752" style="display:inline-flex;align-items:center;gap:.55rem;background:transparent;color:rgba(255,255,255,.7);padding:.95rem 2rem;border-radius:16px;font-weight:900;font-size:1rem;text-decoration:none;border:2.5px solid rgba(255,255,255,.2);font-family:'Noto Sans Devanagari',sans-serif;transition:all .18s" onmouseover="this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.background='transparent'">📞 94210 45752</a>
+      </div>
+    </div>
+    <div class="cb-right">
+      <div class="cbr-item rv"><div class="cbr-icon">📞</div><div><div class="cbr-lbl">WhatsApp / Phone</div><div class="cbr-val"><a href="tel:9890855040">98908 55040</a> | <a href="tel:9421045752">94210 45752</a></div></div></div>
+      <div class="cbr-item rv"><div class="cbr-icon">📞</div><div><div class="cbr-lbl">Mobile</div><div class="cbr-val"><a href="tel:7219161019">72191 61019</a></div></div></div>
+      <div class="cbr-item rv"><div class="cbr-icon">☎️</div><div><div class="cbr-lbl">Landline</div><div class="cbr-val"><a href="tel:02188299801">02188-299801</a></div></div></div>
+      <div class="cbr-item rv"><div class="cbr-icon">📧</div><div><div class="cbr-lbl">Email</div><div class="cbr-val"><a href="mailto:primacomputer@gmail.com">primacomputer@gmail.com</a></div></div></div>
+      <div class="cbr-item rv"><div class="cbr-icon">🏫</div><div><div class="cbr-lbl">शाळा</div><div class="cbr-val">खंडोबा गल्ली, मंगळवेढा · ४१३३०५</div></div></div>
+      <div class="cbr-item rv"><div class="cbr-icon">🏢</div><div><div class="cbr-lbl">मुख्य कार्यालय</div><div class="cbr-val">कुंभार गल्ली, मंगळवेढा · ४१३३०५</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOCIAL / ONLINE ═══ -->
+<section class="social-sec">
+  <div class="social-in">
+    <div style="text-align:center">
+      <div class="eyebrow rv" style="margin:0 auto 1.2rem">🌐 ऑनलाइन उपस्थिती</div>
+      <h2 class="sec-h rv">आम्हाला ऑनलाइन शोधा</h2>
+      <p class="sec-p rv" style="margin:0 auto">प्रायमाशी ऑनलाइन जोडलेले राहा — नवीन माहिती, फोटो आणि अपडेट्स मिळवा.</p>
+    </div>
+    <div class="social-grid">
+      <a href="http://www.primaedu.in" target="_blank" class="soc-card rv">
+        <div class="soc-card-in"><span class="soc-icon">🌐</span><div class="soc-platform">Website</div><div class="soc-title">www.primaedu.in</div><div class="soc-desc">अधिकृत वेबसाइट — सर्व माहिती एकाच ठिकाणी</div></div>
+      </a>
+      <a href="http://www.primaschoolmangalwedha.blogspot.com" target="_blank" class="soc-card rv">
+        <div class="soc-card-in"><span class="soc-icon">📝</span><div class="soc-platform">Blogspot</div><div class="soc-title">Priyama Blogspot</div><div class="soc-desc">पालकांसाठी लेख, मार्गदर्शन आणि आहार सल्ला</div></div>
+      </a>
+      <a href="YOUR_YOUTUBE_CHANNEL" target="_blank" class="soc-card rv"><!-- 🔴 Replace with YouTube channel URL -->
+        <div class="soc-card-in"><span class="soc-icon">▶️</span><div class="soc-platform">YouTube</div><div class="soc-title">YouTube Channel</div><div class="soc-desc">शाळेचे उपक्रम, कार्यक्रमांचे व्हिडिओ — Subscribe करा</div></div>
+      </a>
+      <a href="https://wa.me/919890855040" target="_blank" class="soc-card rv">
+        <div class="soc-card-in"><span class="soc-icon">💚</span><div class="soc-platform">WhatsApp</div><div class="soc-title">WhatsApp चौकशी</div><div class="soc-desc">सर्वात जलद संपर्क माध्यम — आत्ताच संदेश पाठवा</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq-sec">
+  <div class="faq-in">
+    <div style="text-align:center">
+      <div class="eyebrow rv" style="margin:0 auto 1.2rem">❓ वारंवार विचारले जाणारे प्रश्न</div>
+      <h2 class="sec-h rv" style="color:var(--wh)">संपर्काबद्दल शंका?</h2>
+    </div>
+    <div class="faq-grid rv">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">शाळेत प्रत्यक्ष भेट द्यायची असल्यास आधी फोन करावा का?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">होय, शक्यतो आधी WhatsApp किंवा फोनवर संपर्क करून वेळ निश्चित करा. शाळेची वेळ सोमवार ते शनिवार सकाळी ९:०० ते १२:३० आहे. अचानक आलात तरी आम्ही स्वागत करतो, पण आधी सांगितल्यास अधिक उत्तम सेवा मिळेल.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">WhatsApp वर संपर्क केल्यास किती वेळात उत्तर मिळेल?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">शाळेच्या वेळेत (सोम–शनि, ९:०० – १२:३०) साधारणपणे १-२ तासात उत्तर मिळते. संध्याकाळी किंवा सुट्टीच्या दिवशी पाठवलेल्या संदेशाचे उत्तर पुढील कामकाजाच्या दिवशी मिळेल.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">मंगळवेढ्याबाहेरून येणाऱ्यांसाठी शाळा कशी शोधावी?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">मंगळवेढा बस स्थानकावरून खंडोबा मंदिराच्या दिशेने या — खंडोबा गल्लीत शाळा आहे. Google Maps वर "Prima School Mangalwedha" शोधा किंवा वर दिलेल्या Directions बटणावर क्लिक करा. फोन करूनही मार्गदर्शन मिळेल.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">प्रवेश चौकशीसाठी कोणाशी बोलावे?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">प्रवेश चौकशीसाठी थेट 98908 55040 किंवा 94210 45752 वर WhatsApp संदेश पाठवा. मुख्याध्यापिका किंवा संचालक तुमच्याशी बोलतील. तुम्ही शाळेत प्रत्यक्ष येऊनही चौकशी करू शकता.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">मुख्य कार्यालय (कुंभार गल्ली) आणि शाळा (खंडोबा गल्ली) यात फरक काय?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">शाळा खंडोबा गल्लीत आहे — इथेच वर्ग, Robot शिक्षक, Digital Boards, CCTV सर्व आहे. मुख्य कार्यालय कुंभार गल्लीत आहे — प्रशासकीय कामांसाठी, संगणक प्रशिक्षण संस्थेसाठी. प्रवेश चौकशीसाठी दोन्हीकडे जाता येते.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Emergency मध्ये — मुलाला शाळेत काही झाल्यास कसे कळेल?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">शाळेत CCTV असल्याने प्रत्येक वर्गावर लक्ष ठेवले जाते. Emergency मध्ये पालकांना तातडीने WhatsApp किंवा फोनवर कळवले जाते. म्हणूनच प्रवेशावेळी सक्रिय WhatsApp नंबर देणे अत्यंत महत्त्वाचे आहे.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="ft-grid">
+    <div><div class="ft-logo">🌟 प्रायमा</div><div class="ft-sub">पूर्व प्राथमिक विद्यालय (डिजिटल बालवाडी)</div><div class="ft-tiny">विश्वज्योती वाणिज्य प्रशिक्षण संस्था, मंगळवेढा संचलित · Est. 1990 · शैक्षणिक वर्ष २०२६-२७</div></div>
+    <div><div class="ft-h">पृष्ठे</div><div class="ft-links"><a href="index.html">🏠 मुख्यपृष्ठ</a><a href="about.html">📖 आमच्याबद्दल</a><a href="admissions.html">✏️ प्रवेश</a><a href="gallery.html">📸 गॅलरी</a><a href="contact.html">📞 संपर्क</a></div></div>
+    <div class="ft-ct"><div class="ft-h">संपर्क</div><p>📍 खंडोबा गल्ली, मंगळवेढा, जि. सोलापूर</p><p>📞 <a href="tel:9890855040">98908 55040</a> | <a href="tel:9421045752">94210 45752</a></p><p>☎️ <a href="tel:02188299801">02188-299801</a></p><p>📧 <a href="mailto:primacomputer@gmail.com">primacomputer@gmail.com</a></p><p>🌐 <a href="http://www.primaschoolmangalwedha.blogspot.com" target="_blank">Blogspot</a></p></div>
+  </div>
+  <div class="ft-btm">© २०२५-२६ प्रायमा पूर्व प्राथमिक विद्यालय, मंगळवेढा · www.primaedu.in · Designed with ❤️</div>
+</footer>
+
+<script>
+/* CURSOR */
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function lag(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(lag)})();
+document.querySelectorAll('a,button,.cicard,.hccr,.cbr-item,.soc-card,.faq-item,.map-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cbig'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cbig'));
+});
+
+/* NAV */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('solid',scrollY>30));
+const ham=document.getElementById('ham'),nl=document.getElementById('nlinks');
+ham.addEventListener('click',()=>nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+
+/* REVEAL */
+const robs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){
+    const sibs=[...e.target.parentElement.querySelectorAll('.rv,.rvl,.rvr')];
+    const i=sibs.indexOf(e.target);
+    e.target.style.transitionDelay=(i*.09)+'s';
+    e.target.classList.add('in');
+    robs.unobserve(e.target);
+  }
+}),{threshold:.07});
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>robs.observe(el));
+
+/* FAQ */
+function toggleFaq(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+/* CONTACT FORM */
+function sendContact(){
+  const name=document.getElementById('cf_name').value.trim();
+  const phone=document.getElementById('cf_phone').value.trim();
+  const subject=document.getElementById('cf_subject').value;
+  const msg=document.getElementById('cf_msg').value.trim();
+  if(!name||!phone||!subject||!msg){alert('कृपया सर्व * चिन्हांकित माहिती भरा.');return}
+  let t=`नमस्कार! 🙏%0A%0A`;
+  t+=`👤 नाव: ${name}%0A`;
+  t+=`📱 WhatsApp: ${phone}%0A`;
+  t+=`📌 विषय: ${subject}%0A%0A`;
+  t+=`💬 संदेश:%0A${msg}%0A%0A`;
+  t+=`🌐 www.primaedu.in`;
+  window.open(`https://wa.me/919890855040?text=${t}`,'_blank');
+  document.getElementById('contactForm').style.display='none';
+  document.getElementById('contactSuccess').style.display='block';
+}
+</script>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="admissions.html">Admissions</a>
+<a href="gallery.html">Gallery</a>
+<a href="contact.html">Contact</a>
+</nav>
+</body>
+</html>

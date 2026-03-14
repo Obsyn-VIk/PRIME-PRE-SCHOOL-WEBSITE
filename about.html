@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>आमच्याबद्दल | प्रायमा डिजिटल बालवाडी · मंगळवेढा</title>
+<meta name="description" content="प्रायमा पूर्व प्राथमिक विद्यालयाबद्दल — १९९० पासूनचा इतिहास, संचालक मंडळ, वैशिष्ट्ये आणि उपक्रम.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;900&family=Lilita+One&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   PRIYAMA — ABOUT PAGE
+   Same design system as index.html
+═══════════════════════════════════════════ */
+:root{
+  --y:#F5C400;--yb:#D4A000;--yl:#FFF3A0;--yp:#FFFBE6;
+  --ink:#1A0F00;--ink2:#3D2000;--mid:#7A5530;
+  --cream:#FDF8EC;--off:#FAF3D8;--wh:#FFFFFF;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Baloo 2','Noto Sans Devanagari',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+#cur,#cur2{position:fixed;pointer-events:none;z-index:99999;border-radius:50%;transform:translate(-50%,-50%)}
+#cur{width:14px;height:14px;background:var(--y);mix-blend-mode:multiply;transition:width .15s,height .15s}
+#cur2{width:40px;height:40px;border:2px solid var(--y);opacity:.5;transition:width .2s,height .2s}
+body.cbig #cur{width:26px;height:26px}
+body.cbig #cur2{width:60px;height:60px;opacity:.3}
+
+/* NOISE */
+body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  opacity:.5}
+
+/* ── NAV (identical to index) ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:72px;display:flex;align-items:center;transition:background .4s,box-shadow .4s}
+#nav.solid{background:rgba(253,248,236,.95);backdrop-filter:blur(18px) saturate(180%);border-bottom:2px solid rgba(245,196,0,.25);box-shadow:0 4px 24px rgba(245,196,0,.12)}
+.nav-in{max-width:1300px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nlogo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nlogo-gem{width:44px;height:44px;background:var(--y);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.nlogo:hover .nlogo-gem{transform:rotate(-10deg) scale(1.1)}
+.nlogo-t{line-height:1.1}
+.nlogo-main{font-family:'Lilita One',sans-serif;font-size:1.2rem;color:var(--ink)}
+.nlogo-sub{font-size:.58rem;color:var(--mid);font-weight:600;font-family:'Baloo 2',sans-serif}
+.nlinks{display:flex;align-items:center;gap:.15rem;list-style:none}
+.nlinks a{font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:.85rem;color:var(--ink);text-decoration:none;padding:.5rem .85rem;border-radius:10px;transition:background .2s}
+.nlinks a:hover,.nlinks a.act{background:var(--yl)}
+.nlinks .npill{background:var(--ink);color:var(--y)!important;border-radius:12px;box-shadow:3px 3px 0 var(--yb);margin-left:.4rem;font-weight:800!important;transition:transform .2s,box-shadow .2s!important}
+.nlinks .npill:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--yb);background:var(--ink)!important}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:3px}
+.ham span{width:24px;height:2.5px;background:var(--ink);border-radius:3px;display:block;transition:all .3s}
+
+/* ── PAGE HERO ── */
+.phero{min-height:58vh;padding-top:72px;position:relative;overflow:hidden;display:flex;align-items:center}
+.blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(70px)}
+.b1{width:650px;height:650px;top:-200px;right:-140px;background:radial-gradient(circle,#FFE566 0%,#F5C400 45%,transparent 70%);animation:drift 9s ease-in-out infinite}
+.b2{width:420px;height:420px;bottom:-100px;left:-60px;background:radial-gradient(circle,#FFB800 0%,#FF8C00 55%,transparent 75%);animation:drift 11s ease-in-out infinite reverse 1.5s}
+.b3{width:280px;height:280px;top:30%;left:38%;background:radial-gradient(circle,rgba(255,220,0,.4) 0%,transparent 70%);animation:drift 13s ease-in-out infinite 3s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(28px,-22px) scale(1.05)}66%{transform:translate(-18px,28px) scale(.95)}}
+.hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(180,130,0,.22) 1.2px,transparent 1.2px);background-size:34px 34px}
+.phero-in{max-width:1300px;width:100%;margin:0 auto;padding:3rem 2rem;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.phero-left{}
+.phero-chip{display:inline-flex;align-items:center;gap:.5rem;background:var(--ink);color:var(--y);padding:.4rem 1.1rem;border-radius:50px;font-size:.78rem;font-weight:800;font-family:'Baloo 2',sans-serif;margin-bottom:1.4rem;box-shadow:4px 4px 0 var(--yb);animation:chipIn .6s cubic-bezier(.34,1.56,.64,1) both}
+.cpulse{width:7px;height:7px;border-radius:50%;background:var(--y);animation:pulse 2s ease-in-out infinite}
+@keyframes chipIn{from{opacity:0;transform:scale(.4) rotate(-12deg)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+.phero-h1{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(2.4rem,4vw,3.8rem);line-height:1.06;color:var(--ink);margin-bottom:.9rem;animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .1s both}
+@keyframes slideUp{from{opacity:0;transform:translateY(36px) skewY(2deg)}to{opacity:1;transform:none}}
+.hl-box{position:relative;display:inline}
+.hl-box::before{content:'';position:absolute;bottom:0;left:-3px;right:-3px;height:48%;background:var(--y);z-index:-1;border-radius:3px;transform:rotate(-.8deg)}
+.hl-wave{position:relative;color:var(--yb)}
+.hl-wave::after{content:'';position:absolute;bottom:-5px;left:0;right:0;height:5px;background:url("data:image/svg+xml,%3Csvg width='200' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4Q25 0 50 4Q75 8 100 4Q125 0 150 4Q175 8 200 4' stroke='%23F5C400' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;background-size:200px 6px;animation:waveMove 2.5s linear infinite}
+@keyframes waveMove{from{background-position-x:0}to{background-position-x:200px}}
+.phero-p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1.05rem;color:var(--mid);line-height:1.8;max-width:520px;animation:slideUp .8s cubic-bezier(.22,.68,0,1.2) .2s both}
+
+/* hero right — quick-stats card */
+.hero-qcard{background:var(--wh);border-radius:28px;border:3px solid var(--ink);box-shadow:10px 10px 0 var(--ink);overflow:hidden;animation:cardIn .9s cubic-bezier(.22,.68,0,1.2) .25s both}
+@keyframes cardIn{from{opacity:0;transform:translateX(40px) scale(.95)}to{opacity:1;transform:none}}
+.hqc-stripe{height:7px;background:repeating-linear-gradient(90deg,var(--y) 0,var(--y) 18px,var(--ink) 18px,var(--ink) 20px)}
+.hqc-body{padding:2rem}
+.hqc-label{font-family:'Baloo 2',sans-serif;font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:1.2rem}
+.hqc-stats{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:1.4rem}
+.hqs{background:var(--cream);border-radius:16px;padding:1.1rem;text-align:center;border:2px solid rgba(245,196,0,.3);transition:all .25s cubic-bezier(.34,1.56,.64,1)}
+.hqs:hover{border-color:var(--ink);background:var(--yl);transform:scale(1.04);box-shadow:4px 4px 0 var(--ink)}
+.hqs-n{font-family:'Lilita One',sans-serif;font-size:2.2rem;color:var(--yb);line-height:1}
+.hqs-l{font-family:'Noto Sans Devanagari',sans-serif;font-size:.68rem;color:var(--mid);font-weight:700;margin-top:3px}
+.hqc-chips{display:flex;flex-direction:column;gap:.6rem}
+.hqchip{display:flex;align-items:center;gap:.65rem;background:var(--ink);border-radius:12px;padding:.7rem 1rem;color:var(--y);font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:.82rem;transition:transform .2s;cursor:default}
+.hqchip:hover{transform:translateX(4px)}
+.hqchip-icon{font-size:1.1rem;flex-shrink:0}
+.hqchip-tag{background:var(--y);color:var(--ink);font-size:.6rem;padding:.1rem .5rem;border-radius:5px;font-family:'Baloo 2',sans-serif;font-weight:900;margin-left:auto;white-space:nowrap}
+
+/* ── MARQUEE ── */
+.mwrap{background:var(--ink);overflow:hidden;padding:.75rem 0;border-top:2.5px solid var(--y);border-bottom:2.5px solid var(--y);position:relative;z-index:5}
+.mtrack{display:flex;width:max-content;animation:ticker 28s linear infinite}
+.mtrack:hover{animation-play-state:paused}
+.mi{display:flex;align-items:center;gap:.55rem;padding:0 2.2rem;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.85rem;color:var(--y);white-space:nowrap}
+.md{width:5px;height:5px;border-radius:50%;background:var(--y);opacity:.35;flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SHARED ATOMS ── */
+.eyebrow{display:inline-flex;align-items:center;gap:.45rem;background:var(--y);color:var(--ink);padding:.38rem 1rem;border-radius:8px;font-size:.75rem;font-weight:900;font-family:'Baloo 2',sans-serif;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);margin-bottom:1.2rem}
+.sec-h{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(1.9rem,3.5vw,2.9rem);color:var(--ink);line-height:1.1;margin-bottom:.9rem}
+.sec-p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1rem;color:var(--mid);line-height:1.8;max-width:620px}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.rvl{opacity:0;transform:translateX(-28px);transition:opacity .65s ease,transform .65s ease}
+.rvr{opacity:0;transform:translateX(28px);transition:opacity .65s ease,transform .65s ease}
+.rv.in,.rvl.in,.rvr.in{opacity:1;transform:none}
+.btn-blk{display:inline-flex;align-items:center;gap:.55rem;background:var(--ink);color:var(--y);padding:.95rem 2rem;border-radius:16px;font-weight:900;font-size:1rem;text-decoration:none;font-family:'Noto Sans Devanagari',sans-serif;border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--yb);transition:all .18s cubic-bezier(.34,1.56,.64,1)}
+.btn-blk:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--yb)}
+.btn-out{display:inline-flex;align-items:center;gap:.55rem;background:var(--wh);color:var(--ink);padding:.95rem 1.9rem;border-radius:16px;font-weight:800;font-size:1rem;text-decoration:none;font-family:'Noto Sans Devanagari',sans-serif;border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:all .18s cubic-bezier(.34,1.56,.64,1)}
+.btn-out:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);background:var(--yl)}
+
+/* ── INTRO SECTION ── */
+.intro-sec{padding:6rem 2rem;background:var(--wh)}
+.intro-in{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start}
+.pull-quote{font-family:'Tiro Devanagari Marathi',serif;font-size:1.05rem;color:var(--ink);line-height:1.85;font-style:italic;background:var(--cream);border-radius:20px;padding:1.75rem 2rem 1.75rem 2.5rem;border:2.5px solid var(--ink);box-shadow:7px 7px 0 var(--ink);position:relative;margin-bottom:2rem}
+.pull-quote::before{content:'"';font-size:6rem;color:var(--y);opacity:.22;position:absolute;top:-.7rem;left:.8rem;line-height:1;font-family:'Lilita One',sans-serif;pointer-events:none}
+.abt-h3{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1.08rem;color:var(--ink);margin-bottom:.55rem;margin-top:1.6rem;display:flex;align-items:center;gap:.5rem}
+.abt-h3:first-child{margin-top:0}
+.abt-h3::before{content:'';display:inline-block;width:4px;height:1em;background:var(--y);border-radius:2px;flex-shrink:0}
+.abt-p{font-family:'Noto Sans Devanagari',sans-serif;font-size:.93rem;color:var(--mid);line-height:1.85;margin-bottom:.7rem}
+
+/* highlight stack */
+.hl-stack{display:flex;flex-direction:column;gap:.85rem}
+.hlc{display:flex;align-items:flex-start;gap:1rem;background:var(--cream);border-radius:18px;padding:1.2rem 1.4rem;border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transition:all .25s cubic-bezier(.34,1.56,.64,1);cursor:default}
+.hlc:hover{transform:translate(-4px,-4px);box-shadow:9px 9px 0 var(--ink);background:var(--yl)}
+.hlc-icon{font-size:1.75rem;flex-shrink:0;margin-top:.1rem}
+.hlc-t{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:.93rem;color:var(--ink);margin-bottom:.2rem}
+.hlc-d{font-family:'Noto Sans Devanagari',sans-serif;font-size:.8rem;color:var(--mid);line-height:1.65}
+.ftag{display:inline-block;background:var(--y);color:var(--ink);padding:.13rem .55rem;border-radius:6px;font-size:.64rem;font-weight:900;font-family:'Baloo 2',sans-serif;border:1.5px solid var(--ink);margin-left:.4rem;vertical-align:middle}
+
+/* ── QUOTE BAND ── */
+.qband{background:var(--ink);padding:4.5rem 2rem;text-align:center;position:relative;overflow:hidden}
+.qband::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 38px,rgba(245,196,0,.02) 38px,rgba(245,196,0,.02) 39px)}
+.qb{max-width:820px;margin:0 auto;position:relative;z-index:1}
+.qsym{font-family:'Lilita One',sans-serif;font-size:6rem;color:var(--y);opacity:.2;line-height:.7;margin-bottom:.6rem}
+.qtxt{font-family:'Tiro Devanagari Marathi',serif;font-size:1.15rem;color:rgba(255,255,255,.88);line-height:1.9;font-style:italic;margin-bottom:1.75rem}
+.qchain{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem}
+.qcitem{display:flex;align-items:center;gap:.4rem;background:rgba(245,196,0,.12);border:1px solid rgba(245,196,0,.25);border-radius:50px;padding:.35rem .9rem;font-family:'Noto Sans Devanagari',sans-serif;font-size:.82rem;color:var(--y);font-weight:700}
+.qsep{font-size:1rem;color:rgba(255,255,255,.2);align-self:center}
+
+/* ── TIMELINE ── */
+.tl-sec{background:var(--ink);padding:6rem 2rem;position:relative;overflow:hidden}
+.tl-sec::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 28px,rgba(245,196,0,.025) 28px,rgba(245,196,0,.025) 29px)}
+.tl-in{max-width:1300px;margin:0 auto;position:relative;z-index:1}
+.tl-in .sec-h{color:var(--wh)}
+.tl-hdr{margin-bottom:4rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.timeline{position:relative;max-width:960px;margin:0 auto;padding-left:3rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--y),rgba(245,196,0,.15));border-radius:3px}
+.tli{position:relative;margin-bottom:2.5rem}
+.tli::before{content:'';position:absolute;left:-3.45rem;top:.4rem;width:18px;height:18px;background:var(--y);border-radius:50%;border:3px solid var(--ink);box-shadow:0 0 0 3px rgba(245,196,0,.3)}
+.tli-card{background:rgba(255,255,255,.06);border-radius:18px;padding:1.5rem 1.75rem;border:1.5px solid rgba(245,196,0,.18);transition:all .3s;cursor:default}
+.tli:hover .tli-card{transform:translateX(8px);box-shadow:0 0 30px rgba(245,196,0,.1);border-color:rgba(245,196,0,.5)}
+.tli-yr{font-family:'Baloo 2',sans-serif;font-weight:900;font-size:.78rem;color:var(--y);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.35rem}
+.tli-t{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1rem;color:var(--wh);margin-bottom:.4rem;line-height:1.3}
+.tli-d{font-family:'Noto Sans Devanagari',sans-serif;font-size:.87rem;color:rgba(255,255,255,.58);line-height:1.75}
+.tli-badge{display:inline-block;background:var(--y);color:var(--ink);padding:.18rem .7rem;border-radius:6px;font-size:.68rem;font-weight:900;font-family:'Baloo 2',sans-serif;margin-top:.5rem}
+
+/* ── ACTIVITIES ── */
+.act-sec{padding:6rem 2rem;background:var(--wh)}
+.act-in{max-width:1300px;margin:0 auto}
+.act-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:3rem}
+.acard{background:var(--cream);border-radius:20px;padding:1.6rem 1rem;text-align:center;border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:all .3s cubic-bezier(.34,1.56,.64,1);cursor:default;position:relative;overflow:hidden}
+.acard::before{content:'';position:absolute;inset:0;background:var(--y);transform:scaleY(0);transform-origin:bottom;transition:transform .3s cubic-bezier(.22,.68,0,1.2);z-index:0}
+.acard:hover{transform:translateY(-7px) scale(1.03);box-shadow:7px 9px 0 var(--ink)}
+.acard:hover::before{transform:scaleY(1)}
+.acard-inner{position:relative;z-index:1}
+.acard-em{font-size:2.2rem;margin-bottom:.55rem;display:block;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.acard:hover .acard-em{transform:scale(1.2) rotate(-5deg)}
+.acard-t{font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:.85rem;color:var(--ink);line-height:1.4}
+
+/* ── MANAGEMENT ── */
+.mgmt-sec{background:linear-gradient(165deg,var(--yp) 0%,var(--cream) 65%);padding:6rem 2rem;position:relative;overflow:hidden}
+.mgmt-sec::after{content:'प्रायमा';position:absolute;right:-2rem;top:50%;transform:translateY(-50%) rotate(90deg);font-family:'Lilita One',sans-serif;font-size:10rem;color:rgba(245,196,0,.1);pointer-events:none;white-space:nowrap}
+.mgmt-in{max-width:1300px;margin:0 auto;position:relative;z-index:1}
+.mgmt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:3rem}
+.mcard{display:flex;align-items:center;gap:1rem;background:var(--wh);border-radius:18px;padding:1.2rem 1.5rem;border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transition:all .25s cubic-bezier(.34,1.56,.64,1);cursor:default}
+.mcard:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink);background:var(--yl)}
+.mpos{background:var(--ink);color:var(--y);font-size:.65rem;font-weight:900;padding:.25rem .75rem;border-radius:8px;font-family:'Baloo 2',sans-serif;white-space:nowrap;flex-shrink:0}
+.mname{font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:.9rem;color:var(--ink);line-height:1.35}
+.mgmt-note{text-align:center;margin-top:2rem;font-family:'Noto Sans Devanagari',sans-serif;font-size:.93rem;color:var(--mid);background:var(--wh);display:inline-block;padding:.6rem 1.5rem;border-radius:12px;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+
+/* ── BENTO FEATURES ── */
+.feat-sec{padding:6rem 2rem;background:var(--ink);position:relative;overflow:hidden}
+.feat-sec::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 28px,rgba(245,196,0,.025) 28px,rgba(245,196,0,.025) 29px)}
+.feat-in{max-width:1300px;margin:0 auto;position:relative;z-index:1}
+.feat-in .sec-h{color:var(--wh)}
+.bento{display:grid;grid-template-columns:1.65fr 1fr 1fr;grid-template-rows:auto auto;gap:1.2rem;margin-top:3rem}
+.bc{border-radius:24px;padding:2rem;border:2.5px solid var(--ink);position:relative;overflow:hidden;transition:all .3s cubic-bezier(.34,1.56,.64,1);cursor:default}
+.bc:hover{transform:translateY(-5px);box-shadow:6px 8px 0 var(--ink)}
+.ba{background:var(--y);grid-row:1/3;padding:2.5rem;border-color:var(--yb)}
+.ba:hover{box-shadow:8px 10px 0 var(--yb)}
+.bb{background:rgba(255,255,255,.06);border-color:rgba(245,196,0,.2)}
+.bb:hover{border-color:var(--y);box-shadow:6px 8px 0 rgba(245,196,0,.3)}
+.blbl{font-family:'Baloo 2',sans-serif;font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-bottom:.7rem}
+.ba .blbl{color:var(--ink)}
+.ba .bi{font-size:3.5rem;margin-bottom:.9rem}
+.ba .bh{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1.45rem;color:var(--ink);margin-bottom:.7rem;line-height:1.2}
+.ba .bp{font-family:'Noto Sans Devanagari',sans-serif;font-size:.9rem;color:var(--ink2);line-height:1.8;margin-bottom:1.4rem}
+.ba .btg{display:inline-block;background:var(--ink);color:var(--y);padding:.32rem .95rem;border-radius:8px;font-size:.75rem;font-weight:900;font-family:'Baloo 2',sans-serif}
+.bb .blbl{color:rgba(245,196,0,.6)}
+.bsi{font-size:1.8rem;margin-bottom:.55rem}
+.bsh{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:.92rem;color:var(--wh);margin-bottom:.3rem}
+.bsp{font-family:'Noto Sans Devanagari',sans-serif;font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.65}
+.bnum{font-family:'Lilita One',sans-serif;font-size:5rem;color:rgba(255,255,255,.06);position:absolute;bottom:-.5rem;right:1rem;line-height:1;pointer-events:none}
+
+/* ── BLOG + CTA BAND ── */
+.cta-band{background:var(--y);padding:5rem 2rem;position:relative;overflow:hidden;border-top:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink)}
+.cta-band::before{content:'📖';position:absolute;font-size:20rem;opacity:.06;right:-3rem;top:-4rem;pointer-events:none;animation:spinSlow 30s linear infinite}
+@keyframes spinSlow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.cta-band-in{max-width:1300px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.ctab-left h2{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:clamp(1.8rem,3vw,2.6rem);color:var(--ink);line-height:1.1;margin-bottom:1rem}
+.ctab-left p{font-family:'Noto Sans Devanagari',sans-serif;font-size:1rem;color:var(--ink2);line-height:1.8;margin-bottom:1.75rem}
+.ctab-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.ctab-right{background:var(--wh);border-radius:24px;padding:2.5rem;border:3px solid var(--ink);box-shadow:10px 10px 0 var(--ink)}
+.ctab-right h3{font-family:'Noto Sans Devanagari',sans-serif;font-weight:900;font-size:1.2rem;color:var(--ink);margin-bottom:1.25rem}
+.contact-list{display:flex;flex-direction:column;gap:.75rem}
+.cli{display:flex;align-items:center;gap:.85rem;font-family:'Noto Sans Devanagari',sans-serif;font-size:.9rem;color:var(--ink2);font-weight:700}
+.cli-icon{width:40px;height:40px;background:var(--y);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);flex-shrink:0}
+.cli a{color:var(--ink);text-decoration:none;font-weight:800}
+.cli a:hover{color:var(--yb)}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:4rem 2rem 0}
+.ft-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.ft-logo{font-family:'Lilita One',sans-serif;font-size:2rem;color:var(--y);margin-bottom:.4rem}
+.ft-sub{font-family:'Noto Sans Devanagari',sans-serif;font-size:.86rem;margin-bottom:.2rem}
+.ft-tiny{font-size:.7rem;color:rgba(255,255,255,.3);font-family:'Baloo 2',sans-serif}
+.ft-h{font-family:'Baloo 2',sans-serif;font-weight:900;font-size:.73rem;color:var(--y);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem}
+.ft-links{display:flex;flex-direction:column;gap:.45rem}
+.ft-links a{color:rgba(255,255,255,.62);text-decoration:none;font-size:.88rem;font-family:'Noto Sans Devanagari',sans-serif;transition:color .2s}
+.ft-links a:hover{color:var(--y)}
+.ft-ct p{font-size:.86rem;font-family:'Noto Sans Devanagari',sans-serif;margin-bottom:.45rem}
+.ft-ct a{color:#FFF3A0;text-decoration:none}
+.ft-ct a:hover{color:var(--y)}
+.ft-btm{max-width:1300px;margin:0 auto;padding:1.4rem 0;text-align:center;font-size:.73rem;color:rgba(255,255,255,.22);font-family:'Baloo 2',sans-serif}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1060px){
+  .phero-in{grid-template-columns:1fr}.hero-qcard{display:none}
+  .intro-in{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr 1fr}.ba{grid-column:1/3;grid-row:1}
+  .mgmt-grid{grid-template-columns:1fr 1fr}
+  .cta-band-in{grid-template-columns:1fr;gap:2.5rem}
+  .ft-grid{grid-template-columns:1fr;gap:2rem}
+}
+@media(max-width:720px){
+  .nlinks{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(253,248,236,.97);backdrop-filter:blur(18px);flex-direction:column;padding:1.4rem;border-bottom:2px solid var(--y);gap:.25rem}
+  .nlinks.open{display:flex}.ham{display:flex}
+  .act-grid{grid-template-columns:1fr 1fr}
+  .mgmt-grid{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr}.ba{grid-column:1}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur2"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nlogo">
+      <div class="nlogo-gem">🌟</div>
+      <div class="nlogo-t"><div class="nlogo-main">प्रायमा</div><div class="nlogo-sub">पूर्व प्राथमिक विद्यालय · मंगळवेढा</div></div>
+    </a>
+    <ul class="nlinks" id="nlinks">
+      <li><a href="index.html">🏠 मुख्यपृष्ठ</a></li>
+      <li><a href="about.html" class="act">📖 आमच्याबद्दल</a></li>
+      <li><a href="admissions.html">✏️ प्रवेश</a></li>
+      <li><a href="gallery.html">📸 गॅलरी</a></li>
+      <li><a href="contact.html">📞 संपर्क</a></li>
+      <li><a href="admissions.html" class="npill">प्रवेश घ्या →</a></li>
+    </ul>
+    <button class="ham" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="phero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="hero-dots"></div>
+  <div class="phero-in">
+    <!-- LEFT -->
+    <div class="phero-left">
+      <div class="phero-chip"><span class="cpulse"></span>📖 आमच्याबद्दल · Est. 1990</div>
+      <h1 class="phero-h1">
+        मंगळवेढ्याची<br>
+        <span class="hl-box">पहिली</span> <span class="hl-wave">डिजिटल</span><br>
+        बालवाडी
+      </h1>
+      <p class="phero-p">१९९० पासून मंगळवेढ्यातील मुलांच्या उज्ज्वल भविष्यासाठी अथक परिश्रम — आधुनिक तंत्रज्ञान, प्रेमळ शिक्षिका आणि सर्वांगीण विकासाची संकल्पना.</p>
+    </div>
+    <!-- RIGHT — quick stats card -->
+    <div class="hero-qcard">
+      <div class="hqc-stripe"></div>
+      <div class="hqc-body">
+        <div class="hqc-label">प्रायमा — एका नजरेत</div>
+        <div class="hqc-stats">
+          <div class="hqs"><div class="hqs-n">१९९०</div><div class="hqs-l">स्थापना वर्ष</div></div>
+          <div class="hqs"><div class="hqs-n">३५+</div><div class="hqs-l">वर्षांचा अनुभव</div></div>
+          <div class="hqs"><div class="hqs-n">५०००+</div><div class="hqs-l">माजी विद्यार्थी</div></div>
+          <div class="hqs"><div class="hqs-n">ISO</div><div class="hqs-l">21001:2018</div></div>
+        </div>
+        <div class="hqc-chips">
+          <div class="hqchip"><span class="hqchip-icon">🤖</span> AI Robot शिक्षक <span class="hqchip-tag">प्रथम</span></div>
+          <div class="hqchip"><span class="hqchip-icon">📷</span> CCTV सर्व वर्गांत <span class="hqchip-tag">जिल्ह्यात प्रथम</span></div>
+          <div class="hqchip"><span class="hqchip-icon">🚌</span> Educational Bus <span class="hqchip-tag">प्रथम</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="mwrap"><div class="mtrack">
+  <span class="mi">📖 १९९० मध्ये संस्थेची स्थापना</span><span class="md"></span>
+  <span class="mi">🏫 जून २००७ मध्ये शाळा सुरू</span><span class="md"></span>
+  <span class="mi">📷 २०१३ पासून CCTV — सोलापूर जिल्ह्यात प्रथम</span><span class="md"></span>
+  <span class="mi">🏆 ISO 21001:2018 प्रमाणित</span><span class="md"></span>
+  <span class="mi">🤖 Robot शिक्षक — मंगळवेढ्यात प्रथम</span><span class="md"></span>
+  <span class="mi">🎓 ५०००+ माजी विद्यार्थी</span><span class="md"></span>
+  <span class="mi">🏢 २ सप्टेंबर २०१७ — नव्या इमारतीचे उद्घाटन</span><span class="md"></span>
+  <span class="mi">📖 १९९० मध्ये संस्थेची स्थापना</span><span class="md"></span>
+  <span class="mi">🏫 जून २००७ मध्ये शाळा सुरू</span><span class="md"></span>
+  <span class="mi">📷 २०१३ पासून CCTV — सोलापूर जिल्ह्यात प्रथम</span><span class="md"></span>
+  <span class="mi">🏆 ISO 21001:2018 प्रमाणित</span><span class="md"></span>
+  <span class="mi">🤖 Robot शिक्षक — मंगळवेढ्यात प्रथम</span><span class="md"></span>
+  <span class="mi">🎓 ५०००+ माजी विद्यार्थी</span><span class="md"></span>
+  <span class="mi">🏢 २ सप्टेंबर २०१७ — नव्या इमारतीचे उद्घाटन</span><span class="md"></span>
+</div></div>
+
+<!-- ═══ INTRO SPLIT ═══ -->
+<section class="intro-sec">
+  <div class="intro-in">
+    <!-- LEFT: story -->
+    <div class="rvl">
+      <div class="pull-quote">
+        "विद्यार्थी हा केंद्रबिंदू मानून हसत खेळत शिक्षण व विद्यार्थ्यांचा सर्वांगीण विकास या दृष्टीने वैयक्तिक लक्ष देऊन २१ व्या विज्ञान युगास अनुसरून शिक्षण दिले जाते."
+      </div>
+      <div class="abt-h3">संस्थेची स्थापना</div>
+      <p class="abt-p">प्रायमा संस्थेने सन १९९० मध्ये विद्यार्थ्यांसाठी व्यावसायिक प्रशिक्षण सुरू केले — टाईपरायटिंग व कॉम्प्युटर प्रशिक्षण. संस्थेतून बाहेर पडलेले विद्यार्थी आज केंद्र व महाराष्ट्र शासनाच्या नोकरीत आहेत, तर काही स्वतःचा व्यवसाय चालवतात.</p>
+      <div class="abt-h3">पूर्व प्राथमिक विद्यालयाची सुरुवात</div>
+      <p class="abt-p">जून २००७-०८ मध्ये कुंभार गल्ली येथे शासनमान्य प्रायमा पूर्व प्राथमिक विद्यालय सुरू केले. खंडोबा गल्ली येथे नवीन वास्तू उभारण्यात आली व <strong>२ सप्टेंबर २०१७</strong> रोजी मान्यवरांच्या उपस्थितीत उद्घाटन झाले.</p>
+      <div class="abt-h3">मान्यवरांचे कौतुक व पुरस्कार</div>
+      <p class="abt-p">डॉ. नंदकुमार बेडसे (अप्पर जिल्हाधिकारी), सिनेअभिनेत्री शिवाली परब (मुंबई) यांसह अनेक मान्यवरांनी प्रायमाला भेट देऊन कौतुक केले आहे. <strong>आदर्श शाळा पुरस्कार</strong>प्राप्त संस्था. ISO 21001:2018 प्रमाणित — मंगळवेढ्यातील एकमेव डिजिटल बालवाडी.</p>
+    </div>
+    <!-- RIGHT: highlight stack -->
+    <div class="hl-stack rvr">
+      <div class="hlc"><div class="hlc-icon">🤖</div><div><div class="hlc-t">AI Robot शिक्षक <span class="ftag">मंगळवेढ्यात प्रथम</span></div><div class="hlc-d">AI-आधारित Robot Teacher द्वारे मराठी व इंग्रजी बडबडगीते — मुलांना रोज शाळेत यायची आवड निर्माण होते.</div></div></div>
+      <div class="hlc"><div class="hlc-icon">📺</div><div><div class="hlc-t">Digital Touch Screen Board <span class="ftag">प्रथम</span></div><div class="hlc-d">विनाखडूच्या Digital Touch Boards, LED Projector, Interactive E-Learning — प्रत्येक वर्गात!</div></div></div>
+      <div class="hlc"><div class="hlc-icon">📷</div><div><div class="hlc-t">CCTV सर्व वर्गांत <span class="ftag">जिल्ह्यात प्रथम</span></div><div class="hlc-d">२०१३-१४ पासून CCTV. सोलापूर जिल्ह्यातील पहिली बालवाडी. रोज रेकॉर्डिंग — मूल नेहमी सुरक्षित.</div></div></div>
+      <div class="hlc"><div class="hlc-icon">🚌</div><div><div class="hlc-t">Educational School Bus <span class="ftag">मंगळवेढ्यात प्रथम</span></div><div class="hlc-d">अंक, अक्षरे, महिने, वार, रंग, स्पर्श ज्ञान — Bus मधूनच शिकता येते!</div></div></div>
+      <div class="hlc"><div class="hlc-icon">📋</div><div><div class="hlc-t">QR Code निकालपत्रक <span class="ftag">महाराष्ट्रात प्रथम</span></div><div class="hlc-d">रंगीत निकालपत्रात विद्यार्थ्यांचा फोटो, रजि.क्रमांक व QR Code — महाराष्ट्रातील पहिली पद्धत!</div></div></div>
+      <div class="hlc"><div class="hlc-icon">🔥</div><div><div class="hlc-t">अग्निशामक यंत्र <span class="ftag">मंगळवेढ्यात प्रथम</span></div><div class="hlc-d">मंगळवेढ्यातील शैक्षणिक संस्थांमध्ये प्रथमच २ अग्निशामक यंत्रे — सुरक्षिततेसाठी.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUOTE BAND ═══ -->
+<div class="qband">
+  <div class="qb">
+    <div class="qsym">"</div>
+    <p class="qtxt">शाळा कशासाठी? शिक्षणासाठी | शिक्षण कशासाठी? विद्यार्थींच्या विकासासाठी | विद्यार्थी कशासाठी? ज्ञानार्जनासाठी | ज्ञान कशासाठी? प्रबोधनासाठी | प्रबोधन कशासाठी? समाजाच्या सेवेसाठी.</p>
+    <div class="qchain">
+      <span class="qcitem">🏫 शाळा</span><span class="qsep">→</span>
+      <span class="qcitem">📚 शिक्षण</span><span class="qsep">→</span>
+      <span class="qcitem">🧒 विद्यार्थी</span><span class="qsep">→</span>
+      <span class="qcitem">💡 ज्ञान</span><span class="qsep">→</span>
+      <span class="qcitem">🌍 समाजसेवा</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TIMELINE ═══ -->
+<section class="tl-sec">
+  <div class="tl-in">
+    <div class="tl-hdr">
+      <div>
+        <div class="eyebrow rv">📅 आमचा इतिहास</div>
+        <h2 class="sec-h rv" style="color:var(--wh)">प्रायमाचा ३७ वर्षांचा प्रवास</h2>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="tli rv">
+        <div class="tli-card">
+          <div class="tli-yr">१९९०</div>
+          <div class="tli-t">संस्थेची स्थापना</div>
+          <div class="tli-d">विश्वज्योती वाणिज्य प्रशिक्षण संस्थेची स्थापना. टाईपरायटिंग व कॉम्प्युटर प्रशिक्षण वर्ग सुरू. मंगळवेढ्यात डिजिटल शिक्षणाचे बीज रोवले.</div>
+        </div>
+      </div>
+      <div class="tli rv">
+        <div class="tli-card">
+          <div class="tli-yr">जून २००७-०८</div>
+          <div class="tli-t">पूर्व प्राथमिक विद्यालय सुरू</div>
+          <div class="tli-d">कुंभार गल्ली येथे शासनमान्य प्रायमा पूर्व प्राथमिक विद्यालय सुरू. Semi English माध्यम. डिजिटल बालवाडीची संकल्पना जन्माला आली.</div>
+          <div class="tli-badge">ऐतिहासिक सुरुवात</div>
+        </div>
+      </div>
+      <div class="tli rv">
+        <div class="tli-card">
+          <div class="tli-yr">२०१३-१४</div>
+          <div class="tli-t">CCTV — सोलापूर जिल्ह्यात प्रथम</div>
+          <div class="tli-d">सोलापूर जिल्ह्यात प्रथमच पूर्व प्राथमिक शाळेत सर्व वर्गांमध्ये CCTV कॅमेरे. विद्यार्थ्यांच्या सुरक्षिततेसाठी ऐतिहासिक पाऊल.</div>
+          <div class="tli-badge">जिल्ह्यात प्रथम</div>
+        </div>
+      </div>
+      <div class="tli rv">
+        <div class="tli-card">
+          <div class="tli-yr">२ सप्टेंबर २०१७</div>
+          <div class="tli-t">नव्या इमारतीचे उद्घाटन</div>
+          <div class="tli-d">खंडोबा गल्ली येथे नवीन वास्तूचे मान्यवरांच्या हस्ते उद्घाटन. Digital Touch Screen Boards, LED Projectors सह सुसज्ज वर्ग. नव्या युगाची सुरुवात.</div>
+          <div class="tli-badge">नवीन वास्तू</div>
+        </div>
+      </div>
+      <div class="tli rv">
+        <div class="tli-card">
+          <div class="tli-yr">२०१९-२०</div>
+          <div class="tli-t">माता पालक शिक्षक दिन — तालुक्यात प्रथम</div>
+          <div class="tli-d">मंगळवेढा तालुक्यात प्रथमच 'माता पालक शिक्षक दिन'. मुलांच्या आईंनी एक दिवस शिक्षिकेची भूमिका बजावली. अनोखा व प्रेरणादायक उपक्रम.</div>
+          <div class="tli-badge">तालुक्यात प्रथम</div>
+        </div>
+      </div>
+      <div class="tli rv">
+        <div class="tli-card">
+          <div class="tli-yr">२०२१-२२</div>
+          <div class="tli-t">ISO 21001:2018 प्रमाणन · ३५० विद्यार्थी विक्रम</div>
+          <div class="tli-d">मंगळवेढ्यातील पहिली ISO 21001:2018 प्रमाणित डिजिटल बालवाडी. ३५० विद्यार्थ्यांचा विक्रमी प्रवेश! QR Code निकालपत्रक — महाराष्ट्रात प्रथम.</div>
+          <div class="tli-badge">महाराष्ट्रात प्रथम</div>
+        </div>
+      </div>
+      <div class="tli rv">
+        <div class="tli-card">
+          <div class="tli-yr">आजपर्यंत · २०२६-२७</div>
+          <div class="tli-t">AI Robot Teacher · Educational Bus · ३५ वर्षे</div>
+          <div class="tli-d">AI-आधारित Robot Teacher व Educational School Bus — मंगळवेढ्यात दोन्ही प्रायमाने प्रथम आणल्या. ३७ वर्षांचा यशस्वी प्रवास सुरूच आहे!</div>
+          <div class="tli-badge">मंगळवेढ्यात प्रथम</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ACTIVITIES ═══ -->
+<section class="act-sec">
+  <div class="act-in">
+    <div style="text-align:center">
+      <div class="eyebrow rv" style="margin:0 auto 1.2rem">🎭 विशेष उपक्रम</div>
+      <h2 class="sec-h rv">वर्षभरातील उपक्रम</h2>
+      <p class="sec-p rv" style="margin:0 auto 3rem">मुलांचा सर्वांगीण विकास व्हावा म्हणून वर्षभर विविध उपक्रम घेतले जातात — प्रत्येक उपक्रम मुलांसाठी एक नवीन अनुभव!</p>
+    </div>
+    <div class="act-grid">
+      <div class="acard rv"><div class="acard-inner"><span class="acard-em">👴👵</span><div class="acard-t">आजी-आजोबा-नातू दिन</div></div></div>
+      <div class="acard rv"><div class="acard-inner"><span class="acard-em">👩‍🏫</span><div class="acard-t">माता पालक शिक्षक दिन</div></div></div>
+      <div class="acard rv"><div class="acard-inner"><span class="acard-em">🛒</span><div class="acard-t">आठवडा बाजार उपक्रम</div></div></div>
+      <div class="acard rv"><div class="acard-inner"><span class="acard-em">🏆</span><div class="acard-t">वार्षिक पारितोषिक वितरण</div></div></div>
+      <div class="acard rv"><div class="acard-inner"><span class="acard-em">🩺</span><div class="acard-t">मोफत आरोग्य तपासणी</div></div></div>
+      <div class="acard rv"><div class="acard-inner"><span class="acard-em">📚</span><div class="acard-t">ग्रंथ दिंडी प्रभात फेरी</div></div></div>
+      <div class="acard rv"><div class="acard-inner"><span class="acard-em">🎨</span><div class="acard-t">चित्रकला स्पर्धा</div></div></div>
+      <div class="acard rv"><div class="acard-inner"><span class="acard-em">🤸</span><div class="acard-t">शारीरिक शिक्षण व खेळ</div></div></div>
+      <div class="acard rv"><div class="acard-inner"><span class="acard-em">💃</span><div class="acard-t">नृत्य व नकला कार्यक्रम</div></div></div>
+      <div class="acard rv"><div class="acard-inner"><span class="acard-em">🎤</span><div class="acard-t">भाषण स्पर्धा</div></div></div>
+      <div class="acard rv"><div class="acard-inner"><span class="acard-em">🌿</span><div class="acard-t">पर्यावरण प्रतिज्ञा</div></div></div>
+      <div class="acard rv"><div class="acard-inner"><span class="acard-em">👩</span><div class="acard-t">महिला दिन स्पर्धा</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BENTO FEATURES (dark) ═══ -->
+<section class="feat-sec">
+  <div class="feat-in">
+    <div class="eyebrow rv">✨ आमची विशेषता</div>
+    <h2 class="sec-h rv" style="color:var(--wh)">जे फक्त प्रायमात मिळते</h2>
+    <div class="bento">
+      <div class="bc ba rvl">
+        <div class="blbl">Star Feature</div>
+        <div class="bi">🤖</div>
+        <div class="bh">मंगळवेढ्यात प्रथमच AI Robot शिक्षक</div>
+        <div class="bp">कृत्रिम बुद्धिमत्ता (AI) आधारित Robot Teacher मुलांना इंग्रजी व मराठी बडबडगीते, रंग, आकार, अंक शिकवतो. मुलांना शाळेत दररोज उपस्थित राहण्याची आवड निर्माण होते. हे मंगळवेढ्यात फक्त प्रायमातच!</div>
+        <span class="btg">मंगळवेढ्यात प्रथम</span>
+      </div>
+      <div class="bc bb rv">
+        <div class="bnum">🚌</div>
+        <div class="blbl">First in Mangalwedha</div>
+        <div class="bsi">🚌</div>
+        <div class="bsh">Educational School Bus</div>
+        <div class="bsp">अंकांची ओळख, इंग्रजी अक्षरे, महिने, वार, स्पर्श ज्ञान — Bus मधूनच शिकता येते!</div>
+      </div>
+      <div class="bc bb rv">
+        <div class="bnum">📷</div>
+        <div class="blbl">District First</div>
+        <div class="bsi">📷</div>
+        <div class="bsh">CCTV सर्व वर्गांत</div>
+        <div class="bsp">सोलापूर जिल्ह्यात प्रथम — २०१३ पासून सर्व वर्गांत CCTV. रोज रेकॉर्डिंग.</div>
+      </div>
+      <div class="bc bb rv">
+        <div class="bnum">👴</div>
+        <div class="blbl">Special Event</div>
+        <div class="bsi">👴👵</div>
+        <div class="bsh">आजी-आजोबा-नातू दिन</div>
+        <div class="bsp">नातवांसोबत आजी-आजोबांचा स्नेहमेळावा — एक अनोखी परंपरा.</div>
+      </div>
+      <div class="bc bb rv">
+        <div class="bnum">🛒</div>
+        <div class="blbl">Life Skills</div>
+        <div class="bsi">🛒</div>
+        <div class="bsh">आठवडा बाजार उपक्रम</div>
+        <div class="bsp">दर सोमवारी मुलांकडून भाजीपाला, मेवा, मिठाई विक्री — व्यवहारिक ज्ञान.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MANAGEMENT ═══ -->
+<section class="mgmt-sec">
+  <div class="mgmt-in">
+    <div style="text-align:center">
+      <div class="eyebrow rv" style="margin:0 auto 1.2rem">🏛️ व्यवस्थापन</div>
+      <h2 class="sec-h rv">संचालक मंडळ</h2>
+      <p class="sec-p rv" style="margin:0 auto">विश्वज्योती वाणिज्य प्रशिक्षण संस्था, मंगळवेढा संचलित</p>
+    </div>
+    <div class="mgmt-grid">
+      <div class="mcard rv"><div class="mpos">अध्यक्ष</div><div class="mname">श्री. निलकंठ ईश्वर कुंभार</div></div>
+      <div class="mcard rv"><div class="mpos">उपाध्यक्ष</div><div class="mname">डॉ. हरिहरराव पांडुरंगराव पटवर्धन</div></div>
+      <div class="mcard rv"><div class="mpos">सचिव</div><div class="mname">सौ. वैशाली निलकंठ कुंभार</div></div>
+      <div class="mcard rv"><div class="mpos">कोषाध्यक्ष</div><div class="mname">श्री. सुमंगल हरिहरराव पटवर्धन</div></div>
+      <div class="mcard rv"><div class="mpos">संचालक</div><div class="mname">श्री. रमेश ईश्वर कुंभार</div></div>
+      <div class="mcard rv"><div class="mpos">संचालिका</div><div class="mname">सौ. जयश्री रमेश कुंभार</div></div>
+      <div class="mcard rv"><div class="mpos">संचालिका</div><div class="mname">सौ. ईशा सुमंगल पटवर्धन</div></div>
+    </div>
+    <div style="text-align:center;margin-top:2rem">
+      <span class="mgmt-note rv">शाळेत सध्या <strong>१२ शिक्षिका</strong> व <strong>३ मदतनीस</strong> — एकूण <strong>१५ कर्मचारी</strong> कार्यरत</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA + BLOG ═══ -->
+<section class="cta-band">
+  <div class="cta-band-in">
+    <div class="ctab-left rvl">
+      <h2>प्रवेश घ्या आणि<br>फरक जाणवा!</h2>
+      <p>मर्यादित जागा — प्रत्येक वर्गात मर्यादित प्रवेश. प्रायमाची वैशिष्ट्ये, तज्ज्ञ शिक्षिका आणि आधुनिक सुविधा — आपल्या मुलासाठी सर्वोत्तम निवड करा.</p>
+      <div class="ctab-btns">
+        <a href="admissions.html" class="btn-blk">✏️ प्रवेश माहिती पाहा</a>
+        <a href="http://www.primaschoolmangalwedha.blogspot.com" target="_blank" class="btn-out">📝 Blogspot वाचा</a>
+      </div>
+    </div>
+    <div class="ctab-right rvr">
+      <h3>📞 आत्ता संपर्क करा</h3>
+      <div class="contact-list">
+        <div class="cli"><div class="cli-icon">📞</div><span><a href="tel:9890855040">98908 55040</a> | <a href="tel:9421045752">94210 45752</a></span></div>
+        <div class="cli"><div class="cli-icon">☎️</div><span><a href="tel:02188299801">02188-299801</a></span></div>
+        <div class="cli"><div class="cli-icon">📍</div><span>खंडोबा गल्ली, मंगळवेढा, जि. सोलापूर</span></div>
+        <div class="cli"><div class="cli-icon">⏰</div><span>सोम–शनि | सकाळी ९:०० – १२:३०</span></div>
+        <div class="cli"><div class="cli-icon">📧</div><span><a href="mailto:primacomputer@gmail.com">primacomputer@gmail.com</a></span></div>
+      </div>
+      <a href="https://wa.me/919890855040?text=नमस्कार! प्रायमा शाळेबद्दल माहिती हवी आहे." target="_blank" style="margin-top:1.2rem;display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;padding:.85rem 1.6rem;border-radius:14px;font-weight:900;font-size:.9rem;text-decoration:none;border:2px solid #1AA34A;box-shadow:4px 4px 0 #1AA34A;font-family:'Noto Sans Devanagari',sans-serif;transition:all .18s cubic-bezier(.34,1.56,.64,1)" onmouseover="this.style.transform='translate(-2px,-2px)';this.style.boxShadow='6px 6px 0 #1AA34A'" onmouseout="this.style.transform='';this.style.boxShadow='4px 4px 0 #1AA34A'">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp करा
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="ft-grid">
+    <div><div class="ft-logo">🌟 प्रायमा</div><div class="ft-sub">पूर्व प्राथमिक विद्यालय (डिजिटल बालवाडी)</div><div class="ft-tiny">विश्वज्योती वाणिज्य प्रशिक्षण संस्था, मंगळवेढा संचलित · Est. 1990</div></div>
+    <div><div class="ft-h">पृष्ठे</div><div class="ft-links"><a href="index.html">🏠 मुख्यपृष्ठ</a><a href="about.html">📖 आमच्याबद्दल</a><a href="admissions.html">✏️ प्रवेश</a><a href="gallery.html">📸 गॅलरी</a><a href="contact.html">📞 संपर्क</a></div></div>
+    <div class="ft-ct"><div class="ft-h">संपर्क</div><p>📍 खंडोबा गल्ली, मंगळवेढा, जि. सोलापूर</p><p>📞 <a href="tel:9890855040">98908 55040</a> | <a href="tel:9421045752">94210 45752</a></p><p>☎️ <a href="tel:02188299801">02188-299801</a></p><p>📧 <a href="mailto:primacomputer@gmail.com">primacomputer@gmail.com</a></p><p>🌐 <a href="http://www.primaschoolmangalwedha.blogspot.com" target="_blank">Blogspot</a></p></div>
+  </div>
+  <div class="ft-btm">© २०२६-२७ प्रायमा पूर्व प्राथमिक विद्यालय, मंगळवेढा · www.primaedu.in · Designed with ❤️</div>
+</footer>
+
+<script>
+/* CURSOR */
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function lag(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(lag)})();
+document.querySelectorAll('a,button,.hlc,.acard,.mcard,.tli,.hqs,.hqchip,.bc').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cbig'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cbig'));
+});
+/* NAV */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('solid',scrollY>30));
+const ham=document.getElementById('ham'),nl=document.getElementById('nlinks');
+ham.addEventListener('click',()=>nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+/* REVEAL */
+const robs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){
+    const sibs=[...e.target.parentElement.querySelectorAll('.rv,.rvl,.rvr')];
+    const i=sibs.indexOf(e.target);
+    e.target.style.transitionDelay=(i*.09)+'s';
+    e.target.classList.add('in');
+    robs.unobserve(e.target);
+  }
+}),{threshold:.07});
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>robs.observe(el));
+</script>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="admissions.html">Admissions</a>
+<a href="gallery.html">Gallery</a>
+<a href="contact.html">Contact</a>
+</nav>
+</body>
+</html>
